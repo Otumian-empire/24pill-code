@@ -1,0 +1,26 @@
+html, body {
+    background-color:  #0c141a;
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6,a, button {
+    color: #2a87af;
+}
+
+p {
+    color: #ffffff;
+}
+
+a:hover, button:hover {
+    color: #d9070b;
+    background-color: #565656;
+}
+
+hr {
+    color: #ffffff;
+    height: 10px;
+}
+
+.box {
+    background-color: #11272d;
+}
