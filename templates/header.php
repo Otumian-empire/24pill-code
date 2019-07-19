@@ -1,11 +1,3 @@
-<?php
-
-/* Include the connection here */
-require_once "../includes/connection.php";
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

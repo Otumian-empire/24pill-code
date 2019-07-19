@@ -1,10 +1,10 @@
 <?php
 
 // include header
-include_once "includes/header.php";
+include_once "../includes/header.php";
 
 // include navigation bar
-include_once "includes/navigation_bar.php";
+include_once "../includes/navigation_bar.php";
 
 ?>
 
@@ -68,6 +68,6 @@ include_once "includes/navigation_bar.php";
 <?php
 
 /* include footer */
-include_once("includes/footer.php");
+include_once("../includes/footer.php");
 
 ?>

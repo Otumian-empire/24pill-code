@@ -1,26 +1,35 @@
+:root {
+    --primary-text: #2a87af;
+    --secondary-text: #ffffff;
+    --tertiary-text: #565656;
+    --primary-background: #0c141a;
+    --secondary-background: #11272d;
+    --red-color: #d9070b;
+}
+
 html, body {
-    background-color:  #0c141a;
-    color: #ffffff;
+    background-color: var(--primary-background);
+    color: var(--secondary-text);
 }
 
 h1, h2, h3, h4, h5, h6,a, button {
-    color: #2a87af;
+    color: var(--primary-text);
 }
 
 p {
-    color: #ffffff;
+    color: var(--secondary-text);
 }
 
 a:hover, button:hover {
-    color: #d9070b;
-    background-color: #565656;
+    color:var(--red-color);
+    background-color:var(--tertiary-text);
 }
 
 hr {
-    color: #ffffff;
+    color: var(--secondary-text);
     height: 10px;
 }
 
 .box {
-    background-color: #11272d;
+    background-color:var(--secondary-background);
 }

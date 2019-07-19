@@ -12,6 +12,8 @@ $db_connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 
 if (!$db_connection) {
     echo("Database connection error<br>" . mysqli_connect_error());
+    // redirection here..
+    // exit;
 }
 
 ?>
