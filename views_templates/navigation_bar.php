@@ -2,15 +2,15 @@
 <nav class="container-fluid navbar mb-3 navbar-expand-lg box">
     <div class="col-md-1">
         <a class="navbar-brand" href="/24Pill-code/">
-            <img src="statics/img/24pill-code-blue.png" alt="logo-brand" width="40" height="30">
+            <img src="../statics/img/24pill-code-blue.png" alt="logo-brand" width="40" height="30">
         </a>
     </div>
 	
     <!-- nav links -->
     <div class="col-md-3">
-        <a class="btn btn-sm" href="views/articles.php">Articles</a>
-        <a class="btn btn-sm" href="views/about.php">About</a>
-        <a class="btn btn-sm" href="views/contact.php">Contact</a>
+        <a class="btn btn-sm" href="articles.php">Articles</a>
+        <a class="btn btn-sm" href="about.php">About</a>
+        <a class="btn btn-sm" href="contact.php">Contact</a>
     </div>
     
     <!-- search bar -->
@@ -25,9 +25,9 @@
 
     <!-- sign up, login, logout -->
 	<div class="col-md-4">
-		<a class="btn btn-sm" href="views/signup.php">sign up</a>
-		<a class="btn btn-sm" href="views/login.php">log in</a>
-		<a class="btn btn-sm" href="views/logout.php">log out</a>
+		<a class="btn btn-sm" href="signup.php">sign up</a>
+		<a class="btn btn-sm" href="login.php">log in</a>
+		<a class="btn btn-sm" href="logout.php">log out</a>
     </div>
     
 </nav>

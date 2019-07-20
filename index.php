@@ -1,8 +1,7 @@
 <?php
 
 // require the connection
-// require_once "includes/connection.php";
-include_once "includes/connection.php";
+require_once "includes/connection.php";
 
 // include header
 include_once "templates/header.php";
