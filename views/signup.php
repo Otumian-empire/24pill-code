@@ -1,7 +1,7 @@
 <?php
 
 // include header
-include_once "../includes/header.php";
+include_once "includes/header.php";
 
 // include navigation bar
 include_once "../includes/navigation_bar.php";
@@ -44,14 +44,14 @@ include_once "../includes/navigation_bar.php";
 	</div>
 
 	<!-- user type [reader, author, admin] -->
-	<div class="form-group">
+	<!-- <div class="form-group">
 		<label for="user_type">--you want to be--</label>
 		<select class="form-control-md" id="exampleFormControlSelect1" name="user_type">
 			<option value="reader">Reader</option>
 			<option value="author">Author</option>
 			<option value="admin">Admin</option>
 		</select>
-	</div>
+	</div> -->
 
 	<!-- user bio -->
 	<div class="form-group">
