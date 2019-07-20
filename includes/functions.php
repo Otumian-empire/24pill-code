@@ -4,17 +4,17 @@
      * this takes a string message as parameter and echos an error message,
      */
     function error_message($error_message) {
-        global $connection;
-        return "{$error_message}" . mysqli_error($connection) . "<br/>";
+        global $db_connection;
+        return "{$error_message}" . mysqli_error($db_connection) . "<br/>";
     }
 
     /** 
      * Thie will MRES, trim, striplashes and htmlspecialchars on the args given to it
      */
     function check_data($data) {
-        global $connection;
+        global $db_connection;
 
-        $data = mysqli_real_escape_string($connection, strip_tags($data));
+        $data = mysqli_real_escape_string($db_connection, strip_tags($data));
         $data = trim($data);
         $data = stripslashes($data);
         $data = strtolower(htmlspecialchars($data));
@@ -34,8 +34,8 @@
      * To check if the server is online
      */
     function ping_server() {
-        global $connection;
-        return mysqli_ping($connection);
+        global $db_connection;
+        return mysqli_ping($db_connection);
     }
 
     /**
@@ -43,14 +43,14 @@
      * You take the table name, the column to update and the new value
      */
     function update_db($table_name, $set, $to, $index_number) {
-        global $connection;
+        global $db_connection;
 
         $sql = "UPDATE `$table_name` SET `$set` = '$to' WHERE `index_number` = '$index_number'";
 
-        $query = mysqli_query($connection, $sql);
+        $query = mysqli_query($db_connection, $sql);
 
         if (!$query) {
-            echo "I am not sure of what is going on there.. " . mysqli_error($connection);
+            echo "I am not sure of what is going on there.. " . mysqli_error($db_connection);
         }
     }
 
