@@ -1,6 +1,6 @@
 <?php
 
-// relocate to index page
-header("Location ../index.php");
+// relocate to login page
+header("Location: ../views/login.php");
 
 ?>
