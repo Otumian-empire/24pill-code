@@ -1,5 +1,4 @@
 <?php
-
     /** 
      * this takes a string message as parameter and echos an error message,
      */

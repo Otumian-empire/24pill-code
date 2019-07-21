@@ -1,4 +1,6 @@
 <?php
+    // require functions to check for a session
+    require_once "includes/functions.php";
 
 ?>
 
@@ -30,9 +32,17 @@
 
     <!-- sign up, login, logout -->
 	<div class="col-md-4">
-		<a class="btn btn-sm" href="views/signup.php">sign up</a>
-		<a class="btn btn-sm" href="views/login.php">log in</a>
-		<a class="btn btn-sm" href="views/logout.php">log out</a>
+        <?php
+            // check if there user is already logged in
+            if (check_session()) {
+                echo "<a class='btn btn-sm' href='includes/logout.php'>log out</a>";
+            } else {
+                echo "<a class='btn btn-sm' href='views/signup.php'>sign up</a>";
+                echo "<a class='btn btn-sm' href='views/login.php'>log in</a>";
+            }
+
+        ?>
+		
     </div>
     
 </nav>

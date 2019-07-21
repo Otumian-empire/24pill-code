@@ -3,6 +3,9 @@
 	// require the connection
 	require_once "../includes/connection.php";
 
+	// require the functions
+	require_once "../includes/functions.php";
+
 	// include header
 	include_once "../views_templates/header.php";
 
@@ -14,6 +17,11 @@
 
     if (!isset($db_connection)) {
 		echo "Error " . mysqli_connect_error() . "<br>";
+	}
+
+	// as a measure, that the user does't break any thing, autologout user here every time..
+	if (check_session()) {
+		require_once("../includes/autologout.php");
 	}
 
 ?>

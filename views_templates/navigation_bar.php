@@ -1,3 +1,10 @@
+<?php
+    // require functions to check for a session
+    require_once "../includes/functions.php";
+
+?>
+
+
 <!-- nav starts here -->
 <nav class="container-fluid navbar mb-3 navbar-expand-lg box">
     <div class="col-md-1">
@@ -25,9 +32,17 @@
 
     <!-- sign up, login, logout -->
 	<div class="col-md-4">
-		<a class="btn btn-sm" href="signup.php">sign up</a>
-		<a class="btn btn-sm" href="login.php">log in</a>
-		<a class="btn btn-sm" href="logout.php">log out</a>
+        <?php
+            // check if there user is already logged in
+            if (check_session()) {
+                echo "<a class='btn btn-sm' href='../includes/logout.php'>log out</a>";
+            } else {
+                echo "<a class='btn btn-sm' href='signup.php'>sign up</a>";
+                echo "<a class='btn btn-sm' href='login.php'>log in</a>";
+            }
+
+        ?>
+		
     </div>
     
 </nav>

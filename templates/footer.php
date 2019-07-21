@@ -8,8 +8,8 @@
 <?php
 
 /* close database connection if it is opened */
-if ($db_connection) {
-    mysqli_close($db_connection);
-}
+// if ($db_connection) {
+//     mysqli_close($db_connection);
+// }
 
 ?>
