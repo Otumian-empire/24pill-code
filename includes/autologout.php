@@ -1,6 +1,9 @@
 <?php
     // this is a simple measure i am putting in place so that if the user tries to go back
     // the user gets logged out automatically
+
+    $db_connection = $GLOBALS['db_connection'];
+
     if(isset($_SESSION['index_number'])) {
 
         $index_number = $_SESSION['index_number'];
@@ -11,8 +14,9 @@
 
         session_destroy();
 
-        if ($connection) {
-            mysqli_close($connection);
+        if ($db_connection) {
+            mysqli_close($db_connection);
         }
     }
+    
 ?>

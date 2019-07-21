@@ -4,7 +4,7 @@
      * this takes a string message as parameter and echos an error message,
      */
     function error_message($error_message) {
-        global $db_connection;
+        $db_connection = $GLOBALS['db_connection'];
         return "{$error_message}" . mysqli_error($db_connection) . "<br/>";
     }
 
@@ -12,7 +12,7 @@
      * Thie will MRES, trim, striplashes and htmlspecialchars on the args given to it
      */
     function check_data($data) {
-        global $db_connection;
+        $db_connection = $GLOBALS['db_connection'];
 
         $data = mysqli_real_escape_string($db_connection, strip_tags($data));
         $data = trim($data);
@@ -34,28 +34,55 @@
      * To check if the server is online
      */
     function ping_server() {
-        global $db_connection;
+        $db_connection = $GLOBALS['db_connection'];
         return mysqli_ping($db_connection);
     }
 
     /**
      * updates the database with respect to the parameters given
-     * You take the table name, the column to update and the new value
+     * @param $table_name
+     * @param $field
+     * @param $fields_value
+     * @param $token
+     * 
      */
-    function update_db($table_name, $set, $to, $index_number) {
-        global $db_connection;
+    function update_tb($table_name, $field, $to, $token) {
+        $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "UPDATE `$table_name` SET `$set` = '$to' WHERE `index_number` = '$index_number'";
+        $sql = "UPDATE `$table_name` SET `$field` = '$fields_value' WHERE `index_number` = '$token'";
 
         $query = mysqli_query($db_connection, $sql);
 
         if (!$query) {
             echo "I am not sure of what is going on there.. " . mysqli_error($db_connection);
+            return 0;
         }
+
+        return 1;
+    }
+
+
+    /**
+     * inserts into database with respect to the parameters given
+     * @param $values
+     */
+    function insert_into_tb($values) {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $sql = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`) VALUES(\"$values[0]\",\"$values[1]\",\"$values[2]\",\"$values[3]\",\"$values[4]\");";
+
+        $query = mysqli_query($db_connection, $sql);
+
+        if (!$query) {
+            echo "I am not sure of what is going on there.. " . mysqli_error($db_connection);
+            return 0;
+        }
+
+        return 1;
     }
 
     /**
-     * This function was intenred to create a directory with the name (or username of the user)
+     * This function was intended to create a directory with the name (or username of the user)
      */
     function create_dir($dir_name) {
         if (!is_dir($dir_name)) {
@@ -63,4 +90,31 @@
             echo "dir created..";
         }
     }
+
+    /**
+     * check if session has been started
+     * check if a user session is set, else redirect to index.php
+     * 
+     */
+    function check_session($redirect_to) {
+        $db_connection = $GLOBALS['db_connection'];
+
+        if(!$db_connection || !isset($_SESSION['token'])) {
+            redirect_to($redirect_to);
+        }
+
+    }
+
+    /**
+     * check if session isn't started and start a new session
+     * else, set session to @param $data
+     */
+    function set_session($data) {
+        if (!session_start()) {
+            session_start();
+        }
+
+        $_SESSION['token'] = $data;
+    }
+
 ?>

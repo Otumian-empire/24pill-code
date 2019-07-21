@@ -1,19 +1,22 @@
 <?php
+    // Start a session
 
-/* Start a session */
-if (!session_start()) {
-    session_start();
-}
+    if (!session_start()) {
+        session_start();
+    }
 
-/* connect to the database using the defined configurations */
-require_once "configuration.php";
+    // connect to the database using the defined configurations
+    
+    require_once "configuration.php";
 
-$db_connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
+    $db_connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 
-if (!$db_connection) {
-    echo("Database connection error<br>" . mysqli_connect_error());
-    // redirection here..
-    // exit;
-}
+    if (!$db_connection) {
+        echo("Database connection error<br>" . mysqli_connect_error());
+        // redirection here..
+        // exit;
+    }
 
+    $GLOBALS['db_connection'] = $db_connection;
+    
 ?>
