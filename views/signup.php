@@ -1,5 +1,4 @@
 <?php
-
 	// require the connection
 	require_once "../includes/connection.php";
 
@@ -63,16 +62,6 @@
 	<input type="password" class="form-control-md" id="confirm_password" name="confirm_password" placeholder="Re-enter password">
 </div>
 
-<!-- user type [reader, author, admin] -->
-<!-- <div class="form-group">
-	<label for="user_type">--you want to be--</label>
-	<select class="form-control-md" id="exampleFormControlSelect1" name="user_type">
-		<option value="reader">Reader</option>
-		<option value="author">Author</option>
-		<option value="admin">Admin</option>
-	</select>
-</div> -->
-
 <!-- user bio -->
 <div class="form-group">
 	<label for="user description">Bio</label>
@@ -84,7 +73,6 @@
 </form>
 <!-- form ends here -->
 </div>
-
 
 
 <?php

@@ -1,5 +1,4 @@
 <?php
-
 	// require the connection
 	require_once "../includes/connection.php";
 
