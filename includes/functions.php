@@ -93,16 +93,17 @@
 
     /**
      * check if session has been started
-     * check if a user session is set, else redirect to index.php
+     * check if a user session is set return 1 else 0
      * 
      */
-    function check_session($redirect_to) {
+    function check_session() {
         $db_connection = $GLOBALS['db_connection'];
 
-        if(!$db_connection || !isset($_SESSION['token'])) {
-            redirect_to($redirect_to);
+        if($db_connection && isset($_SESSION['token'])) {
+            return 1;
         }
 
+        return 0;
     }
 
     /**
@@ -115,6 +116,14 @@
         }
 
         $_SESSION['token'] = $data;
+    }
+
+
+    /**
+     * generate a token for the session
+     */
+    function generate_session_token($data) {
+        return sha1($data);
     }
 
 ?>

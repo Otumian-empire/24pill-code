@@ -50,13 +50,18 @@
         if (insert_into_tb($user_data)) {
 
             // set a session on success
-            set_session();
+            $token = generate_session_token($first_name . $last_name);
+            set_session($token);
 
-            // verify there session else.. 404 page
-            check_session("../views/login.php");
-
-            // on success, take to the main page
+            // verify there session
+            if (check_session()) {
+                // on success, take to the main page
             redirect_to("../");
+            } else {
+                redirect_to("../includes/logout.php");
+            }
+
+            
         } else {
             redirect_to("../views/signup.php");
         }

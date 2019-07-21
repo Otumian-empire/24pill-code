@@ -1,3 +1,8 @@
+<?php
+
+?>
+
+
 <!-- nav starts here -->
 <nav class="container-fluid navbar mb-3 navbar-expand-lg box">
     <div class="col-md-1">
