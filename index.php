@@ -1,15 +1,16 @@
 <?php
 
-// require the connection
-require_once "includes/connection.php";
+    // require the connection
+    require_once "includes/connection.php";
 
-// include header
-include_once "templates/header.php";
+    // include header
+    include_once "templates/header.php";
 
-// include navigation bar
-include_once "templates/navigation_bar.php";
+    // include navigation bar
+    include_once "templates/navigation_bar.php";
 
 ?>
+
 
 <!-- recent articles -->
 <!-- trending articles -->
@@ -41,6 +42,7 @@ include_once "templates/navigation_bar.php";
     </div>
 
 </div>
+
 
 <?php
 /* include footer */
