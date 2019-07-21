@@ -3,13 +3,3 @@
     <script src="statics/js/bootstrap.js"></script>
 </body>
 </html>
-
-
-<?php
-
-/* close database connection if it is opened */
-// if ($db_connection) {
-//     mysqli_close($db_connection);
-// }
-
-?>

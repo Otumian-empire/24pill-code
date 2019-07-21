@@ -37,8 +37,10 @@
             if (check_session()) {
                 echo "<a class='btn btn-sm' href='includes/logout.php'>log out</a>";
             } else {
+
                 echo "<a class='btn btn-sm' href='views/signup.php'>sign up</a>";
                 echo "<a class='btn btn-sm' href='views/login.php'>log in</a>";
+                
             }
 
         ?>
