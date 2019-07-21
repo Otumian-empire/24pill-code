@@ -80,6 +80,28 @@
         return 1;
     }
 
+
+    /**
+     * select email and password from table with respect to the parameters given
+     * @param $values
+     * values is an array of email and password
+     */
+    function select_from_tb($values) {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $sql = "SELECT `users`.`user_email`, `users`.`user_password` FROM `users` WHERE `users`.`user_email` = " . "\"$values[0]\"" . "AND `users`.`user_password` = " . "\"$values[1]\"" . "LIMIT 1";
+
+        $query = mysqli_query($db_connection, $sql);
+
+        if (!$query) {
+            echo "I am not sure of what is going on there.. " . mysqli_error($db_connection);
+            return 0;
+        }
+
+        return 1;
+    }
+
+
     /**
      * This function was intended to create a directory with the name (or username of the user)
      */
@@ -124,5 +146,6 @@
     function generate_session_token($data) {
         return sha1($data);
     }
+
 
 ?>
