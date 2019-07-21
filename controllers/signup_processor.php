@@ -16,6 +16,7 @@
 
     // check if the fields are set
     if (isset($_POST['register_button'])) {
+
         $first_name = check_data($_POST['first_name']);
         $last_name = check_data($_POST['first_name']);
 
@@ -27,6 +28,7 @@
             redirect_to("../views/signup.php");
         }
 
+        // validate password
         $password = check_data($_POST['password']);
         $confirm_password = check_data($_POST['confirm_password']);
 
@@ -61,7 +63,6 @@
                 redirect_to("../includes/logout.php");
             }
 
-            
         } else {
             redirect_to("../views/signup.php");
         }

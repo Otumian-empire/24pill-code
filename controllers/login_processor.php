@@ -31,7 +31,7 @@
         // encrypt password -- for development purposes -- use sha1
         $password = sha1($password);
         
-        // check if any of them are empty
+        // check if any of the credentials is empty
         if (empty($email) || empty($password)) {
             redirect_to("../views/login.php");
         }
@@ -54,7 +54,6 @@
             } else {
                 redirect_to("../includes/logout.php");
             }
-
             
         } else {
             redirect_to("../views/login.php");

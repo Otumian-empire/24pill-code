@@ -26,7 +26,7 @@
      */
     function redirect_to($where) {
         header("Location: {$where}");
-        exit;
+        exit();
     }
 
     /**
@@ -146,6 +146,5 @@
     function generate_session_token($data) {
         return sha1($data);
     }
-
 
 ?>
