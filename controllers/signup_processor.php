@@ -67,6 +67,8 @@
             redirect_to("../views/signup.php");
         }
 
+    } else {
+        redirect_to("../views/signup.php");
     }
 
 ?>

@@ -50,6 +50,6 @@
 <?php
 
 /* include footer */
-include_once("../views_templates/footer.php");
+include_once "../views_templates/footer.php";
 
 ?>

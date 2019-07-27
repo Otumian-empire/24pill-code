@@ -1,35 +1,35 @@
-:root {
-    --primary-text: #2a87af;
-    --secondary-text: #ffffff;
-    --tertiary-text: #565656;
-    --primary-background: #0c141a;
-    --secondary-background: #11272d;
-    --red-color: #d9070b;
-}
+/* :root {
+	--primary-text: #2a87af;
+	--secondary-text: #ffffff;
+	--tertiary-text: #565656;
+	--primary-background: #0c141a;
+	--secondary-background: #11272d;
+	--red-color: #d9070b;
+
+} */
 
 html, body {
-    background-color: var(--primary-background);
-    color: var(--secondary-text);
+	background-color: #0c141a;
+	/* color: #ffffff; */
 }
 
 h1, h2, h3, h4, h5, h6,a, button {
-    color: var(--primary-text);
+	color: #2a87af;
 }
 
 p {
-    color: var(--secondary-text);
+	color: #ffffff;
 }
 
 a:hover, button:hover {
-    color:var(--red-color);
-    background-color:var(--tertiary-text);
-}
-
-hr {
-    color: var(--secondary-text);
-    height: 10px;
+	color: #d9070b;
+	background-color:#565656;
 }
 
 .box {
-    background-color:var(--secondary-background);
+	background-color: #11272d;
+}
+
+textarea#editor p {
+	color: #0c141a;
 }

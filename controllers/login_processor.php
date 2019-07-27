@@ -59,6 +59,8 @@
             redirect_to("../views/login.php");
         }
 
+    } else {
+        redirect_to("../views/login.php");
     }
 
 ?>

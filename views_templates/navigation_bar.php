@@ -8,14 +8,14 @@
 <!-- nav starts here -->
 <nav class="container-fluid navbar mb-3 navbar-expand-lg box">
     <div class="col-md-1">
-        <a class="navbar-brand" href="/24Pill-code/">
+        <a class="navbar-brand" href="/24pill-code/">
             <img src="../statics/img/24pill-code-blue.png" alt="logo-brand" width="40" height="30">
         </a>
     </div>
 	
     <!-- nav links -->
     <div class="col-md-3">
-        <a class="btn btn-sm" href="articles.php">Articles</a>
+        <a class="btn btn-sm" href="/24pill-code/">Articles</a>
         <a class="btn btn-sm" href="about.php">About</a>
         <a class="btn btn-sm" href="contact.php">Contact</a>
     </div>
@@ -35,6 +35,7 @@
         <?php
             // check if there user is already logged in
             if (check_session()) {
+                echo "<a class='btn btn-sm' href='articles.php'>write article</a>";
                 echo "<a class='btn btn-sm' href='../includes/logout.php'>log out</a>";
             } else {
                 echo "<a class='btn btn-sm' href='signup.php'>sign up</a>";
