@@ -33,10 +33,13 @@
 ?>
 
 <div class="container">
-    <h1>Write article..</h1>
-	<textarea name="content" id="editor" class="container p-1 md-textarea form-control rounded-0" rows="3" placeholder="write article..."></textarea>
-	<br>
-	<button type="submit" class="btn btn-success">POST ARTICLE</button>
+	<h1>Write article..</h1>
+	<form action="../controllers/write_article_processor.php" method="post">
+		<textarea name="content" id="editor" class="container p-1 md-textarea form-control rounded-0" rows="3" placeholder="write article..."></textarea>
+		<br>
+		<button type="submit" class="btn btn-success">POST ARTICLE</button>
+	</form>
+	
 </div>
     
 
