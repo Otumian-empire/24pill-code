@@ -10,8 +10,14 @@
 
 	// check if there isn't a connection
 	if (!$db_connection) {
-			header("Location: ../views/signup.php");
-			exit;
+		header("Location: ../views/signup.php");
+		exit;
 	}
 
-	
+	// verify there session
+	if (!check_session()) {
+		redirect_to("../includes/logout.php");
+	}
+
+
+?>

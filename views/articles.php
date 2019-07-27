@@ -26,7 +26,7 @@
 	}
 
 	// as a measure, that the user does't break any thing, autologout user here every time..
-	if (check_session()) {
+	if (!check_session()) {
 		require_once("../includes/autologout.php");
 	}
 
@@ -35,7 +35,7 @@
 <div class="container">
 	<h1>Write article..</h1>
 	<form action="../controllers/write_article_processor.php" method="post">
-		<textarea name="content" id="editor" class="container p-1 md-textarea form-control rounded-0" rows="3" placeholder="write article..."></textarea>
+		<textarea name="content" id="editor" class="container p-1 md-textarea form-control rounded-0" rows="3" placeholder="write article..." autofocus></textarea>
 		<br>
 		<button type="submit" class="btn btn-success">POST ARTICLE</button>
 	</form>

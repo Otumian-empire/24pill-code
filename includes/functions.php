@@ -32,6 +32,9 @@
     function redirect_to($where) {
 
         header("Location: {$where}");
+
+        // reload the $where page
+        echo '<script> document.location.reload(); </script>';
         exit();
 
     }

@@ -48,11 +48,11 @@
             set_session($token);
 
             // verify there session
-            if (check_session()) {
-                // on success, take to the main page
-            redirect_to("../");
-            } else {
+            if (!check_session()) {
                 redirect_to("../includes/logout.php");
+            } else {
+                // on success, take to the main page
+                redirect_to("../");
             }
             
         } else {

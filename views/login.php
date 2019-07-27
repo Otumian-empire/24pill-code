@@ -32,7 +32,7 @@
 	<!-- email -->
 	<div class="form-group">
     <label for="email">Email address</label>
-    <input type="email" class="form-control-md" id="email" name="email" placeholder="Name@example.com">
+    <input type="email" class="form-control-md" id="email" name="email" placeholder="Name@example.com" autofocus>
 	</div>
 
 	<!-- password -->

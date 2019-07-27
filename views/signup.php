@@ -35,7 +35,7 @@
 <!-- first name -->
 <div class="form-group">
 	<label for="first name">First name</label>
-	<input type="text" class="form-control-md" id="first_name" name="first_name" placeholder="First name" value="" />
+	<input type="text" class="form-control-md" id="first_name" name="first_name" placeholder="First name" value="" autofocus/>
 </div>
 
 <!-- last name -->
