@@ -27,7 +27,7 @@
 
 	// as a measure, that the user does't break any thing, autologout user here every time..
 	if (!check_session()) {
-		require_once("../includes/autologout.php");
+		redirect_to("../includes/logout.php");
 	}
 
 ?>

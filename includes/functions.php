@@ -34,7 +34,7 @@
         header("Location: {$where}");
 
         // reload the $where page
-        echo '<script> document.location.reload(); </script>';
+        // echo "<script> document.location.reload(); </script>";
         exit();
 
     }
@@ -149,11 +149,11 @@
         
         $db_connection = $GLOBALS['db_connection'];
 
-        if($db_connection && isset($_SESSION['token'])) {
-            return 1;
+        if(!$db_connection || !isset($_SESSION['token'])) {
+            return 0;
         }
 
-        return 0;
+        return 1;
 
     }
 
@@ -163,10 +163,8 @@
      */
     function set_session($data) {
         
-        if (!session_start()) {
-            session_start();
-        }
-
+        session_destroy();
+        session_start();
         $_SESSION['token'] = $data;
         
     }

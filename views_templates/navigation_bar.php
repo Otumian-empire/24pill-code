@@ -34,6 +34,8 @@
 	<div class="col-md-4">
         <?php
             // check if there user is already logged in
+            // echo "<script>location.reload(); </script>";
+
             if (check_session()) {
                 echo "<a class='btn btn-sm' href='articles.php'>write article</a>";
                 echo "<a class='btn btn-sm' href='../includes/logout.php'>log out</a>";
