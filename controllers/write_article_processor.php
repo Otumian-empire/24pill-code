@@ -1,24 +1,9 @@
 <?php
-	// require the database connection
-	require_once "../includes/connection.php";
+    include_once "controller_safty_preprocessor.php"
+?>
 
-	// include the function file
-	include_once "../includes/functions.php";
 
-	// get the connection instance
-	$db_connection = $GLOBALS['db_connection'];
-
-	// check if there isn't a connection
-	if (!$db_connection) {
-		header("Location: ../views/signup.php");
-		exit;
-	}
-
-	// verify there session
-	if (!check_session()) {
-		redirect_to("../includes/logout.php");
-	}
-
+<?php
 	if (isset($_POST['post_submit_button'])) {
 
 		// check if any of the fields is set

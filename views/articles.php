@@ -6,31 +6,17 @@
 ?>
 
 <?php
-	// require the connection
-	require_once "../includes/connection.php";
+	include_once "views_safty_preprocessor.php";
 
-	// require the functions
-	require_once "../includes/functions.php";
-
-	// include header
-	include_once "../views_templates/header.php";
-
-	// include navigation bar
-	include_once "../views_templates/navigation_bar.php";
-
-	// check if there is connection
-	$db_connection = $GLOBALS['db_connection'];
-
-    if (!isset($db_connection)) {
-		echo "Error " . mysqli_connect_error() . "<br>";
-	}
-
+	// previously, this line below here were in the preprocessor above
+	// it seemed that not all needed it
 	// as a measure, that the user does't break any thing, autologout user here every time..
 	if (!check_session()) {
-		redirect_to("../includes/logout.php");
+		redirect_to("../includes/logout.php?error_msg=you+have+been+redirected+sign+up+or+login+needed");
 	}
-
+	
 ?>
+
 
 <div class="container">
 	<h1>Write article..</h1>

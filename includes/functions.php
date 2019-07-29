@@ -135,13 +135,13 @@
 
         $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "SELECT `users`.`user_email`, `users`.`user_password` FROM `users` WHERE `users`.`user_email` = " . "\"$values[0]\"" . "AND `users`.`user_password` = " . "\"$values[1]\"" . "LIMIT 1";
+        $sql = "SELECT `user_email`, `user_password` FROM `users` WHERE `user_email` = " . "\"$values[0]\"" . "AND `user_password` = " . "\"$values[1]\"" . "LIMIT 1";
 
         $query = mysqli_query($db_connection, $sql);
 
         if (!$query) {
 
-            echo "I am not sure of what is going on there.. " . mysqli_error($db_connection);
+            echo "Check your email and password, and try again..." . mysqli_error($db_connection);
             return 0;
 
         }
@@ -165,6 +165,7 @@
 
     }
 
+
     /**
      * check if session has been started
      * check if a user session is set return 1 else 0
@@ -181,6 +182,7 @@
         return 1;
 
     }
+
 
     /**
      * check if session isn't started and start a new session
