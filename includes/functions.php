@@ -91,7 +91,33 @@
 
         if (!$query) {
 
-            echo "I am not sure of what is going on there.. " . mysqli_error($db_connection);
+            echo "System may be down, please try in a second later.. " . mysqli_error($db_connection);
+            return 0;
+
+        }
+
+        return 1;
+
+    }
+
+
+    /**
+     * inserts into database with respect to the parameters given
+     * @param $values_in_array
+     */
+    function insert_into_articles_tb($values_in_array) {
+        
+        $db_connection = $GLOBALS['db_connection'];
+
+        $sql = "INSERT INTO `articles`(`user_email`, `post_title`, `post_content`)
+        -- VALUES('beck@gmail.com', 'Hello world', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quia labore unde, ducimus laborum iste commodi perspiciatis quo ex a necessitatibus eos quisquam nostrum voluptatem. Cumque illum exercitationem quisquam dolor!');
+        VALUES(\"$values[0]\",\"$values[1]\",\"$values[2]\");";
+
+        $query = mysqli_query($db_connection, $sql);
+
+        if (!$query) {
+
+            echo "Either there is an issue with your input or just that our servers may be down.<br>Reload in a second.. " . mysqli_error($db_connection);
             return 0;
 
         }
@@ -174,7 +200,7 @@
      * generate a token for the session
      */
     function generate_session_token($data) {
-        return sha1($data);
+        return sha1($data) . "__" . $data;
     }
 
 ?>

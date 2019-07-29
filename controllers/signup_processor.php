@@ -57,7 +57,7 @@
         if (insert_into_users_tb($user_data)) {
 
             // set a session on success
-            $token = generate_session_token($first_name . $last_name);
+            $token = generate_session_token($email);
             set_session($token);
 
             // verify there session
