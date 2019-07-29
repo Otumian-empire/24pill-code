@@ -172,10 +172,8 @@
      * 
      */
     function check_session() {
-        
-        $db_connection = $GLOBALS['db_connection'];
-
-        if(!$db_connection || !isset($_SESSION['token'])) {
+    
+        if(!$GLOBALS['db_connection'] || !isset($_SESSION['token'])) {
             return 0;
         }
 
