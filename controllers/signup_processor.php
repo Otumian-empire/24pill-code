@@ -17,8 +17,13 @@
     // check if the fields are set
     if (isset($_POST['register_button'])) {
 
+        // if any of the fields in not set
+        if (!isset($_POST['first_name']) || !isset($_POST['last_name']) || !isset($_POST['email']) || !isset($_POST['password']) || !isset($_POST['confirm_password']) || !isset($_POST['lastuser_bio_name'])) {
+            redirect_to("../views/signup.php");
+        }
+
         $first_name = check_data($_POST['first_name']);
-        $last_name = check_data($_POST['first_name']);
+        $last_name = check_data($_POST['last_name']);
 
         // email validation
         $email = check_data($_POST['email']);
@@ -49,7 +54,7 @@
         $user_data = array($first_name, $last_name, $email, $password, $user_bio);
 
         // insert data into the database
-        if (insert_into_tb($user_data)) {
+        if (insert_into_users_tb($user_data)) {
 
             // set a session on success
             $token = generate_session_token($first_name . $last_name);

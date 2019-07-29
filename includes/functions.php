@@ -79,9 +79,9 @@
 
     /**
      * inserts into database with respect to the parameters given
-     * @param $values
+     * @param $values_in_array
      */
-    function insert_into_tb($values) {
+    function insert_into_users_tb($values_in_array) {
         
         $db_connection = $GLOBALS['db_connection'];
 

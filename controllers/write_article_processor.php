@@ -19,5 +19,21 @@
 		redirect_to("../includes/logout.php");
 	}
 
+	if (isset($_POST['post_submit_button'])) {
 
+		// check if any of the fields is empty
+		if (!isset($_POST['post_title']) || !isset($_POST['post_keywords']) || !isset($_POST['post_content'])) {
+			redirect_to("../views/articles.php?post_title=".$_POST['post_title']."&post_keywords".$_POST['post_keywords']."&post_content".$_POST['post_content']);
+		} else {
+			$title = check_data($_POST['post_title']);
+			// modify the way keywords are inserted
+			// $keywords = check_data($_POST['post_keywords']);
+			$content = check_data($_POST['post_content']);
+
+			
+
+		}
+	} else {
+		redirect_to("../views/articles.php");
+	}
 ?>
