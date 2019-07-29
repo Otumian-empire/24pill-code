@@ -110,7 +110,6 @@
         $db_connection = $GLOBALS['db_connection'];
 
         $sql = "INSERT INTO `articles`(`user_email`, `post_title`, `post_content`)
-        -- VALUES('beck@gmail.com', 'Hello world', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quia labore unde, ducimus laborum iste commodi perspiciatis quo ex a necessitatibus eos quisquam nostrum voluptatem. Cumque illum exercitationem quisquam dolor!');
         VALUES(\"$values[0]\",\"$values[1]\",\"$values[2]\");";
 
         $query = mysqli_query($db_connection, $sql);
@@ -200,7 +199,9 @@
      * generate a token for the session
      */
     function generate_session_token($data) {
-        return sha1($data) . "__" . $data;
+
+        // delimiter '____' was intensionally used
+        return sha1($data) . "____" . $data;
     }
 
 ?>
