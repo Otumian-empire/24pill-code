@@ -16,7 +16,12 @@
 
     // check if the fields are set
     if (isset($_POST['login_button'])) {
-    
+        
+        // if any of the fields in not set
+        if (!isset($_POST['email']) || !isset($_POST['password'])) {
+            redirect_to("../views/login.php");
+        }
+
         // email validation
         $email = check_data($_POST['email']);
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
