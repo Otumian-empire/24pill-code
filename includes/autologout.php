@@ -6,10 +6,6 @@
         session_unset();
         session_destroy();
 
-        if ($db_connection || $GLOBALS['db_connection']) {
-            mysqli_close($db_connection);
-        }
-        
     }
 
 ?>

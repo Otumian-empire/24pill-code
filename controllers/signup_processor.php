@@ -10,11 +10,15 @@
         // if any of the fields in not set
         if (!isset($_POST['sign_up_first_name']) || !isset($_POST['sign_up_last_name']) || !isset($_POST['sign_up_email']) || !isset($_POST['sign_up_password']) || !isset($_POST['sign_up_confirm_password']) || !isset($_POST['sign_up_user_bio'])) {
             redirect_to("../views/signup.php?error_msg=a+field+might+not+be+set");
+            // echo "A field is not set<br>";
+            // exit;
         }
 
         // check for empty fields
         if (empty($_POST['sign_up_first_name']) || empty($_POST['sign_up_last_name']) || empty($_POST['sign_up_email']) || empty($_POST['sign_up_password']) || empty($_POST['sign_up_confirm_password']) || empty($_POST['sign_up_user_bio'])) {
             redirect_to("../views/signup.php?error_msg=a+field+might+be+empty");
+            // echo "A field is empty<br>";
+            // exit;
         }
 
         $first_name = check_data($_POST['sign_up_first_name']);
@@ -26,6 +30,8 @@
         
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {   
             redirect_to("../views/signup.php?error_msg=invalid+email");
+            // echo "invalid email<br>";
+            // exit;
         }
 
         // validate password
@@ -34,6 +40,8 @@
 
         if ($password !== $confirm_password) {
             redirect_to("../views/signup.php?error_msg=passwords+do+not+match");
+            // echo "passwords do not match<br>";
+            // exit;
         }
 
         // encrypt password -- for development purposes -- use md5
@@ -58,17 +66,24 @@
             // verify there session
             if (check_session()) {
                 // on success, take to the main page
-            redirect_to("../?success=signup+successful");
+                redirect_to("../?success=signup+successful");
             } else {
                 redirect_to("../includes/logout.php?error_msg=session+error+sever+or+connection+may+be+down");
+                // redirect_to("../includes/logout.php");
+                // echo "You have been signed out<br>";
+                // exit;
+
             }
 
         } else {
             redirect_to("../views/signup.php?error_msg=could+not+insert+into+database");
+            // echo "couldn't insert data<br>".mysqli_error($db_connection);
+            // exit;
         }
 
     } else {
         redirect_to("../views/signup.php?error_msg=a+sign+up+or+login+is+required");
+        // echo "A sign in or a login is required first, please do the required<br>";
     }
 
 ?>

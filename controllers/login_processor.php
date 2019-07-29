@@ -48,7 +48,8 @@
 
             // verify there session
             if (!check_session()) {
-                redirect_to("../includes/logout.php?error_msg=session+error+server+or+connection+may+be+down");
+                // redirect_to("../includes/logout.php?error_msg=session+error+server+or+connection+may+be+down");
+                redirect_to("../includes/logout.php");
             } else {
 
                 // on success, take to the main page

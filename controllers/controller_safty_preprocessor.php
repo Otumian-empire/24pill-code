@@ -14,7 +14,8 @@
 	}
 
 	// verify there session
-	if (check_session()) {
-		include_once("../includes/logout.php");
-	}
+	// if (check_session()) {
+	// 	redirect_to("../includes/logout.php");
+	// }
+	
 ?>

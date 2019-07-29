@@ -14,7 +14,7 @@
 	// check if there is connection
 	$db_connection = $GLOBALS['db_connection'];
 
-    if (!isset($db_connection)) {
+    if (!$db_connection) {
 		redirect_to("../?error_msg=". mysqli_connect_error() . "+server+or+connection+error");
 	}
 

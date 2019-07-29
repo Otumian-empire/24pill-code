@@ -12,7 +12,7 @@
 	// it seemed that not all needed it
 	// as a measure, that the user does't break any thing, autologout user here every time..
 	if (!check_session()) {
-		redirect_to("../includes/logout.php?error_msg=you+have+been+redirected+sign+up+or+login+needed");
+		redirect_to("../includes/logout.php");
 	}
 	
 ?>

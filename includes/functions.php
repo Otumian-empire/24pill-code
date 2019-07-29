@@ -26,6 +26,7 @@
 
     }
 
+
     /**
      * This redirects to the page provided as an arg, $where
      */
@@ -39,6 +40,7 @@
 
     }
 
+    
     /**
      * To check if the server is online
      */
@@ -48,6 +50,7 @@
         return mysqli_ping($db_connection);
 
     }
+
 
     /**
      * updates the database with respect to the parameters given
@@ -85,7 +88,7 @@
         
         $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`) VALUES(\"$values[0]\",\"$values[1]\",\"$values[2]\",\"$values[3]\",\"$values[4]\");";
+        $sql = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`) VALUES(\"$values_in_array[0]\",\"$values_in_array[1]\",\"$values_in_array[2]\",\"$values_in_array[3]\",\"$values_in_array[4]\");";
 
         $query = mysqli_query($db_connection, $sql);
 
@@ -110,7 +113,7 @@
         $db_connection = $GLOBALS['db_connection'];
 
         $sql = "INSERT INTO `articles`(`user_email`, `post_title`, `post_content`)
-        VALUES(\"$values[0]\",\"$values[1]\",\"$values[2]\");";
+        VALUES(\"$values_in_array[0]\",\"$values_in_array[1]\",\"$values_in_array[2]\");";
 
         $query = mysqli_query($db_connection, $sql);
 
@@ -202,6 +205,7 @@
 
         // delimiter '____' was intensionally used
         return sha1($data) . "____" . $data;
+        
     }
 
 ?>

@@ -1,9 +1,17 @@
 <?php
     // logout user and redirect to the login page
+    session_start();
     require_once "functions.php";
-    require_once "autologout.php";
+
+    // destroy everything that may give user a connection/link/reference to the system
+    if (isset($_SESSION['token'])) {
+        unset($_SESSION['token']);
+    }
     
+    session_unset();
+    session_destroy();
+
     // redirecting to login
-    include_once "../views/login.php";
+    redirect_to("../index.php");
 
 ?>
