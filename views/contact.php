@@ -1,11 +1,11 @@
 <?php
-
     // load data from the data base
 
 ?>
 
 <?php
-	include_once "views_safty_preprocessor.php";
+    include_once "views_safty_preprocessor.php";
+    
 ?>
 
 
@@ -13,8 +13,7 @@
 
 
 <?php
-
-/* include footer */
-include_once "../views_templates/footer.php";
+    /* include footer */
+    include_once "../views_templates/footer.php";
 
 ?>

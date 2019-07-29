@@ -2,6 +2,7 @@
     // this is a preprocessor file
     // run this file before any line
     include_once "controller_safty_preprocessor.php"
+
 ?>
 
 
@@ -48,8 +49,7 @@
 
             // verify there session
             if (!check_session()) {
-                // redirect_to("../includes/logout.php?error_msg=session+error+server+or+connection+may+be+down");
-                redirect_to("../includes/logout.php");
+                redirect_to("../includes/logout.php?error_msg=session+error+server+or+connection+may+be+down");
             } else {
 
                 // on success, take to the main page

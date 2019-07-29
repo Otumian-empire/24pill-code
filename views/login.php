@@ -10,30 +10,31 @@
 	
 ?>
 
+
 <!-- sign in starts here -->
 <form method="post" action="../controllers/login_processor.php" class="container justify-content-center">
 
 	<!-- email -->
 	<div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control-md" id="email" name="login_email" placeholder="Name@example.com" autofocus>
+	    <label for="email">Email address</label>
+    	<input type="email" class="form-control-md" id="email" name="login_email" placeholder="Name@example.com" autofocus>
 	</div>
 
 	<!-- password -->
 	<div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control-md" id="password" name="login_password" placeholder="Password">
+    	<label for="password">Password</label>
+    	<input type="password" class="form-control-md" id="password" name="login_password" placeholder="Password">
 	</div>
 
 	<!-- button -->
 	<button type="submit" class="btn btn-primary mb-2" name="login_button" value="login_button">LOGIN</button>
+
 </form>
 <!-- form ends here -->
 
 
 <?php
-
-/* include footer */
-include_once "../views_templates/footer.php";
+	/* include footer */
+	include_once "../views_templates/footer.php";
 
 ?>

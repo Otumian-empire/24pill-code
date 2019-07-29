@@ -7,8 +7,7 @@
 
 
 <?php
-
-/* include footer */
-include_once("../views_templates/footer.php");
+	/* include footer */
+	include_once("../views_templates/footer.php");
 
 ?>

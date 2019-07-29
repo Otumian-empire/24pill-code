@@ -13,9 +13,12 @@
 
 		// check if any of the fields is empty
 		if (!empty($_POST['post_title']) && !empty($_POST['post_content'])) {
+
 			$title = check_data($_POST['post_title']);
+
 			// modify the way keywords are inserted
 			// $keywords = check_data($_POST['post_keywords']);
+
 			$content = check_data($_POST['post_content']);
 
 			$email = explode("____", $_SESSION['token'])[1];
@@ -38,4 +41,5 @@
 	} else {
 		redirect_to("../views/articles.php");
 	}
+
 ?>

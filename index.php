@@ -1,5 +1,4 @@
 <?php
-
 	// require the connection
 	require_once "includes/connection.php";
 
@@ -23,6 +22,7 @@
 
 	<!-- left side for trending articles -->
 	<div class="col-3  pr-1 pl-1">
+
 		<p>Hello there</p>
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam maiores illum laboriosam laborum. Consequuntur molestiae error ad alias incidunt, tempora iste, quod cupiditate saepe non corporis, recusandae tempore quos placeat?
@@ -30,10 +30,12 @@
 		</div>
 		<br>
 		<button type="submit" class="btn btn-info">EDIT ARTICLE</button>
+
 	</div>
 
 	<!-- middle for recent and other articles -->
 	<div class="col-6  pr-1 pl-1">
+		
 		<div>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, culpa harum vero ex animi exercitationem tenetur quidem dolore accusantium voluptate consectetur inventore vitae id dolores modi cupiditate perspiciatis numquam quae.
 			Nihil, quod libero. Nam, itaque? Assumenda commodi labore voluptatum in blanditiis recusandae quo tenetur aliquid perspiciatis! Corporis nesciunt repellat omnis ipsa, sunt fugiat harum quae, pariatur totam ad esse voluptas?
@@ -42,21 +44,25 @@
 		</div>
 		<br>
 		<button type="submit" class="btn btn-info">EDIT ARTICLE</button>
+
 	</div>
 
 	<!-- right side for ads -->
 	<div class="col-3 pr-1 pl-1">
+		
 		<div>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi reiciendis tempore delectus? Dolore ipsa autem facilis voluptatem veritatis consectetur, provident, culpa non libero reprehenderit vero voluptatibus laudantium maxime qui error!Repudiandae quibusdam sit cum error pariatur optio. Iure, natus nobis. Voluptatibus laudantium tempore fuga voluptate obcaecati atque amet iure rerum reprehenderit necessitatibus. Accusamus dolorem ad qui aperiam delectus sint odio!
 		</div>
 		<br>
 		<button type="submit" class="btn btn-info">EDIT ARTICLE</button>
+
 	</div>
 
 </div>
 
 
 <?php
-/* include footer */
-include_once "index_templates/footer.php";
+	/* include footer */
+	include_once "index_templates/footer.php";
+	
 ?>

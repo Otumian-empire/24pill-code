@@ -55,14 +55,15 @@
 
 		<!-- button -->
 		<button type="submit" class="btn btn-primary mb-2" name="register_button" value="register_button">REGISTER</button>
+
 	</form>
 	<!-- form ends here -->
+
 </div>
 
 
 <?php
-
-/* include footer */
-include_once "../views_templates/footer.php";
+	/* include footer */
+	include_once "../views_templates/footer.php";
 
 ?>

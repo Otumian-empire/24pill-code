@@ -7,6 +7,7 @@
 
 <!-- nav starts here -->
 <nav class="container-fluid navbar mb-3 navbar-expand-lg box">
+
     <div class="col-md-1">
         <a class="navbar-brand" href="/24pill-code/">
             <img src="../statics/img/24pill-code-blue.png" alt="logo-brand" width="40" height="30">
@@ -37,11 +38,15 @@
             // echo "<script>location.reload(); </script>";
 
             if (check_session()) {
+
                 echo "<a class='btn btn-sm' href='articles.php'>write article</a>";
                 echo "<a class='btn btn-sm' href='../includes/logout.php'>log out</a>";
+
             } else {
+                
                 echo "<a class='btn btn-sm' href='signup.php'>sign up</a>";
                 echo "<a class='btn btn-sm' href='login.php'>log in</a>";
+                
             }
 
         ?>

@@ -12,10 +12,5 @@
 	if (!$db_connection) {
 		redirect_to("../?error_msg=". mysqli_connect_error() . "+server+or+connection+error");
 	}
-
-	// verify there session
-	// if (check_session()) {
-	// 	redirect_to("../includes/logout.php");
-	// }
 	
 ?>

@@ -1,5 +1,4 @@
 <?php
-
     // write articles here
     // use modals edit the articles
 
@@ -32,15 +31,11 @@
 		<br>
 		<button name="post_submit_button" type="submit" class="btn btn-success">POST ARTICLE</button>
 	</form>
-	
 </div>
     
 
-
-
 <?php
-
-/* include footer */
-include_once("../views_templates/footer.php");
+	/* include footer */
+	include_once("../views_templates/footer.php");
 
 ?>

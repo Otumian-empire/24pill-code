@@ -11,7 +11,7 @@
 
     if (!$db_connection) {
         echo("Database connection error<br>" . mysqli_connect_error());
-        // redirection here..
+        // redirection here to 505..
         // exit;
     }
 
