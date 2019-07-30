@@ -147,6 +147,9 @@
         } else {
 
             if (mysqli_num_rows($query) !== 1) {
+
+                echo "You are creative, come up with a better and unique email<br> and also use, a strong password<br>". mysqli_error($db_connection);
+                
                 return 0;  
             } else {
                 return 1;
