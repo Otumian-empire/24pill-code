@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="statics/css/custom.css">
     <link rel="stylesheet" href="statics/css/font-awesome-4.7.0/css/font-awesome.min.css">
 
-    <title>Index page</title>
+    <title>24pill-code</title>
 </head>
 <body>
     <div class="container-fluid">
