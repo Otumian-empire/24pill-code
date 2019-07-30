@@ -144,9 +144,17 @@
             echo "Check your email and password, and try again..." . mysqli_error($db_connection);
             return 0;
 
+        } else {
+
+            if (mysqli_num_rows($query) !== 1) {
+                return 0;  
+            } else {
+                return 1;
+            }
+
         }
 
-        return 1;
+        // return 1;
 
     }
 

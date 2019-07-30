@@ -13,6 +13,13 @@
         // if any of the fields in not set
         if (!isset($_POST['login_email']) || !isset($_POST['login_password'])) {
             redirect_to("../views/login.php?error_msg=a+field+might+not+be+set");
+            // echo("error_msg=a+field+might+not+be+set");
+        }
+
+        // check if fields are actually empty
+        if (empty($_POST['login_email']) || empty($_POST['login_password'])) {
+            redirect_to("../views/login.php?error_msg=a+field+may+be+empty");
+            // echo("error_msg=a+field+may+be+empty");
         }
 
         // email validation
@@ -21,6 +28,7 @@
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
             redirect_to("../views/login.php?error_msg=email:login_email+is+invalid");
+            // echo("error_msg=email:login_email+is+invalid");
         }
 
         // password validation
@@ -32,6 +40,7 @@
         // check if any of the credentials is empty
         if (empty($email) || empty($password)) {
             redirect_to("../views/login.php?error_msg=a+may+be+empty+check+and+try+again");
+            // echo("error_msg=a+may+be+empty+check+and+try+again");
         }
 
         // put credentials into an array
@@ -40,7 +49,8 @@
         // insert data into the database
         // instead of inserting we select from the database
         if (!select_from_tb($login_data)) {
-            redirect_to("../views/login.php?error_msg=could+not+insert+server+or+connection+error");
+            redirect_to("../views/login.php?error_msg=invalid+email+or+password+It+will+be+wise+if+you+create");
+            // echo("error_msg=invalid+email+or+password");
         } else {
 
             // set a session on success
@@ -50,17 +60,19 @@
             // verify there session
             if (!check_session()) {
                 redirect_to("../includes/logout.php?error_msg=session+error+server+or+connection+may+be+down");
+                // echo("error_msg=session+error+server+or+connection+may+be+down");
             } else {
 
                 // on success, take to the main page
-                redirect_to("../?login=success");
+                redirect_to("../?login=success&email=".$login_data[0]."slogged in");
+                // echo("success?email=".$login_data[0]);
 
             }
 
         }
 
     } else {
-        redirect_to("../views/login.php?error+msg=you+have+to+sign+up+or+login");
+        echo("error+msg=you+have+to+sign+up+or+login");
     }
 
 ?>
