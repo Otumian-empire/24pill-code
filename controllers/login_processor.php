@@ -49,7 +49,7 @@
         // insert data into the database
         // instead of inserting we select from the database
         if (!select_from_tb($login_data)) {
-            redirect_to("../views/login.php?error_msg=invalid+email+or+password+It+will+be+wise+if+you+create");
+            redirect_to("../views/login.php?error_msg=invalid+email+or+password+It+will+be+wise+if+you+create+one");
             // echo("error_msg=invalid+email+or+password");
         } else {
 
