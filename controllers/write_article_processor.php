@@ -21,7 +21,7 @@
 
 			$content = check_data($_POST['post_content']);
 
-			$email = explode("____", $_SESSION['token'])[1];
+			$email = get_user_email();
 
 			// insert_into_articles_tb requires an array
 			$post_data = array($email, $title, $content);

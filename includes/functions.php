@@ -216,4 +216,13 @@
         
     }
 
+
+    /**
+     * return the users email based on the token set
+     * explode the session token
+     */
+    function get_user_email() {
+        return explode("____", $_SESSION['token'])[1];
+    }
+
 ?>
