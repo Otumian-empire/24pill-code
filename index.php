@@ -3,10 +3,10 @@
 	require_once "includes/connection.php";
 
 	// include header
-	include_once "index_templates/header.php";
+	include_once "templates/header.php";
 
 	// include navigation bar
-	include_once "index_templates/navigation_bar.php";
+	include_once "templates/navigation_bar.php";
 
 ?>
 
@@ -63,6 +63,6 @@
 
 <?php
 	/* include footer */
-	include_once "index_templates/footer.php";
+	include_once "templates/footer.php";
 	
 ?>

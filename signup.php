@@ -1,11 +1,11 @@
 <?php
-	include_once "views_safty_preprocessor.php";
+	include_once "views_preprocessor.php";
 
 	// previously, this line below here were in the preprocessor above
 	// it seemed that not all needed it
 	// as a measure, that the user does't break any thing, autologout user here every time..
 	if (check_session()) {
-		redirect_to("../includes/logout.php?error_msg=you+have+been+redirected+sign+up+or+login+needed");
+		redirect_to("includes/logout.php?error_msg=you+have+been+redirected+sign+up+or+login+needed");
 	}
 
 ?>
@@ -15,7 +15,7 @@
 <!-- sign up starts here -->
 <div class="container justify-content-center">
 
-	<form method="POST" action="../controllers/signup_processor.php" class="container justify-content-center">
+	<form method="POST" action="controllers/signup_processor.php" class="container justify-content-center">
 
 		<!-- first name -->
 		<div class="form-group">
@@ -64,6 +64,6 @@
 
 <?php
 	/* include footer */
-	include_once "../views_templates/footer.php";
+	include_once "templates/footer.php";
 
 ?>

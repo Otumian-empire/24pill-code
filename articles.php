@@ -5,13 +5,13 @@
 ?>
 
 <?php
-	include_once "views_safty_preprocessor.php";
+	include_once "views_preprocessor.php";
 
 	// previously, this line below here were in the preprocessor above
 	// it seemed that not all needed it
 	// as a measure, that the user does't break any thing, autologout user here every time..
 	if (!check_session()) {
-		redirect_to("../includes/logout.php");
+		redirect_to("includes/logout.php");
 	}
 	
 ?>
@@ -19,7 +19,7 @@
 
 <div class="container">
 	<h1>Write article..</h1>
-	<form action="../controllers/write_article_processor.php" method="post">
+	<form action="controllers/write_article_processor.php" method="post">
 		<input class="form-control rounded-0" type="text" name="post_title" id="" placeholder="article header.."  autofocus />
 		<!-- TODO: find a better way to add the key words -->
 		<!-- look into controllers/write_article_processor.php -->
@@ -36,6 +36,6 @@
 
 <?php
 	/* include footer */
-	include_once("../views_templates/footer.php");
+	include_once "templates/footer.php";
 
 ?>

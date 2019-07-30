@@ -4,7 +4,7 @@
 ?>
 
 <?php
-    include_once "views_safty_preprocessor.php";
+    include_once "views_preprocessor.php";
     
 ?>
 
@@ -14,6 +14,6 @@
 
 <?php
     /* include footer */
-    include_once "../views_templates/footer.php";
+    include_once "templates/footer.php";
 
 ?>

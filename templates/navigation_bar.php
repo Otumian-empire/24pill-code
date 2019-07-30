@@ -9,14 +9,14 @@
 <nav class="container-fluid navbar mb-3 navbar-expand-lg box">
 
     <div class="col-md-1">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="./">
             <img src="statics/img/24pill-code-blue.png" alt="logo-brand" width="40" height="30">
         </a>
     </div>
 	
     <!-- nav links -->
     <div class="col-md-3">
-        <a class="btn btn-sm" href="">Articles</a>
+        <a class="btn btn-sm" href="./">Articles</a>
         <a class="btn btn-sm" href="about.php">About</a>
         <a class="btn btn-sm" href="contact.php">Contact</a>
     </div>
@@ -35,8 +35,6 @@
 	<div class="col-md-4">
         <?php
             // check if there user is already logged in
-            // echo "<script>location.reload(); </script>";
-
             if (check_session()) {
 
                 echo "<a class='btn btn-sm' href='articles.php'>write article</a>";

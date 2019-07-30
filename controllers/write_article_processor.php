@@ -1,5 +1,5 @@
 <?php
-    include_once "controller_safty_preprocessor.php"
+    include_once "controller_preprocessor.php"
 ?>
 
 
@@ -8,7 +8,7 @@
 
 		// check if any of the fields is set
 		if (!isset($_POST['post_title']) || !isset($_POST['post_content'])) {
-			redirect_to("views/articles.php?post_title=".$_POST['post_title']."&post_content".$_POST['post_content']);
+			redirect_to("../articles.php?post_title=".$_POST['post_title']."&post_content".$_POST['post_content']);
 		} 
 
 		// check if any of the fields is empty
@@ -27,19 +27,19 @@
 			$post_data = array($email, $title, $content);
 
 			// insert data in the database and redirect to index page
-			// else, redirect to views/articles.php
+			// else, redirect to ../articles.php
 			if (!insert_into_articles_tb($post_data)) {
-				redirect_to("views/articles.php?post_title=".$_POST['post_title']."&post_content".$_POST['post_content']);
+				redirect_to("../articles.php?post_title=".$_POST['post_title']."&post_content".$_POST['post_content']);
 			} else {
-				redirect_to("/?success_smg=article+posted+successfully");
+				redirect_to("../?success_smg=article+posted+successfully");
 			}
 	
 		} else {
-			redirect_to("views/articles.php?post_title=".$_POST['post_title']."&post_content".$_POST['post_content']);
+			redirect_to("../articles.php?post_title=".$_POST['post_title']."&post_content".$_POST['post_content']);
 		}
 		
 	} else {
-		redirect_to("views/articles.php?error_msg=you+can+not+be+great+without+putting+in+great+effort");
+		redirect_to("../articles.php?error_msg=you+can+not+be+great+without+putting+in+great+effort");
 	}
 
 ?>
