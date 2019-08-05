@@ -19,19 +19,16 @@
     if ($article_data):
         foreach ($article_data as $data):
 ?>
-            <div>
+            <div class="article">
 
                 <!-- title -->
                 <h2><?=$data[0];?></h2>
 
-                <!-- email -->
-                <span><?=$data[3];?></span>
-
                 <!-- content -->
                 <p><?=str_replace("rn", "<br>", $data[1]);?></p>
 
-                <!-- date -->
-                <span><?=$data[2];?></span>
+                <!-- date and author's email-->
+                <span><?=$data[2] . " - " . $data[3];?></span>
 
             </div>
 <?php
