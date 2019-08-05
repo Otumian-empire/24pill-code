@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 29, 2019 at 04:39 PM
+-- Generation Time: Aug 02, 2019 at 11:02 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -32,10 +32,17 @@ CREATE TABLE `articles` (
   `post_id` int(11) NOT NULL,
   `post_title` varchar(255) NOT NULL,
   `post_content` text NOT NULL,
-  `post_date` date NOT NULL DEFAULT current_timestamp(),
+  `post_date` datetime NOT NULL DEFAULT current_timestamp(),
   `user_email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`post_id`, `post_title`, `post_content`, `post_date`, `user_email`) VALUES
+(3, 'hello world', 'hello', '2019-07-30 00:00:00', 'beck@gmail.com'),
+(4, 'hello', 'hello there', '2019-07-30 00:00:00', 'jdoe@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -52,6 +59,13 @@ CREATE TABLE `users` (
   `user_bio` text NOT NULL,
   `user_register_dt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_email`, `user_password`, `user_bio`, `user_register_dt`) VALUES
+(19, 'john', 'doe', 'jdoe@gmail.com', 'd35514736146439b7277437016cdb40d7fb65497', 'i am doe', '2019-07-30 09:07:55');
 
 --
 -- Indexes for dumped tables
@@ -78,24 +92,14 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
-
-
---
--- Dumping data for table `articles`
---
-
-INSERT INTO `articles` (`post_id`, `post_title`, `post_content`, `post_date`, `user_email`) VALUES
-(1, 'Hello world', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quia labore unde, ducimus laborum iste commodi perspiciatis quo ex a necessitatibus eos quisquam nostrum voluptatem. Cumque illum exercitationem quisquam dolor!', '2019-07-29', ''),
-(2, '', '', '2019-07-29', '');
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -22,6 +22,14 @@
         $data = stripslashes($data);
         $data = strtolower(htmlspecialchars($data));
 
+        if (!mb_check_encoding($data, 'UTF-8')) {
+
+            // the string is not UTF-8, so re-encode it.
+            $actualEncoding = mb_detect_encoding($data);
+            $data = mb_convert_encoding($data, 'UTF-8', $actualEncoding);
+
+        }
+
         return $data;
 
     }
