@@ -6,8 +6,9 @@
 
 
 <!-- nav starts here -->
-<nav class="container-fluid navbar navbar-expand-lg box fixed-top mb-5">
+<nav class="container-fluid col-md-12 navbar navbar-expand-lg box fixed-top mb-5">
 
+    <!-- logo -->
     <div class="col-md-1">
         <a class="navbar-brand" href="./">
             <img src="statics/img/24pill-code-blue.png" alt="logo-brand" width="40" height="30">
@@ -22,29 +23,25 @@
     </div>
     
     <!-- search bar -->
-    <div class="input-group col-md-4 mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">
-                <i class="fa fa-search fa-fw" aria-hidden="true"></i>
-            </span>
-        </div>
-        <input class="form-control-sm mr-sm-2" name="search" id="search" placeholder="search 24pill-code">
-    </div>  
+     <div class="input-group col-md-6">
+        <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
+        <span class="input-group-append">
+            <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
 
-    <!-- sign up, login, logout -->
-	<div class="col-md-4">
+    <!-- sign up, login, write article, logout -->
+	<div class="col-md-2">
         <?php
             // check if there user is already logged in
             if (check_session()) {
-
                 echo "<a class='btn btn-sm' href='articles.php'>write article</a>";
                 echo "<a class='btn btn-sm' href='includes/logout.php'>log out</a>";
-
             } else {
-                
                 echo "<a class='btn btn-sm' href='signup.php'>sign up</a>";
                 echo "<a class='btn btn-sm' href='login.php'>log in</a>";
-                
             }
 
         ?>
