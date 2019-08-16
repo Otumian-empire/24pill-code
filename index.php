@@ -4,7 +4,7 @@
 ?>
 
 <?php
-    $read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` ORDER BY `post_date` DESC LIMIT 10;";
+    $read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` ORDER BY `post_date` DESC LIMIT 4;";
     $article_result = mysqli_query($db_connection, $read_article_query);
 
     if (!$article_result) {
@@ -15,30 +15,31 @@
 
 ?>
 
-<?php
-    if ($article_data):
-        foreach ($article_data as $data):
-?>
-            <div class="article">
+<div class="index-body container-fluid">
+    <?php
+        if ($article_data):
+            foreach ($article_data as $data):
+    ?>
+                <div class="article">
 
-                <!-- title -->
-                <h2><?=$data[0];?></h2>
+                    <!-- title -->
+                    <h2><?=$data[0];?></h2>
 
-                <!-- content -->
-                <p><?=str_replace("rn", "<br>", $data[1]);?></p>
+                    <!-- content -->
+                    <p><?=str_replace("rn", "<br>", $data[1]);?></p>
 
-                <!-- date and author's email-->
-                <span><?=$data[2] . " - " . $data[3];?></span>
+                    <!-- date and author's email-->
+                    <span>Date: <?=$data[2] . " - " . $data[3];?></span>
 
+                </div>
+    <?php
+            endforeach;
+        else:
+    ?>      <div>
+                <p>Sorry Note articles here yet!!!</p>
             </div>
-<?php
-        endforeach;
-    else:
-?>
+    <?php
 
-        <div>
-            <p>Sorry Note articles here yet!!!</p>
-        </div>
-<?php
-    endif;
-?>
+        endif;
+    ?>
+</div>

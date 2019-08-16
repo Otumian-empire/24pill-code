@@ -13,5 +13,3 @@
 
     // redirecting to login
     redirect_to("../?success_msg=you+have+been+logged+out+successfully");
-
-?>

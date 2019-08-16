@@ -1,13 +1,15 @@
 <?php
-	include_once "views_preprocessor.php";
+    include_once "views_preprocessor.php";
 ?>
 
+<div class="index-body container-fluid">
+	<p>About</p>
+</div>
 
-<p>About</p>
 
 
 <?php
-	/* include footer */
-	include_once "templates/footer.php";
+    /* include footer */
+    include_once "templates/footer.php";
 
 ?>

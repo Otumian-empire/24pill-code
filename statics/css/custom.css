@@ -1,46 +1,60 @@
-html, body {
-	background-color: #0c141a;
-	color: #ffffff;
+html,
+body {
+    background-color: #0c141a;
+    color: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6,a, button {
-	color: #2a87af;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button {
+    color: #2a87af;
 }
 
 p {
-	color: #ffffff;
+    color: #ffffff;
 }
 
-a:hover, button:hover {
-	color: #d9070b;
-	background-color:#565656;
+a:hover,
+button:hover {
+    color: #d9070b;
+    background-color: #565656;
 }
 
 .box {
-	background-color: #11272d;
+    background-color: #11272d;
 }
 
 textarea#editor p {
-	color: #0c141a;
+    color: #0c141a;
 }
 
 div.article {
-	margin: 5px auto;
-	padding: 5px;
-	border: 2px solid #77716d;
-	width: 70%;
-	/* background-color: #1f4; */
+    margin: 5px auto;
+    padding: 5px;
+    border: 2px solid #77716d;
+    width: 70%;
+    /* background-color: #1f4; */
 }
 
 div.article span {
-	margin: 5px auto;
-	font-size: 12px;
-	color: #b4c6cc;
-	font-style: oblique;
+    margin: 5px auto;
+    font-size: 12px;
+    color: #b4c6cc;
+    font-style: oblique;
 }
 
 div.article p {
-	margin: 5px auto;
-	/* margin: 2px auto; */
-	padding: 5px;
+    margin: 5px auto;
+    /* margin: 2px auto; */
+    padding: 5px;
+}
+
+.index-body {
+    margin-top: 70px;
+    padding-top: 10px;
 }

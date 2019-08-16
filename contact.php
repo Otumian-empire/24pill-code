@@ -8,8 +8,11 @@
     
 ?>
 
+<div class="index-body container-fluid">
+    <p>contact</p>
+</div>
 
-<p>contact</p>
+
 
 
 <?php

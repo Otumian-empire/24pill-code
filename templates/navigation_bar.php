@@ -6,7 +6,7 @@
 
 
 <!-- nav starts here -->
-<nav class="container-fluid navbar mb-3 navbar-expand-lg box">
+<nav class="container-fluid navbar navbar-expand-lg box fixed-top mb-5">
 
     <div class="col-md-1">
         <a class="navbar-brand" href="./">

@@ -4,5 +4,3 @@
     define('USER', "root");
     define('PASSWORD', "");
     define('DATABASE', "24pill_code_db");
-
-?>
