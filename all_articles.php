@@ -5,7 +5,8 @@
 
 <?php
     // Select all the articles, by title, date a nd author name
-    $read_article_title_query = "SELECT `post_title`, `post_date`, `user_email`, `post_id` FROM `articles` ORDER BY `post_date`;";
+    $read_article_title_query = "SELECT `post_title`, `post_date`, `user_email`, `post_id` FROM `articles` ORDER BY `post_date` DESC;";
+
     // SELECT `post_title`, `user_email`, `post_date` FROM `articles`
     $article_result = mysqli_query($db_connection, $read_article_title_query);
 
@@ -14,8 +15,6 @@
         echo mysqli_error($db_connection);
         exit;
     }
-
-
 
     $article_data = mysqli_fetch_all($article_result);
 
@@ -33,7 +32,7 @@
                     </a>  
 
                     <!-- date and author's email-->
-                    <span>Date: <?=$data[1] . " - " . $data[2] . "article-id " . $data[3];?></span>
+                    <span>Date: <?=$data[1] . " - " . $data[2];?></span>
                    
                 </div>
     <?php

@@ -10,7 +10,7 @@
 
 
     /**
-     * Thie will MRES, trim, striplashes and htmlspecialchars on the args given to it
+     * Thie will mysqli_real_escape_string, trim, striplashes and htmlspecialchars on the args given to it
      */
     function check_data($data)
     {
@@ -134,19 +134,17 @@
         $query = mysqli_query($db_connection, $sql);
 
         if (!$query) {
-            echo "Check your email and password, and try again..." . mysqli_error($db_connection);
+            echo "Check your email and or password, and try again..." . mysqli_error($db_connection);
             return 0;
-        } else {
-            if (mysqli_num_rows($query) !== 1) {
-                echo "You are creative, come up with a better and unique email<br> and also use, a strong password<br>". mysqli_error($db_connection);
-                
-                return 0;
-            } else {
-                return 1;
-            }
         }
 
-        // return 1;
+        if (mysqli_num_rows($query) !== 1) {
+            echo "You are creative, come up with a better and unique email<br> and or also use, a strong password<br>". mysqli_error($db_connection);
+            
+            return 0;
+        }
+
+        return 1;
     }
 
 
@@ -194,7 +192,6 @@
      */
     function generate_session_token($data)
     {
-
         // delimiter '____' was intensionally used
         return sha1($data) . "____" . $data;
     }
