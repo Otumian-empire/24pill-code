@@ -24,7 +24,7 @@
     
     <!-- search bar -->
      <div class="input-group col-md-6">
-        <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
+        <input class="form-control py-2 border-right-0 border" type="search" placeholder="search article by title, tag and or email" id="example-search-input">
         <span class="input-group-append">
             <button class="btn btn-outline-secondary border-left-0 border" type="button">
                 <i class="fa fa-search"></i>
