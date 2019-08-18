@@ -17,7 +17,7 @@
 	
     <!-- nav links -->
     <div class="col-md-3">
-        <a class="btn btn-sm" href="./">Articles</a>
+        <a class="btn btn-sm" href="all_articles.php">Articles</a>
         <a class="btn btn-sm" href="about.php">About</a>
         <a class="btn btn-sm" href="contact.php">Contact</a>
     </div>
@@ -37,7 +37,7 @@
         <?php
             // check if there user is already logged in
             if (check_session()) {
-                echo "<a class='btn btn-sm' href='articles.php'>write article</a>";
+                echo "<a class='btn btn-sm' href='write_article.php'>write article</a>";
                 echo "<a class='btn btn-sm' href='includes/logout.php'>log out</a>";
             } else {
                 echo "<a class='btn btn-sm' href='signup.php'>sign up</a>";
