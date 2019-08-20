@@ -46,14 +46,13 @@
 
 			<!-- title -->
 			<h2><?=$article_data['post_title'];?></h2>
+			<!-- date and author's email-->
+			<span>Date: <?=$article_data['post_date'] . " - " . $article_data['user_email'];?></span>
+			<br>
+			<hr>
 
 			<!-- content -->
 			<p><?=str_replace("rn", "<br>", $article_data['post_content']);?></p>
-
-			<!-- date and author's email-->
-			<span>Date: <?=$article_data['post_date'] . " - " . $article_data['user_email'];?></span>
-
-			<br>
 
 			<div class="input-group ">
 				<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea"></textarea>
@@ -62,6 +61,7 @@
 					<button class="btn btn-success border-left-0 border" id="add-comment-btn">ADD</button>
 				</div>
 			</div>
+
 		</div>
 
 		<!-- comment -->

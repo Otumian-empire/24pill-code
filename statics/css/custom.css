@@ -2,6 +2,7 @@ html, body {
     background-color: #ffffff;
     color: #000000;
     font-size: 14px;
+    line-height: 1.3em;
 }
 
 .notification {
@@ -15,21 +16,67 @@ html, body {
     background-color: #fafafb;
     color: #00a9f4;
     border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #00a9f4;
+    border-bottom: 1px solid #e4d2d2;
 }
 
 .index-body {
-    border-top: 15px solid #f40021;
+    border-top: 1px solid #f40021;
     border-bottom: none;
     border-right: none;
     border-left: none;
-    margin: 5% 0% 1% 0%;
+    margin: 5% auto 2% auto;
     padding: 1% 0% 0% 0%;
 }
 
 a, h1, h2, h3, h4, h5, h6 {
     color: #178ce3;
 }
+
+.article {
+    margin: 1% auto;
+    padding: 0.5%;
+    border: 2px solid #f0eeee;
+    width: 80%;
+}
+
+.article p {
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.article span {
+    margin: 1% auto;
+    font-size: 0.9em;
+    color: #ae94a2;
+    /* font-style: oblique; */
+}
+
+/* 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.comments {
+    margin: 2% auto;
+    padding: 2%;
+    border: 1% solid #77716d;
+    width: 70%;
+}
+
+ul.comments-list-item {
+    background-color: #191522;
+}
+
+li.comments-list-item {
+    border-radius: 2%;
+    color: #f7f7f7;
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 4%;
+    margin: 2% auto;
+    border: 1% solid #ffffff;
+} */
 
 /* h1, h2, h3, h4, h5, h6, a, button {
     color: #2a87af;

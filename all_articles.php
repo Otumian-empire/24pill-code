@@ -26,7 +26,7 @@
             foreach ($article_data as $data):
     ?>
                 <div class="article">
-                    <a href=<?="article.php?qid=". $data[3];?>>
+                    <a href="<?="article.php?qid=". $data[3];?>">
                         <!-- title -->
                         <h2><?=$data[0];?></h2>
                     </a>  

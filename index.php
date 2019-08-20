@@ -24,13 +24,15 @@
 
                     <!-- title -->
                     <h2><?=$data[0];?></h2>
+                    <!-- date and author's email-->
+                    <span>Date: <?=$data[2] . " - " . $data[3];?></span>
+                    <br><hr>
 
                     <!-- content -->
                     <!-- TODO: this can be a problem, replacing rn in the text -->
                     <p><?=str_replace("rn", "<br>", substr($data[1], 0, 400) . "... ");?><a href="#"><span>more</span></a></p>
 
-                    <!-- date and author's email-->
-                    <span>Date: <?=$data[2] . " - " . $data[3];?></span>
+                    
 
                 </div>
     <?php
