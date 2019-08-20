@@ -1,9 +1,37 @@
 html, body {
-    background-color: #0c141a;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+}
+
+.notification {
+    background-color: #00a9f4;
     color: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6, a, button {
+.navigation-bar {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafb;
+    color: #00a9f4;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #00a9f4;
+}
+
+.index-body {
+    border-top: 15px solid #f40021;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    margin: 5% 0% 1% 0%;
+    padding: 1% 0% 0% 0%;
+}
+
+a, h1, h2, h3, h4, h5, h6 {
+    color: #178ce3;
+}
+
+/* h1, h2, h3, h4, h5, h6, a, button {
     color: #2a87af;
 }
 
@@ -25,44 +53,53 @@ textarea#editor p {
 }
 
 div.article {
-    margin: 5px auto;
-    padding: 5px;
-    border: 2px solid #77716d;
-    width: 70%;
-    /* background-color: #1f4; */
+    margin: 2% auto;
+    padding: 2%;
+    border: 3% solid #77716d;
+    width: 80%;
 }
 
 div.article span {
-    margin: 5px auto;
-    font-size: 12px;
+    margin: 1% auto;
+    font-size: 0.8em;
     color: #b4c6cc;
     font-style: oblique;
 }
 
 div.article p {
-    margin: 5px auto;
-    /* margin: 2px auto; */
-    padding: 5px;
+    margin: 1% auto;
+    padding: 1%;
 }
 
 .index-body {
-    margin-top: 70px;
-    padding-top: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-top: 1%;
+} */
+
+/* comments */
+
+/* .comments {
+    margin: 2% auto;
+    padding: 2%;
+    border: 1% solid #77716d;
+    width: 70%;
 }
 
-ul {
-    background-color: #fff;
-    margin: 2px auto;
+ul.comments-list-item {
+    background-color: #191522;
+    margin: 1% auto;
     padding: 0;
     width: 70%;
 }
 
-li {
-    color: #0c141a;
+li.comments-list-item {
+    border-radius: 2%;
+    color: #f7f7f7;
     list-style-type: none;
     list-style-position: inside;
-    padding: 10px;
-    margin: 5px auto;
-    border: 2px solid #77716d;
-    width: 70%;
+    padding: 4%;
+    margin: 2% auto;
+    border: 1% solid #ffffff;
 }
+*/

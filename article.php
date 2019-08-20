@@ -39,7 +39,7 @@
 
 ?>
 
-<div class="index-body container-fluid">
+<div class="index-body container">
 	<div class="container">
 		<!-- post -->
 		<div class="article">
@@ -53,22 +53,26 @@
 			<!-- date and author's email-->
 			<span>Date: <?=$article_data['post_date'] . " - " . $article_data['user_email'];?></span>
 
+			<br>
+
+			<div class="input-group ">
+				<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea"></textarea>
+				<div class="input-group-preappend">
+					<span class="counter ">140</span>
+					<button class="btn btn-success border-left-0 border" id="add-comment-btn">ADD</button>
+				</div>
+			</div>
 		</div>
 
 		<!-- comment -->
-		<div class="article input-group comment">
-			<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea"></textarea>
-			<div>
-				<span class="counter input-group-append">140</span>
-				<button class="btn btn-outline-secondary border-left-0 border" id="add-comment-btn">Post</button>
-			</div>
+		<div class="comments">
 			
+			<ul class="comments-list">
+				<li class="comments-list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla dicta aspernatur facilis ipsa, accusamus veniam, qui cum maiores dignissimos adipisci deleniti, nam iure. Veniam quam repudiandae ea odit quaerat?</li>
+			</ul>
+
 		</div>
 
-		<ul class="">
-			<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla dicta aspernatur facilis ipsa, accusamus veniam, qui cum maiores dignissimos adipisci deleniti, nam iure. Veniam quam repudiandae ea odit quaerat?</li>
-		</ul>
-					
 	</div>
 
 </div>    

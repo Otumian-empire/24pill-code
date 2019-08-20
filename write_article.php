@@ -16,7 +16,7 @@
     
 ?>
 
-<div class="index-body container-fluid">
+<div class="index-body container">
 	<div class="container">
 		<h1>Write article..</h1>
 		<form action="controllers/write_article_processor.php" method="post">

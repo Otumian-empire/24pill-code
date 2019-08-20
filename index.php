@@ -15,7 +15,7 @@
 
 ?>
 
-<div class="index-body container-fluid">
+<div class="index-body container">
     <?php
         if ($article_data):
             foreach ($article_data as $data):

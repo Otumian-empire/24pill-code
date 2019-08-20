@@ -10,7 +10,7 @@
 
 ?>
 
-<div class="index-body container-fluid">
+<div class="index-body container">
 		<!-- use htaccess to route requests -->
 	<!-- sign up starts here -->
 	<div class="container justify-content-center">

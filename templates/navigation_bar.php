@@ -4,9 +4,11 @@
 
 ?>
 
+<!-- we add a notification div -->
+<div id="notification" class="notification fixed-top"></div>
 
 <!-- nav starts here -->
-<nav class="container-fluid col-md-12 navbar navbar-expand-lg box fixed-top mb-5">
+<div class="navigation-bar container-fluid col-md-12 navbar navbar-expand-lg box fixed-top">
 
     <!-- logo -->
     <div class="col-md-1">
@@ -48,5 +50,5 @@
 		
     </div>
     
-</nav>
+</div>
 <!-- navigation bar ends here -->

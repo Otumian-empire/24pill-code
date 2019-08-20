@@ -8,7 +8,7 @@
     
 ?>
 
-<div class="index-body container-fluid">
+<div class="index-body container">
     <p>contact</p>
 </div>
 

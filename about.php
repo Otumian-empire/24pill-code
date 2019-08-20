@@ -2,7 +2,7 @@
     include_once "views_preprocessor.php";
 ?>
 
-<div class="index-body container-fluid">
+<div class="index-body container">
 	<p>About</p>
 </div>
 

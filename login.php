@@ -10,7 +10,7 @@
     
 ?>
 
-<div class="index-body container-fluid">
+<div class="index-body container">
 	<!-- sign in starts here -->
 	<form method="post" action="controllers/login_processor.php" class="container justify-content-center">
 
