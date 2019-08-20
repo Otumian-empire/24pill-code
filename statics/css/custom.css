@@ -1,17 +1,9 @@
-html,
-body {
+html, body {
     background-color: #0c141a;
     color: #ffffff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-button {
+h1, h2, h3, h4, h5, h6, a, button {
     color: #2a87af;
 }
 
@@ -19,8 +11,7 @@ p {
     color: #ffffff;
 }
 
-a:hover,
-button:hover {
+a:hover, button:hover {
     color: #d9070b;
     background-color: #565656;
 }
@@ -57,4 +48,21 @@ div.article p {
 .index-body {
     margin-top: 70px;
     padding-top: 10px;
+}
+
+ul {
+    background-color: #fff;
+    margin: 2px auto;
+    padding: 0;
+    width: 70%;
+}
+
+li {
+    color: #0c141a;
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 10px;
+    margin: 5px auto;
+    border: 2px solid #77716d;
+    width: 70%;
 }

@@ -30,52 +30,47 @@
     $article_result = mysqli_query($db_connection, $read_article_query);
 
     if (!$article_result) {
+		// TODO: remove "echo mysqli_error($db_connection);"
 		// redirect_to("../login.php?error_msg=we+need+a+504+error+here");
 		echo mysqli_error($db_connection);
 	}
 
 	$article_data = mysqli_fetch_assoc($article_result);
-	// print_r($article_data);
 
 ?>
 
 <div class="index-body container-fluid">
 	<div class="container">
-		<?php 
-		// print_r($article_id);
-		// print_r($article_data);
-		// exit;
-			// if(mysqli_num_rows($article_data) > 0):
-				/* print_r($article_data);
-		exit; */
-				// foreach ($article_data as $data): 
-		?>
-					<div class="article">
+		<!-- post -->
+		<div class="article">
 
-						<!-- title -->
-						<h2><?=$article_data['post_title'];?></h2>
+			<!-- title -->
+			<h2><?=$article_data['post_title'];?></h2>
 
-						<!-- content -->
-						<p><?=str_replace("rn", "<br>", $article_data['post_content']);?></p>
+			<!-- content -->
+			<p><?=str_replace("rn", "<br>", $article_data['post_content']);?></p>
 
-						<!-- date and author's email-->
-						<span>Date: <?=$article_data['post_date'] . " - " . $article_data['user_email'];?></span>
+			<!-- date and author's email-->
+			<span>Date: <?=$article_data['post_date'] . " - " . $article_data['user_email'];?></span>
 
-					</div>
+		</div>
+
+		<!-- comment -->
+		<div class="article input-group comment">
+			<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea"></textarea>
+			<div>
+				<span class="counter input-group-append">140</span>
+				<button class="btn btn-outline-secondary border-left-0 border" id="add-comment-btn">Post</button>
+			</div>
+			
+		</div>
+
+		<ul class="">
+			<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla dicta aspernatur facilis ipsa, accusamus veniam, qui cum maiores dignissimos adipisci deleniti, nam iure. Veniam quam repudiandae ea odit quaerat?</li>
+		</ul>
 					
-
-		<?php
-				// endforeach;
-			// else:
-		?>
-				<!-- <div class="article">
-					<p >Article not found</p>
-				</div> -->
-		<?php 
-				
-		// 	endif;
-		?>
 	</div>
+
 </div>    
 
 <?php

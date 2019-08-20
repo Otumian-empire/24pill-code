@@ -7,9 +7,9 @@
 
     <!-- static files -->
     <link rel="stylesheet" href="statics/css/bootstrap.css">
+    <link rel="stylesheet" href="statics/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="statics/img/24pill-code-blue.png" type="image/x-icon">
     <link rel="stylesheet" href="statics/css/custom.css">
-    <link rel="stylesheet" href="statics/css/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <title>24pill-code</title>
 </head>
