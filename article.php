@@ -10,9 +10,10 @@
     // previously, this line below here were in the preprocessor above
     // it seemed that not all needed it
     // as a measure, that the user does't break any thing, autologout user here every time..
-    if (!check_session()) {
-        redirect_to("includes/logout.php");
-    }
+    // if (!check_session()) {
+    //     redirect_to("includes/logout.php");
+	// }
+	// TODO: check session for a user before they could CRUD comment
     
 ?>
 
@@ -29,7 +30,7 @@
     $article_result = mysqli_query($db_connection, $read_article_query);
 
     if (!$article_result) {
-		// redirect_to("../login.php?error_msg=we+need+a+504 +error+here");
+		// redirect_to("../login.php?error_msg=we+need+a+504+error+here");
 		echo mysqli_error($db_connection);
 	}
 

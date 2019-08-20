@@ -11,7 +11,7 @@
     $article_result = mysqli_query($db_connection, $read_article_title_query);
 
     if (!$article_result) {
-        // redirect_to("../login.php?error_msg=we+need+a+504 +error+here".mysqli_error($db_connection));
+        // redirect_to("../login.php?error_msg=we+need+a+504+error+here".mysqli_error($db_connection));
         echo mysqli_error($db_connection);
         exit;
     }
