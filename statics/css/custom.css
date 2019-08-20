@@ -2,7 +2,7 @@ html, body {
     background-color: #ffffff;
     color: #000000;
     font-size: 14px;
-    line-height: 1.3em;
+    line-height: 1.4em;
 }
 
 .notification {
@@ -23,7 +23,7 @@ html, body {
     border-top: 1px solid #f40021;
     border-bottom: none;
     border-right: none;
-    border-left: none;
+    border-left: 1px solid #f40021;
     margin: 5% auto 2% auto;
     padding: 1% 0% 0% 0%;
 }
@@ -35,7 +35,8 @@ a, h1, h2, h3, h4, h5, h6 {
 .article {
     margin: 1% auto;
     padding: 0.5%;
-    border: 2px solid #f0eeee;
+    border-top: 2px solid #f0eeee;
+    border-bottom: 2px solid #f0eeee;
     width: 80%;
 }
 
@@ -49,6 +50,46 @@ a, h1, h2, h3, h4, h5, h6 {
     font-size: 0.9em;
     color: #ae94a2;
     /* font-style: oblique; */
+}
+
+/* pre, code, blockquote {
+    background-color: #eff0f1;
+} */
+
+hr {
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+}
+
+code, pre, blockquote {
+    background-color: #e2e2e2;
+    border-radius: 3px;
+    padding: 0.1rem 0.2rem;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    white-space: pre;
+}
+
+textarea {
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+textarea#post_content {
+    min-height: 250px;
+}
+
+textarea.comment_box {
+    min-height: 150px;
+    margin-top: 0px;
 }
 
 /* 

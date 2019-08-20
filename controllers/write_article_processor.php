@@ -19,7 +19,8 @@
 			// modify the way keywords are inserted
 			// $keywords = check_data($_POST['post_keywords']);
 
-			$content = check_data($_POST['post_content']);
+			$content = encode_data(check_data($_POST['post_content']));
+			
 
 			$email = get_user_email();
 

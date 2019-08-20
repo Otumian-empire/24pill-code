@@ -30,10 +30,8 @@
 
                     <!-- content -->
                     <!-- TODO: this can be a problem, replacing rn in the text -->
-                    <p><?=str_replace("rn", "<br>", substr($data[1], 0, 400) . "... ");?><a href="#"><span>more</span></a></p>
-
+                    <p><?=decode_data(str_replace("rn", "<br>", substr($data[1], 0, 400) . "... "));?><a href="#"><span>more</span></a></p>
                     
-
                 </div>
     <?php
             endforeach;

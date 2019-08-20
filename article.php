@@ -52,12 +52,13 @@
 			<hr>
 
 			<!-- content -->
-			<p><?=str_replace("rn", "<br>", $article_data['post_content']);?></p>
+			<div><?= decode_data(str_replace("rn", "<br>", $article_data['post_content']));?></div>
 
-			<div class="input-group ">
-				<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea"></textarea>
-				<div class="input-group-preappend">
-					<span class="counter ">140</span>
+			<div class="text-area">
+				<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea" id="comment-box" name="comment-box"></textarea>
+				<br>
+				<div class="input-group">
+					<span class="counter">140</span>
 					<button class="btn btn-success border-left-0 border" id="add-comment-btn">ADD</button>
 				</div>
 			</div>
@@ -76,6 +77,13 @@
 	</div>
 
 </div>    
+
+<script src="statics/js/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+	tinymce.init({
+		selector: '.comment-box'
+	});
+</script>
 
 <?php
     /* include footer */

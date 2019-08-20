@@ -205,3 +205,21 @@
     {
         return explode("____", $_SESSION['token'])[1];
     }
+
+
+    /**
+     * return an encoded string making use of htmlentities and htmlspecialchars
+     */
+    function encode_data($data)
+    {
+        return htmlentities(htmlspecialchars($data));
+    }
+
+
+    /**
+     * return a decoded string making use of htmlspecialchars and htmlentities
+     */
+    function decode_data($data)
+    {
+        return htmlspecialchars_decode(html_entity_decode($data));
+    }
