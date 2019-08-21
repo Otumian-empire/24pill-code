@@ -1,23 +1,6 @@
 <?php
-    // write articles here
-    // use modals edit the articles
-
-?>
-
-<?php
-    include_once "views_preprocessor.php";
-
-    // previously, this line below here were in the preprocessor above
-    // it seemed that not all needed it
-    // as a measure, that the user does't break any thing, autologout user here every time..
-    // if (!check_session()) {
-    //     redirect_to("includes/logout.php");
-	// }
-	// TODO: check session for a user before they could CRUD comment
-    
-?>
-
-<?php
+	include_once "views_preprocessor.php";
+	
 	// read article from the database using the id from the article
 	if (!isset($_GET['qid']) || $_GET['qid'] === NULL) {
 		redirect_to("index.php");
@@ -46,6 +29,7 @@
 
 			<!-- title -->
 			<h2><?=$article_data['post_title'];?></h2>
+			
 			<!-- date and author's email-->
 			<span>Date: <?=$article_data['post_date'] . " - " . $article_data['user_email'];?></span>
 			<br>
@@ -53,12 +37,12 @@
 
 			<!-- content -->
 			<div><?= decode_data(str_replace("rn", "<br>", $article_data['post_content']));?></div>
-
+			<br><br>
 			<div class="text-area">
 				<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea" id="comment-box" name="comment-box"></textarea>
 				<br>
 				<div class="input-group">
-					<span class="counter">140</span>
+					<span class="counter">500</span>
 					<button class="btn btn-success border-left-0 border" id="add-comment-btn">ADD</button>
 				</div>
 			</div>
