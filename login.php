@@ -10,27 +10,37 @@
     
 ?>
 
-<div class="index-body container">
+<div class="index-body container ">
 	<!-- sign in starts here -->
-	<form method="post" action="controllers/login_processor.php" class="container justify-content-center">
+	<div class="card card-login mx-auto mt-5">
+		<div class="card-header">Login</div>
+		<div class="card-body">
+			<form method="post" action="controllers/login_processor.php" class="">
 
-		<!-- email -->
-		<div class="form-group">
-			<label for="email">Email address</label>
-			<input type="email" class="form-control-md" id="email" name="login_email" placeholder="Name@example.com" autofocus>
+				<!-- email -->
+				<div class="form-group">
+					<div class="form-label-group">
+						<input type="email" class="form-control" id="email" name="login_email" placeholder="Name@example.com" autofocus>
+						<label for="email">Email address</label>
+					</div>
+				</div>
+
+				<!-- password -->
+				<div class="form-group">
+					<div class="form-label-group">
+						<input type="password" class="form-control" id="password" name="login_password" placeholder="Password">
+						<label for="password">Password</label>
+					</div>
+				</div>
+
+				<!-- button -->
+				<button type="submit" class="btn btn-primary mb-2" name="login_button" value="login_button">LOGIN</button>
+
+			</form>
+			<!-- form ends here -->	
 		</div>
-
-		<!-- password -->
-		<div class="form-group">
-			<label for="password">Password</label>
-			<input type="password" class="form-control-md" id="password" name="login_password" placeholder="Password">
-		</div>
-
-		<!-- button -->
-		<button type="submit" class="btn btn-primary mb-2" name="login_button" value="login_button">LOGIN</button>
-
-	</form>
-	<!-- form ends here -->
+	</div>
+	
 </div>
 
 <?php
