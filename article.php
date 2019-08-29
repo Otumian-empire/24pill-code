@@ -56,13 +56,66 @@
 
 		
 		<!-- read comments from db on the page -->
+		<?php
+			// SELECT `comment_id`,`comment_text`, `comment_date`, `user_email` FROM `comments` WHERE  `post_id` = $post_id
+			if (!isset($_GET['qid'])) {
+				echo "loading the comments will take a while.<br>";
+				exit;
+			} 
+
+			$post_id = $_GET['qid'];
+
+			$select_comment_query = "SELECT `comment_id`,`comment_text`, `comment_date`, `user_email` FROM `comments` WHERE  `post_id` = $post_id";
+
+			$comment_result = mysqli_query($db_connection, $select_comment_query);
+
+			if (!$comment_result) {
+				echo "query unsuccessful<br>";
+				exit;
+			}
+
+			$comments = mysqli_fetch_all($comment_result);
+
+		?>
 		
 
 		<!-- comment -->
-		<div class="comments">
+		<div class="comments article">
 			
 			<ul class="comments-list">
-				<li class="comments-list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla dicta aspernatur facilis ipsa, accusamus veniam, qui cum maiores dignissimos adipisci deleniti, nam iure. Veniam quam repudiandae ea odit quaerat?</li>
+				<!-- <li class="comments-list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla dicta aspernatur facilis ipsa, accusamus veniam, qui cum maiores dignissimos adipisci deleniti, nam iure. Veniam quam repudiandae ea odit quaerat?</li> -->
+
+				<?php
+					if (!$comments) {
+						echo "be the first to add a comment..";
+						exit;
+					}
+
+					foreach($comments as $comment) {
+						
+						$comment_section = "";
+						$comment_section .= "<li class='comments-list-item p-1 m-2'>";
+						$comment_section .= "<div>";
+						$comment_section .= "<span>";  //  user_email
+						$comment_section .= decode_data($comment[3]);
+						$comment_section .= "</span>";
+						$comment_section .= "<p>";     // comment_text
+						$comment_section .= $comment[1];
+						$comment_section .= "</p>";
+						$comment_section .= "<span class='float-left'>";  // comment_id
+						$comment_section .= $comment[0];
+						$comment_section .= "</span>";
+						$comment_section .= "<span class='float-right'>";  // comment_date
+						$comment_section .= $comment[2];
+						$comment_section .= "</span>";
+						$comment_section .= "</div>";
+						$comment_section .= "</li>";
+
+						echo $comment_section . "<br>";
+					}
+					
+				?>
+				<div class="clearfix"></div>
 			</ul>
 
 		</div>

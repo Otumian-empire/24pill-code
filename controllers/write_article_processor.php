@@ -20,7 +20,6 @@
 			// $keywords = check_data($_POST['post_keywords']);
 
 			$content = check_data(encode_data($_POST['post_content']));
-			
 
 			$email = get_user_email();
 
