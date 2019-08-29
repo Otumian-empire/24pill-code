@@ -91,7 +91,6 @@
 
 		<div class="text-center">
 			<a class="d-block small mt-3" href="login.php">Login Page</a>
-			<a class="d-block small" href="forgot_password.php">Forgot Password?</a>
 		</div>
 		
 	</div>

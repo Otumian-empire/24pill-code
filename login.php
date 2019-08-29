@@ -39,6 +39,11 @@
 			</form>
 			<!-- form ends here -->	
 		</div>
+
+		<div class="text-center">
+        	<a class="d-block small mt-3" href="signup.php">Register an Account</a>
+        	<a class="d-block small" href="forgot_password.php">Forgot Password?</a>
+        </div>
 	</div>
 	
 </div>
