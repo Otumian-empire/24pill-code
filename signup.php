@@ -13,52 +13,87 @@
 <div class="index-body container">
 		<!-- use htaccess to route requests -->
 	<!-- sign up starts here -->
-	<div class="container justify-content-center">
+	<div class="card card-register mx-auto mt-0">
+		<div class="card-header">Create an Account</div>
+		<div class="card-body">
+			<form method="POST" action="controllers/signup_processor.php" class="">
 
-		<form method="POST" action="controllers/signup_processor.php" class="container justify-content-center">
+				<div class="form-group">
+					<div class="form-row">
 
-			<!-- first name -->
-			<div class="form-group">
-				<label for="first name">First name</label>
-				<input type="text" class="form-control-md" id="first_name" name="sign_up_first_name" placeholder="First name" value="" autofocus/>
-			</div>
+						<div class="col-md-6">
+							<!-- first name -->
+							<div class="form-label-group">
+								<input type="text" class="form-control" id="first_name" name="sign_up_first_name" placeholder="First name" value="" autofocus/>
+								<label for="first name">First name</label>
+							</div>
+						</div>
 
-			<!-- last name -->
-			<div class="form-group">
-				<label for="last name">Last name</label>
-				<input type="text" class="form-control-md" id="last_name" name="sign_up_last_name" placeholder="Last name" value="" />
-			</div>
+						<div class="col-md-6">
+							<!-- last name -->
+							<div class="form-label-group">
+								<input type="text" class="form-control" id="last_name" name="sign_up_last_name" placeholder="Last name" value="" />
+								<label for="last name">Last name</label>
+							</div>
+						</div>
+					
+					</div>
+					
+				</div>
+				
 
-			<!-- email -->
-			<div class="form-group">
-				<label for="email">Email address</label>
-				<input type="email" class="form-control-md" id="email" name="sign_up_email" placeholder="Name@example.com" value="" />
-			</div>
+				<!-- email -->
+				<div class="form-group">
+					<div class="form-label-group">
+						<input type="email" class="form-control" id="email" name="sign_up_email" placeholder="Name@example.com" value="" />
+						<label for="email">Email address</label>
+					</div>
+				</div>
 
-			<!-- password -->
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input type="password" class="form-control-md" id="password" name="sign_up_password" placeholder="Password">
-			</div>
+				<div class="form-group">
+					<div class="form-row">
 
-			<!-- confirm password -->
-			<div class="form-group">
-				<label for="confirm password">Confirm password</label>
-				<input type="password" class="form-control-md" id="confirm_password" name="sign_up_confirm_password" placeholder="Re-enter password">
-			</div>
+						<div class="col-md-6">
+							<!-- password -->
+							<div class="form-label-group">
+								<input type="password" class="form-control" id="password" name="sign_up_password" placeholder="Password">
+								<label for="password">Password</label>
+							</div>
+						</div>
 
-			<!-- user bio -->
-			<div class="form-group">
-				<label for="user description">Bio</label>
-				<textarea class="form-control-md" id="user_bio" name="sign_up_user_bio" rows="3" placeholder="About me" value=""></textarea>
-			</div>
+						<div class="col-md-6">
+							<!-- confirm password -->
+							<div class="form-label-group">
+								<input type="password" class="form-control" id="confirm_password" name="sign_up_confirm_password" placeholder="Re-enter password">
+								<label for="confirm password">Confirm password</label>
+							</div>
+						</div>
+					
+					</div>
+					
+				</div>
 
-			<!-- button -->
-			<button type="submit" class="btn btn-primary mb-2" name="register_button" value="register_button">REGISTER</button>
+				<!-- user bio -->
+				<div class="form-group">
+					<div class="form-label-group">
+						<textarea class="form-control" id="user_bio" name="sign_up_user_bio" rows="3" placeholder="About me" value=""></textarea>
+						<label for="user description">Bio</label>
+					</div>
+				</div>
 
-		</form>
-		<!-- form ends here -->
+				<!-- button -->
+				<button type="submit" class="btn btn-primary btn-block" name="register_button" value="register_button">REGISTER</button>
 
+			</form>
+			<!-- form ends here -->
+
+		</div>
+
+		<div class="text-center">
+			<a class="d-block small mt-3" href="login.php">Login Page</a>
+			<a class="d-block small" href="forgot_password.php">Forgot Password?</a>
+		</div>
+		
 	</div>
 
 </div>

@@ -34,7 +34,7 @@
 				</div>
 
 				<!-- button -->
-				<button type="submit" class="btn btn-primary mb-2" name="login_button" value="login_button">LOGIN</button>
+				<button type="submit" class="btn btn-primary btn-block" name="login_button" value="login_button">LOGIN</button>
 
 			</form>
 			<!-- form ends here -->	
