@@ -23,9 +23,9 @@
                 <div class="article">
 
                     <!-- title -->
-                    <h2><?=$data[0];?></h2>
+                    <h2><?=strtoupper($data[0]);?></h2>
                     <!-- date and author's email-->
-                    <span>Date: <?=$data[2] . " - " . $data[3];?></span>
+                    <span><?=$data[2] . " - " . strtolower($data[3]);?></span>
                     <br><hr>
 
                     <!-- content -->

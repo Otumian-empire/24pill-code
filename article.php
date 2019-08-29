@@ -28,10 +28,10 @@
 		<div class="article">
 
 			<!-- title -->
-			<h2><?=$article_data['post_title'];?></h2>
+			<h2><?=strtoupper($article_data['post_title']);?></h2>
 			
 			<!-- date and author's email-->
-			<span>Date: <?=$article_data['post_date'] . " - " . $article_data['user_email'];?></span>
+			<span><?=$article_data['post_date'] . " - " . strtolower($article_data['user_email']);?></span>
 			<br>
 			<hr>
 
@@ -40,11 +40,12 @@
 			<br><br>
 
 			<div class="text-area">
+				<div class="card-header">Add Comment</div>
 				<form action="<?="controllers/add_comment_processor.php?qid=" . "$article_id";?>" method="post">
 					<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea" id="comment-box" name="comment-box"></textarea>
 					<br>
 					<div class="input-group">
-						<button class="btn btn-success border-left-0 border" id="add-comment-btn" name="add-comment-btn">ADD</button>
+						<button class="btn btn-success btn-block" id="add-comment-btn" name="add-comment-btn">ADD</button>
 					</div>
 				</form>
 				
@@ -83,7 +84,6 @@
 		<div class="comments article">
 			
 			<ul class="comments-list">
-				<!-- <li class="comments-list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla dicta aspernatur facilis ipsa, accusamus veniam, qui cum maiores dignissimos adipisci deleniti, nam iure. Veniam quam repudiandae ea odit quaerat?</li> -->
 
 				<?php
 					if (!$comments) {
@@ -97,13 +97,13 @@
 						$comment_section .= "<li class='comments-list-item p-1 m-2'>";
 						$comment_section .= "<div>";
 						$comment_section .= "<span>";  //  user_email
-						$comment_section .= decode_data($comment[3]);
+						$comment_section .= strtolower($comment[3]);
 						$comment_section .= "</span>";
 						$comment_section .= "<p>";     // comment_text
-						$comment_section .= $comment[1];
+						$comment_section .= decode_data($comment[1]);
 						$comment_section .= "</p>";
 						$comment_section .= "<span class='float-left'>";  // comment_id
-						$comment_section .= $comment[0];
+						$comment_section .= "#31" . sha1($comment[0]) ;
 						$comment_section .= "</span>";
 						$comment_section .= "<span class='float-right'>";  // comment_date
 						$comment_section .= $comment[2];
