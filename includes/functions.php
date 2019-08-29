@@ -162,7 +162,7 @@
 
     /**
      * check if session has been started
-     * check if a user session is set return 1 else 0
+     * check if a user session is set return a boolean
      *
      */
     function check_session()

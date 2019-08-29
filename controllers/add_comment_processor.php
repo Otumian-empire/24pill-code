@@ -4,24 +4,37 @@
 
 <?php
     if (isset($_POST['add-comment-btn'])) {
+
+        // user can only added comment when they are logged in or have signed up
+        if (!check_session()) {
+            redirect_to('../login.php?error_msg=you must loggin or sign up to added a comment');
+        }
         
         if (!isset($_GET['qid']) || !isset($_POST['comment-box'])) {
             redirect_to('../index.php');
         } else {
             
-            $user_email = get_user_email();
-            $comment_text = $_POST['comment-box'];
-            $post_id = $_GET['qid'];
+            
+            if (strlen($_POST['comment-box']) > 50) {
 
-            $insert_comment_query = "INSERT INTO `comments`(`post_id`, `comment_text`, `user_email`) VALUES (\"$post_id\", \"$comment_text\", \"$user_email\")";
+                $user_email = get_user_email();
+                $comment_text = check_data(encode_data($_POST['comment-box']));
+                $post_id = $_GET['qid'];
 
-            $insert_result = mysqli_query($db_connection, $insert_comment_query);
+                $insert_comment_query = "INSERT INTO `comments`(`post_id`, `comment_text`, `user_email`) VALUES (\"$post_id\", \"$comment_text\", \"$user_email\")";
 
-            if (!$insert_result) {
-                redirect_to("../index.php?error_msg=".mysqli_error($db_connection));
+                $insert_result = mysqli_query($db_connection, $insert_comment_query);
+
+                if (!$insert_result) {
+                    redirect_to("../index.php?error_msg=".mysqli_error($db_connection));
+                } else {
+                    redirect_to("../article.php?qid=" . $post_id . "&error_msg=comment was added successfully");
+                }
+
             } else {
-                redirect_to("../article.php?qid=" . $post_id);
+                redirect_to("../article.php?qid=" . $post_id . "&error_msg=a minimum of 5 characters is required to be a valid comment");
             }
+            
            
         }
 
