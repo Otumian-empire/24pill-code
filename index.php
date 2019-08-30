@@ -16,7 +16,7 @@
 ?>
 
 
-<div class="index-body container">
+<div class="index-body container bg-primary">
     <?php
         if ($article_data):
             foreach ($article_data as $data):

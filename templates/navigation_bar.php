@@ -38,23 +38,19 @@
 	<div class="col-sm-2">
     
         <?php if (check_session()): ?>
-            <div class="row col-sm-12">
-                
-                <div class="nav-item dropdown col-sm-auto">
-                    <a class="nav-link dropdown-toggle avatar" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <img src="<?="statics/img/24pill-code-red.png";?>" class="rounded-circle avatar" alt="avatar image">
-                    </a>
+            <div class="dropdown">
+                <a class="btn btn-default dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="<?="statics/img/24pill-code-red.png";?>" class="rounded-circle" width="40" height="40" alt="avatar image">
+                </a>
 
-                    <div class="dropdown-menu dropdown-menu-right dropdown-info"
-                        aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="<?="user_profile.php";?>">My account</a>
-                        <a class="dropdown-item waves-effect waves-light" href="<?"includes/logout.php";?>">Log out</a>
-                        <a class="dropdown-item waves-effect waves-light" href='<?="write_article.php";?>'>write article</a>
-                    </div>
-
+                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="<?="user_profile.php";?>">My account</a>
+                    <a class="dropdown-item" href="<?="includes/logout.php";?>">Log out</a>
+                    <a class="dropdown-item" href="<?="write_article.php";?>">write article</a>
                 </div>
+
             </div>
-            
+
         <?php else: ?>
 
             <a class='btn btn-sm' href='<?="signup.php";?>'>sign up</a>
