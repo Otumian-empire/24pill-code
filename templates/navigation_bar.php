@@ -50,11 +50,6 @@
                 </div>
             </div>
 
-        <?php else: ?>
-
-            <a class='btn btn-sm' href='<?="signup.php";?>'>sign up</a>
-            <a class='btn btn-sm' href='<?="login.php"?>'>log in</a>
-
         <?php endif; ?>
         
     </div>
