@@ -103,7 +103,7 @@
 						$comment_section .= decode_data($comment[1]);
 						$comment_section .= "</p>";
 						$comment_section .= "<span class='float-left'>";  // comment_id
-						$comment_section .= "#31" . sha1($comment[0]) ;
+						$comment_section .= "#31" . md5(sha1($comment[0])) ;
 						$comment_section .= "</span>";
 						$comment_section .= "<span class='float-right'>";  // comment_date
 						$comment_section .= $comment[2];

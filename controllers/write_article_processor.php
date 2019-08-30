@@ -14,14 +14,14 @@
 		// check if any of the fields is empty
 		if (!empty($_POST['post_title']) && !empty($_POST['post_content'])) {
 
-			$title = check_data(encode_data($_POST['post_title']));
+			$title = encode_data($_POST['post_title']);
 
 			// modify the way keywords are inserted
 			// $keywords = check_data($_POST['post_keywords']);
 
-			$content = check_data(encode_data($_POST['post_content']));
+			$content = encode_data($_POST['post_content']);
 
-			$email = get_user_email();
+			$email = encode_data(get_user_email());
 
 			// insert_into_articles_tb requires an array
 			$post_data = array($email, $title, $content);

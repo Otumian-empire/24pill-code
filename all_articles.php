@@ -26,13 +26,13 @@
             foreach ($article_data as $data):
     ?>
                 <div class="article">
-                    <a href="<?="article.php?qid=". $data[3];?>">
+                    <a href="<?="article.php?qid=". decode_data($data[3]);?>">
                         <!-- title -->
-                        <h2><?=strtoupper($data[0]);?></h2>
+                        <h2><?=strtoupper(decode_data($data[0]));?></h2>
                     </a>  
 
                     <!-- date and author's email-->
-                    <span><?=$data[1] . " - " . strtolower($data[2]);?></span>
+                    <span><?=decode_data($data[1]) . " - " . strtolower(decode_data($data[2]));?></span>
                    
                 </div>
     <?php

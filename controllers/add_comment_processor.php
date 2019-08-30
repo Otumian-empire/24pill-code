@@ -23,7 +23,7 @@
                 // requiring a lot of input to acchieve a little
                 $post_id = $_GET['qid'];
 
-                $insert_comment_query = "INSERT INTO `comments`(`post_id`, `comment_text`, `user_email`) VALUES (\"$post_id\", \"$comment_text\", \"$user_email\")";
+                $insert_comment_query = "INSERT INTO `comments`(`post_id`, `comment_text`, `user_email`) VALUES ($post_id, \"$comment_text\", \"$user_email\")";
 
                 $insert_result = mysqli_query($db_connection, $insert_comment_query);
 
