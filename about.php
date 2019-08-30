@@ -2,8 +2,11 @@
     include_once "views_preprocessor.php";
 ?>
 
-<div class="index-body container bg-dark">
-	<p>About</p>
+<div class="index-body container">
+    <div class="container">
+        <p>About</p>
+    </div>
+	
 </div>
 
 

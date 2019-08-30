@@ -38,17 +38,16 @@
 	<div class="col-sm-2">
     
         <?php if (check_session()): ?>
-            <div class="dropdown">
-                <a class="btn btn-default dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="">
+                <!-- <button class="dropbtn btn btn-default" id="dropbtn" onclick="toggleDropDown();">
                     <img src="<?="statics/img/24pill-code-red.png";?>" class="rounded-circle" width="40" height="40" alt="avatar image">
-                </a>
+                </button> -->
 
-                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?="user_profile.php";?>">My account</a>
-                    <a class="dropdown-item" href="<?="includes/logout.php";?>">Log out</a>
-                    <a class="dropdown-item" href="<?="write_article.php";?>">write article</a>
+                <div class="row mx-auto">
+                    <a class="dropdown-item small" href="<?="user_profile.php";?>">My account</a>
+                    <a class="dropdown-item small" href="<?="includes/logout.php";?>">Log out</a>
+                    <a class="dropdown-item small" href="<?="write_article.php";?>">write article</a>
                 </div>
-
             </div>
 
         <?php else: ?>

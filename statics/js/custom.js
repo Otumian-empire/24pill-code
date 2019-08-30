@@ -1,4 +1,16 @@
 // reload the page
 // jQuery(function ($) {
-//     document.location.reload(true);
+//     // $('#dropbtn').on('click', function (e) {
+//     //     e.stopPropagation()
+
+//     //     console.log('avatar clicked')
+//     // })
+
+//     function toggleDropDown(e) {
+//         e.stopPropagation()
+//         $('.dropdown').toggleClass('show')
+//         $('.dropdown-menu').toggleClass('show')
+//     }
+
 // })
+

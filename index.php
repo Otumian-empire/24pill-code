@@ -16,36 +16,39 @@
 ?>
 
 
-<div class="index-body container bg-primary">
-    <?php
-        if ($article_data):
-            foreach ($article_data as $data):
-    ?>
-                <div class="article">
+<div class="index-body container">
+    <div class="container">
 
-                    <!-- title -->
-                    <h2><?=strtoupper(decode_data($data[0]));?></h2>
-                    <!-- date and author's email-->
-                    <span><?=decode_data($data[2]) . " - " . strtolower(decode_data($data[3]));?></span>
-                    <br><hr>
+        <?php
+            if ($article_data):
+                foreach ($article_data as $data):
+        ?>
+                    <div class="article">
 
-                    <!-- content -->
-                    <!-- TODO: this can be a problem, replacing rn in the text -->
-                    <p><?=decode_data(str_replace("rn", "<br>", substr($data[1], 0, 400) . " ... "));?><a href="<?="article.php?qid=". decode_data($data[4]);?>"><span>more</span></a></p>
+                        <!-- title -->
+                        <h2><?=strtoupper(decode_data($data[0]));?></h2>
+                        <!-- date and author's email-->
+                        <span><?=decode_data($data[2]) . " - " . strtolower(decode_data($data[3]));?></span>
+                        <br><hr>
+
+                        <!-- content -->
+                        <!-- TODO: this can be a problem, replacing rn in the text -->
+                        <p><?=decode_data(str_replace("rn", "<br>", substr($data[1], 0, 400) . " ... "));?><a href="<?="article.php?qid=". decode_data($data[4]);?>"><span>more</span></a></p>
+                        
+                    </div>
+        <?php
+                endforeach;
+            else:
+        ?>      <div class="card mx-auto mt-5 card-register text-center">
+                    <div class="card-header text-uppercase">NO Articles</div>
+                    <div class="card-body text-lowercase">
+                        <p>sorry no articles here yet!! <a href="<?="write_article.php";?>">Add</a> an article..</p>
+                    </div>
                     
                 </div>
-    <?php
-            endforeach;
-        else:
-    ?>      <div class="card mx-auto mt-5 card-register text-center">
-                <div class="card-header text-uppercase">NO Articles</div>
-                <div class="card-body text-lowercase">
-                    <p>sorry no articles here yet!! <a href="<?="write_article.php";?>">Add</a> an article..</p>
-                </div>
-                
-            </div>
-    <?php
+        <?php
 
-        endif;
-    ?>
+            endif;
+        ?>
+    </div>
 </div>
