@@ -23,21 +23,25 @@
                 <div class="article">
 
                     <!-- title -->
-                    <h2><?=strtoupper($data[0]);?></h2>
+                    <h2><?=strtoupper(decode_data($data[0]));?></h2>
                     <!-- date and author's email-->
-                    <span><?=$data[2] . " - " . strtolower($data[3]);?></span>
+                    <span><?=decode_data($data[2]) . " - " . strtolower(decode_data($data[3]));?></span>
                     <br><hr>
 
                     <!-- content -->
                     <!-- TODO: this can be a problem, replacing rn in the text -->
-                    <p><?=decode_data(str_replace("rn", "<br>", substr($data[1], 0, 400) . " ... "));?><a href="<?="article.php?qid=". $data[4];?>"><span>more</span></a></p>
+                    <p><?=decode_data(str_replace("rn", "<br>", substr($data[1], 0, 400) . " ... "));?><a href="<?="article.php?qid=". decode_data($data[4]);?>"><span>more</span></a></p>
                     
                 </div>
     <?php
             endforeach;
         else:
-    ?>      <div>
-                <p>Sorry Note articles here yet!!!</p>
+    ?>      <div class="card mx-auto mt-5 card-register text-center">
+                <div class="card-header text-uppercase">NO Articles</div>
+                <div class="card-body text-lowercase">
+                    <p>Sorry Note articles here yet!! <a href="write_article.php">Add</a> an article..</p>
+                </div>
+                
             </div>
     <?php
 
