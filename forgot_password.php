@@ -33,8 +33,8 @@
                 </form>
 
                 <div class="text-center">
-                    <a class="d-block small mt-3" href="register.php">Register an Account</a>
-                    <a class="d-block small" href="login.php">Login Page</a>
+                    <a class="d-block small mt-3 text-capitalize" href="register.php">Register an Account</a>
+                    <a class="d-block small text-capitalize" href="login.php">Login Page</a>
                 </div>
 
             </div>
