@@ -13,15 +13,15 @@
     <!-- logo -->
     <div class="col-sm-1">
         <a class="navbar-brand" href="./">
-            <img src="statics/img/24pill-code-blue.png" alt="logo-brand" width="40" height="30">
+            <img src="<?="statics/img/24pill-code-blue.png";?>" alt="logo-brand" width="40" height="30">
         </a>
     </div>
 	
     <!-- nav links -->
     <div class="col-sm-3">
-        <a class="btn btn-sm" href="all_articles.php">Articles</a>
-        <a class="btn btn-sm" href="about.php">About</a>
-        <a class="btn btn-sm" href="contact.php">Contact</a>
+        <a class="btn btn-sm" href="<?="all_articles.php";?>">Articles</a>
+        <a class="btn btn-sm" href="<?="about.php";?>">About</a>
+        <a class="btn btn-sm" href="<?="contact.php";?>">Contact</a>
     </div>
     
     <!-- search bar -->
@@ -42,14 +42,14 @@
                 
                 <div class="nav-item dropdown col-sm-auto">
                     <a class="nav-link dropdown-toggle avatar" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <img src="statics/img/24pill-code-red.png" class="rounded-circle avatar" alt="avatar image">
+                        <img src="<?="statics/img/24pill-code-red.png";?>" class="rounded-circle avatar" alt="avatar image">
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right dropdown-info"
                         aria-labelledby="navbarDropdownMenuLink-4">
                         <a class="dropdown-item waves-effect waves-light" href="<?="user_profile.php";?>">My account</a>
                         <a class="dropdown-item waves-effect waves-light" href="<?"includes/logout.php";?>">Log out</a>
-                        <a class="dropdown-item waves-effect waves-light" href='write_article.php'>write article</a>
+                        <a class="dropdown-item waves-effect waves-light" href='<?="write_article.php";?>'>write article</a>
                     </div>
 
                 </div>
