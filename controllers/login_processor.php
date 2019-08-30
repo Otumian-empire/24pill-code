@@ -22,7 +22,7 @@
 
         // email validation
         $email = check_data($_POST['login_email']);
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
             redirect_to("../login.php?error_msg=email:login_email+is+invalid");

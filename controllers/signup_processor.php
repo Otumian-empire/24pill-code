@@ -18,12 +18,12 @@
             redirect_to("../signup.php?error_msg=a+field+might+be+empty");
         }
 
-        $first_name = check_data($_POST['sign_up_first_name']);
-        $last_name = check_data($_POST['sign_up_last_name']);
+        $first_name = strtolower(check_data($_POST['sign_up_first_name']));
+        $last_name = strtolower(check_data($_POST['sign_up_last_name']));
 
         // email validation
         $email = check_data($_POST['sign_up_email']);
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
         
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {   
             redirect_to("../signup.php?error_msg=invalid+email");
