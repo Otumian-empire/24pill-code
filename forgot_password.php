@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <div class="form-label-group">
                             <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address" required="required" autofocus="autofocus">
-                            <label for="inputEmail">Enter email address</label>
+                            <label for="inputEmail" class="text-capitalize">Enter email address</label>
                         </div>
                     </div>
                     <button class="btn btn-primary btn-block">Reset Password</button>

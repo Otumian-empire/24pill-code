@@ -21,7 +21,7 @@
 				<div class="form-group">
 					<div class="form-label-group">
 						<input type="email" class="form-control" id="email" name="login_email" placeholder="Name@example.com" autofocus>
-						<label for="email">Email address</label>
+						<label for="email" class="text-capitalize">Email address</label>
 					</div>
 				</div>
 
@@ -29,7 +29,7 @@
 				<div class="form-group">
 					<div class="form-label-group">
 						<input type="password" class="form-control" id="password" name="login_password" placeholder="Password">
-						<label for="password">Password</label>
+						<label for="password" class="text-capitalize">Password</label>
 					</div>
 				</div>
 
