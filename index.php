@@ -38,7 +38,7 @@
 
                         <!-- content -->
                         <!-- TODO: this can be a problem, replacing rn in the text -->
-                        <p><?=decode_data(str_replace("rn", "<br>", substr($data[1], 0, 400) . " ... "));?><a href="<?="article.php?qid=". decode_data($data[4]);?>"><span>more</span></a></p>
+                        <p><?=decode_data(str_replace("rn", "<br>", $data[1]/* substr($data[1], 0, 400) */ . " ... "));?><a href="<?="article.php?qid=". decode_data($data[4]);?>"><span>more</span></a></p>
                         
                     </div>
         <?php
