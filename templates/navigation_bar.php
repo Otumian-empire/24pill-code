@@ -34,20 +34,34 @@
         </span>
     </div>
 
-    <!-- sign up, login, write article, logout -->
+    <!-- write article, logout, user profile -->
 	<div class="col-sm-2">
-        <?php
-            // check if there user is already logged in
-            if (check_session()) {
-                echo "<a class='btn btn-sm' href='write_article.php'>write article</a>";
-                echo "<a class='btn btn-sm' href='includes/logout.php'>log out</a>";
-            } else {
-                echo "<a class='btn btn-sm' href='signup.php'>sign up</a>";
-                echo "<a class='btn btn-sm' href='login.php'>log in</a>";
-            }
+    
+        <?php if (check_session()): ?>
+            <div class="row col-sm-12">
+                
+                <div class="nav-item dropdown col-sm-auto">
+                    <a class="nav-link dropdown-toggle avatar" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <img src="statics/img/24pill-code-red.png" class="rounded-circle avatar" alt="avatar image">
+                    </a>
 
-        ?>
-		
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info"
+                        aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item waves-effect waves-light" href="<?="user_profile.php";?>">My account</a>
+                        <a class="dropdown-item waves-effect waves-light" href="<?"includes/logout.php";?>">Log out</a>
+                        <a class="dropdown-item waves-effect waves-light" href='write_article.php'>write article</a>
+                    </div>
+
+                </div>
+            </div>
+            
+        <?php else: ?>
+
+            <a class='btn btn-sm' href='<?="signup.php";?>'>sign up</a>
+            <a class='btn btn-sm' href='<?="login.php"?>'>log in</a>
+
+        <?php endif; ?>
+        
     </div>
     
 </div>
