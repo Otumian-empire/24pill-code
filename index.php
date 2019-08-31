@@ -19,7 +19,7 @@
 <div class="index-body container">
     <?php if (!check_session()): ?>
         <div class="card-header">
-            You can <a href="login.php">Login</a> here!!
+            You can <a href="login.php" class="btn btn-sm btn-primary">Login</a> here!!
         </div>
     <?php endif; ?>
     <div class="container">

@@ -19,9 +19,8 @@
 	
     <!-- nav links -->
     <div class="col-sm-3">
-        <a class="btn btn-sm" href="<?="all_articles.php";?>">Articles</a>
-        <a class="btn btn-sm" href="<?="about.php";?>">About</a>
-        <a class="btn btn-sm" href="<?="contact.php";?>">Contact</a>
+        <a class="btn btn-sm btn-outline-primary" href="<?="./";?>">Recent</a>
+        <a class="btn btn-sm btn-outline-primary" href="<?="all_articles.php";?>">Articles</a>
     </div>
     
     <!-- search bar -->
@@ -39,9 +38,9 @@
     
         <?php if (check_session()): ?>
 
-            <a class="btn btn-small" href="<?="user_profile.php";?>">My account</a>
-            <a class="btn btn-small" href="<?="write_article.php";?>">write article</a>
-            <a class="btn btn-small" href="<?="includes/logout.php";?>">Log out</a>
+            <a class="btn btn-small btn-outline-primary" href="<?="user_profile.php";?>">My account</a>
+            <a class="btn btn-small btn-outline-primary" href="<?="write_article.php";?>">write article</a>
+            <a class="btn btn-small btn-outline-primary" href="<?="includes/logout.php";?>">Log out</a>
             
         <?php endif; ?>
         
