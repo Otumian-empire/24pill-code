@@ -3,36 +3,32 @@
 ?>
 
 <div class="index-body container">
-    <div class="container">
-        <p>About</p>
 
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi illum, mollitia eum velit corporis atque asperiores debitis rerum illo magnam quibusdam eligendi inventore, id, laborum sed repellendus consequatur aliquid quis!Mollitia ad ex error adipisci, aspernatur corrupti, nemo voluptatem temporibus dolore illum aut molestias repellat illo atque distinctio! Harum facilis a repudiandae omnis nemo non cupiditate laboriosam nesciunt incidunt aspernatur?</p>
+    <div class="container mx-auto mt-5 text-center">
+        <div class="card-header">
+            <h1>About 24pill-code</h1>
+        </div>
+        
+        <div class="card-body text-center">
+            <p>
+                24pill-code is under Otumian Empire, I had this cool name since Senior High School - funny name. 24pill-code is meant to be simple blog for posting and asking question mainly about python programming for beginners at the time of inception of the thought. You may find information on not only python but HTML, CSS, JavaScript and others.</p> 
         </div>
 
+        <div class="card-header">
+            <h1>About Me</h1>
+        </div>
+        
         <div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi illum, mollitia eum velit corporis atque asperiores debitis rerum illo magnam quibusdam eligendi inventore, id, laborum sed repellendus consequatur aliquid quis!Mollitia ad ex error adipisci, aspernatur corrupti, nemo voluptatem temporibus dolore illum aut molestias repellat illo atque distinctio! Harum facilis a repudiandae omnis nemo non cupiditate laboriosam nesciunt incidunt aspernatur?</p>
+            <div class=" card-body">
+                <div class="">
+                    <img src="statics/img/propic.jpeg" alt="" class="rounded-circle" width="50" height="50">
+                </div>
+                
+                <p>I am Otu Michael, in my early twenties, I nearly attended two universities, one for Bsc. IT and the other Bsc. Mathematics/Comp.Sci . I loved to teach - taught in a Junior High School. I started programming in my second year in Senior High School where i dubbled with Python, Html, Css, Javascript, Php, C and Cplusplus, Java and Kotlin for android, up to, almost  a years, perior to creating this blog, i change my focus and delved into web development. I got better day in day out as I either read code, though I get overwhelmed due to the information load and sometimes lack of exposure. Oh, I thought i was the only programmer in the world until i met Kevin and Joeseph.</p>
+            </div>
+            
         </div>
 
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi illum, mollitia eum velit corporis atque asperiores debitis rerum illo magnam quibusdam eligendi inventore, id, laborum sed repellendus consequatur aliquid quis!Mollitia ad ex error adipisci, aspernatur corrupti, nemo voluptatem temporibus dolore illum aut molestias repellat illo atque distinctio! Harum facilis a repudiandae omnis nemo non cupiditate laboriosam nesciunt incidunt aspernatur?</p>
-        </div>
-
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi illum, mollitia eum velit corporis atque asperiores debitis rerum illo magnam quibusdam eligendi inventore, id, laborum sed repellendus consequatur aliquid quis!Mollitia ad ex error adipisci, aspernatur corrupti, nemo voluptatem temporibus dolore illum aut molestias repellat illo atque distinctio! Harum facilis a repudiandae omnis nemo non cupiditate laboriosam nesciunt incidunt aspernatur?</p>
-        </div>
-
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi illum, mollitia eum velit corporis atque asperiores debitis rerum illo magnam quibusdam eligendi inventore, id, laborum sed repellendus consequatur aliquid quis!Mollitia ad ex error adipisci, aspernatur corrupti, nemo voluptatem temporibus dolore illum aut molestias repellat illo atque distinctio! Harum facilis a repudiandae omnis nemo non cupiditate laboriosam nesciunt incidunt aspernatur?</p>
-        </div>
-
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi illum, mollitia eum velit corporis atque asperiores debitis rerum illo magnam quibusdam eligendi inventore, id, laborum sed repellendus consequatur aliquid quis!Mollitia ad ex error adipisci, aspernatur corrupti, nemo voluptatem temporibus dolore illum aut molestias repellat illo atque distinctio! Harum facilis a repudiandae omnis nemo non cupiditate laboriosam nesciunt incidunt aspernatur?</p>
-        </div>
-
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi illum, mollitia eum velit corporis atque asperiores debitis rerum illo magnam quibusdam eligendi inventore, id, laborum sed repellendus consequatur aliquid quis!Mollitia ad ex error adipisci, aspernatur corrupti, nemo voluptatem temporibus dolore illum aut molestias repellat illo atque distinctio! Harum facilis a repudiandae omnis nemo non cupiditate laboriosam nesciunt incidunt aspernatur?</p>
-        </div>
     </div>
 	
 </div>
