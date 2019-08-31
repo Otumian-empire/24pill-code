@@ -22,7 +22,7 @@ html, body {
 .index-body {
     border-bottom: none;
     border-right: none;
-    margin: 5% auto 2% auto;
+    margin: 5% auto 5% auto;
     padding: 1% 0% 0% 0%;
 }
 
@@ -78,24 +78,4 @@ textarea.comment_box {
 
 .card-register {
     max-width: 40rem;
-}
-
-.avatar {
-    /* max-height: 35px;
-    max-width: 30px; */
-    /* vertical-align: middle; */
-    /* border-radius: 50%; */
-    /* background-color: transparent !important; */
-    /* background-color: #000000; */
-    /* z-index: 999; */
-}
-
-.avatar img {
-    /* max-height: 35px;
-    max-width: auto;
-    vertical-align: middle;
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6), 0 1px 1px rgba(189, 10, 10, 0.1);
-    width: inherit;
-    position: relative; */
-    /* z-index: 998; */
 }
