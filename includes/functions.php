@@ -209,10 +209,11 @@
 
     /**
      * return an encoded string making use of htmlentities and htmlspecialchars
+     * A rigorous version is check_data($data)
      */
     function encode_data($data)
     {
-        return htmlentities(htmlspecialchars($data));
+        return htmlentities(htmlspecialchars(mysqli_real_escape_string($db_connection, $data)));
     }
 
 
