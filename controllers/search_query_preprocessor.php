@@ -32,6 +32,7 @@
     } else {
         redirect_to('../?msg=use+the+search+bar+please+or+better+login');
     }
+
 ?>
 
 
