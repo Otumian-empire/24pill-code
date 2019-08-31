@@ -39,7 +39,7 @@
 		}
 		
 	} else {
-		redirect_to("../write_article.php?error_msg=you+can+not+be+great+without+putting+in+great+effort");
+		redirect_to("../write_article.php?msg=you+can+not+be+great+without+putting+in+great+effort");
 	}
 
 ?>

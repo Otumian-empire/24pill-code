@@ -8,7 +8,7 @@
     // TODO: since there is no database connection, it means the page can not be viewed as such
     // return internal server error
     if (!$db_connection) {
-        redirect_to("/?error_msg=". mysqli_connect_error() . "+server+or+connection+error");
+        redirect_to("/?msg=". mysqli_connect_error() . "+server+or+connection+error");
     }
 
     // require the functions

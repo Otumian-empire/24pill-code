@@ -12,12 +12,12 @@
         
         // if any of the fields in not set
         if (!isset($_POST['login_email']) || !isset($_POST['login_password'])) {
-            redirect_to("../login.php?error_msg=a+field+might+not+be+set");
+            redirect_to("../login.php?msg=a+field+might+not+be+set");
         }
 
         // check if fields are actually empty
         if (empty($_POST['login_email']) || empty($_POST['login_password'])) {
-            redirect_to("../login.php?error_msg=a+field+may+be+empty");
+            redirect_to("../login.php?msg=a+field+may+be+empty");
         }
 
         // email validation
@@ -25,7 +25,7 @@
         $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
-            redirect_to("../login.php?error_msg=email:login_email+is+invalid");
+            redirect_to("../login.php?msg=email:login_email+is+invalid");
         }
 
         // password validation
@@ -36,7 +36,7 @@
         
         // check if any of the credentials is empty
         if (empty($email) || empty($password)) {
-            redirect_to("../login.php?error_msg=a+may+be+empty+check+and+try+again");
+            redirect_to("../login.php?msg=a+may+be+empty+check+and+try+again");
         }
 
         // put credentials into an array
@@ -45,7 +45,7 @@
         // insert data into the database
         // instead of inserting we select from the database
         if (!select_from_tb($login_data)) {
-            redirect_to("../login.php?error_msg=invalid+email+or+password+It+will+be+wise+if+you+create+one");
+            redirect_to("../login.php?msg=invalid+email+or+password+It+will+be+wise+if+you+create+one");
         } else {
 
             // set a session on success
@@ -54,18 +54,18 @@
 
             // verify there session
             if (!check_session()) {
-                redirect_to("../includes/logout.php?error_msg=session+error+server+or+connection+may+be+down");
+                redirect_to("../includes/logout.php?msg=session+error+server+or+connection+may+be+down");
             } else {
 
                 // on success, take to the main page
-                redirect_to("../?login=success_msg=logged+in+successfully");
+                redirect_to("../?login=msg=logged+in+successfully");
 
             }
 
         }
 
     } else {
-        redirect_to("../login.php?error_msg=a+sign+up+or+login+is+required");
+        redirect_to("../login.php?msg=a+sign+up+or+login+is+required");
     }
 
 ?>

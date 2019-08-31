@@ -10,7 +10,7 @@
 
 	// check if there isn't a connection
 	if (!$db_connection) {
-		redirect_to("../?error_msg=". mysqli_connect_error() . "+server+or+connection+error");
+		redirect_to("../?msg=". mysqli_connect_error() . "+server+or+connection+error");
 	}
 	
 ?>

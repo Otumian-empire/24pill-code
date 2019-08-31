@@ -14,7 +14,7 @@
 
     if (!$article_result) {
 		// TODO: remove "echo mysqli_error($db_connection);"
-		// redirect_to("../login.php?error_msg=we+need+a+504+error+here");
+		// redirect_to("../login.php?msg=we+need+a+504+error+here");
 		echo mysqli_error($db_connection);
 	}
 

@@ -8,7 +8,7 @@
     $article_result = mysqli_query($db_connection, $read_article_query);
 
     if (!$article_result) {
-        redirect_to("../login.php?error_msg=we+need+a+504+error+here");
+        redirect_to("../login.php?msg=we+need+a+504+error+here");
     }
 
     $article_data = mysqli_fetch_all($article_result);
