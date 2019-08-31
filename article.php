@@ -124,12 +124,14 @@
 
 </div>    
 
+
 <script src="statics/js/tinymce/js/tinymce/tinymce.min.js"></script>
 <script>
 	tinymce.init({
 		selector: '.comment-box'
 	});
 </script>
+
 
 <?php
     /* include footer */

@@ -128,7 +128,7 @@ textarea.comment_box {
     line-height: 38px;
     padding: 40px 0 10px;
     font-family: cursive;
-    font-weight: lighter
+    font-weight: lighter;
 }
 
 .footer ul {
@@ -158,7 +158,7 @@ textarea.comment_box {
 .footer p {
     color: white;
     font-weight: lighter;
-    font-size:
+    /* font-size: */
 }
 
 .footer a:hover {
@@ -179,8 +179,6 @@ textarea.comment_box {
     box-shadow: 0 1px 0 #B4B3B3;
 }
 
-}
-
 .footer a {
     color: #78828D
 }
@@ -194,5 +192,5 @@ textarea.comment_box {
 
 .footer-bottom p.pull-left {
     padding-top: 6px;
-    font-size: 0.75em
+    font-size: 0.75em;
 }

@@ -50,3 +50,10 @@
         endif;
     ?>
 </div>
+
+
+<?php
+    /* include footer */
+    include_once "templates/footer.php";
+
+?>
