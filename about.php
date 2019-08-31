@@ -21,7 +21,7 @@
         <div>
             <div class=" card-body">
                 <div class="">
-                    <img src="statics/img/propic.jpeg" alt="" class="rounded-circle" width="50" height="50">
+                    <img src="statics/img/propic.jpeg" alt="https://avatars3.githubusercontent.com/u/31062978?s=460&v=4" class="img-thumbnail " width="120" height="120">
                 </div>
                 
                 <p>I am Otu Michael, in my early twenties, I nearly attended two universities, one for Bsc. IT and the other Bsc. Mathematics/Comp.Sci . I loved to teach - taught in a Junior High School. I started programming in my second year in Senior High School where i dubbled with Python, Html, Css, Javascript, Php, C and Cplusplus, Java and Kotlin for android, up to, almost  a years, perior to creating this blog, i change my focus and delved into web development. I got better day in day out as I either read code, though I get overwhelmed due to the information load and sometimes lack of exposure. Oh, I thought i was the only programmer in the world until i met Kevin and Joeseph.</p>
