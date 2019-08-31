@@ -213,7 +213,8 @@
      */
     function encode_data($data)
     {
-        return htmlentities(htmlspecialchars(mysqli_real_escape_string($db_connection, $data)));
+        $db_connection = $GLOBALS['db_connection'];
+        return htmlentities(htmlspecialchars(mysqli_real_escape_string($db_connection, $data)));   
     }
 
 
