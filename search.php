@@ -4,6 +4,30 @@
 ?>
 
 <?php
+    // to be on the safer side
+    // we'd check for search_request, msg and search_responds
+    if (!isset($_GET['search_request'])) {
+        redirect_to("../?msg=search+by+simple+key+words");
+    }
+
+    if (!isset($_GET['msg'])) {
+        redirect_to('../?msg=request+status+is+not+set+refresh+page+and+try+again');
+    }
+
+    if (!isset($_GET['search_responds'])) {
+        redirect_to('../?there+was+no+responds+to+your+search+please+try+again+later');
+    }
+
+    $search_responds = json_decode($_GET['search_responds']);
+
+    print_r($search_responds);
+    echo "<br>";
+    echo count($search_responds);
+    exit;
+
+
+
+    
     // Select all the articles, by title, date a nd author name
     $read_article_title_query = "SELECT `post_title`, `post_date`, `user_email`, `post_id` FROM `articles` ORDER BY `post_date` DESC;";
 

@@ -25,7 +25,7 @@
     
     <!-- search bar -->
      <div class="input-group col-sm-6 col-md-6 col-lg-6">
-        <form action="controllers/search_query_preprocess.php" method="get" class="form-inline">
+        <form action="controllers/search_query_preprocessor.php" method="get" class="form-inline">
             <input class="form-control-sm border border-right-0 col-lg-6" type="search" placeholder="search by title, tag and or email" id="example-search-input" name="search_query">
             <span class="input-group-append">
                 <button class="btn btn-sm btn-outline-secondary border-left-0 border" type="submit" name="search_button">
