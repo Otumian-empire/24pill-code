@@ -17,6 +17,7 @@
 	<div class="card card-register mx-auto mt-0">
 
 		<div class="card-header">Create an Account</div>
+
 		<div class="card-body">
 		
 			<form method="POST" action="controllers/signup_processor.php" class="">
@@ -30,6 +31,7 @@
 								<input type="text" class="form-control" id="first_name" name="sign_up_first_name" placeholder="First name" value="" autofocus/>
 								<label for="first name" class="text-capitalize">First name</label>
 							</div>
+
 						</div>
 
 						<div class="col-md-6">
@@ -38,6 +40,7 @@
 								<input type="text" class="form-control" id="last_name" name="sign_up_last_name" placeholder="Last name" value="" />
 								<label for="last name" class="text-capitalize">Last name</label>
 							</div>
+
 						</div>
 					
 					</div>
@@ -54,22 +57,27 @@
 				</div>
 
 				<div class="form-group">
+
 					<div class="form-row">
 
 						<div class="col-md-6">
+
 							<!-- password -->
 							<div class="form-label-group">
 								<input type="password" class="form-control" id="password" name="sign_up_password" placeholder="Password">
 								<label for="password" class="text-capitalize">Password</label>
 							</div>
+
 						</div>
 
 						<div class="col-md-6">
+
 							<!-- confirm password -->
 							<div class="form-label-group">
 								<input type="password" class="form-control" id="confirm_password" name="sign_up_confirm_password" placeholder="Re-enter password">
 								<label for="confirm password" class="text-capitalize">Confirm password</label>
 							</div>
+
 						</div>
 					
 					</div>
@@ -78,10 +86,14 @@
 
 				<!-- user bio -->
 				<div class="form-group">
+
 					<div class="form-label-group">
+
 						<textarea class="form-control" id="user_bio" name="sign_up_user_bio" rows="3" placeholder="About me" value=""></textarea>
 						<label for="user description" class="text-capitalize">Bio</label>
+
 					</div>
+
 				</div>
 
 				<!-- button -->
@@ -93,7 +105,9 @@
 		</div>
 
 		<div class="text-center">
+
 			<a class="d-block small mt-3 text-capitalize" href="<?="login.php";?>">Login Page</a>
+			
 		</div>
 		
 	</div>

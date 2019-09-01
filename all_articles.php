@@ -11,14 +11,16 @@
     $article_result = mysqli_query($db_connection, $read_article_title_query);
 
     if (!$article_result) {
-        redirect_to("../login.php?msg=we+need+a+504+error+here".urlencode(mysqli_error($db_connection)));
+        redirect_to("index.php?msg=we+need+a+504+error+here".urlencode(mysqli_error($db_connection)));
     }
 
     $article_data = mysqli_fetch_all($article_result);
 
 ?>
 
+
 <div class="index-body container">
+
     <?php
         if ($article_data):
             foreach ($article_data as $data):
@@ -37,7 +39,7 @@
             endforeach;
         else:
     ?>      <div class="card mx-auto mt-5 card-register text-center">
-    
+
                 <div class="card-header text-uppercase">NO Articles</div>
 
                 <div class="card-body text-lowercase">
@@ -45,10 +47,9 @@
                 </div>
                 
             </div>
-    <?php
+            
+    <?php endif; ?>
 
-        endif;
-    ?>
 </div>
 
 

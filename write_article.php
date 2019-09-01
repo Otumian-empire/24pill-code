@@ -21,16 +21,19 @@
 		<div class="card-header">Write Article</div>
 
 		<form action="controllers/write_article_processor.php" method="post">
+
 			<input class="form-control rounded-0" type="text" name="post_title" id="" placeholder="article header.."  value="<?php //if(isset($_GET['post_title'])) echo $_GET['post_title'];?>" autofocus />
 			<!-- TODO: find a better way to add the key words -->
 			<!-- look into controllers/write_article_processor.php -->
 			
 			<br>
 			<div class="text-area">
+
 				<textarea name="post_content" id="post_content" class="p-1 md-textarea form-control rounded-0" rows="3" placeholder="article body.." value="<?php if(isset($_GET['post_content'])) { echo $_GET['post_content']; }?>"></textarea>
 			
 				<br>
 				<button name="post_submit_button" type="submit" class="btn btn-success btn-block">POST ARTICLE</button>	
+				
 			</div>
 			
 		</form>

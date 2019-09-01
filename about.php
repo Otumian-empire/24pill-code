@@ -34,7 +34,6 @@
 </div>
 
 
-
 <?php
     /* include footer */
     include_once "templates/footer_section.php";

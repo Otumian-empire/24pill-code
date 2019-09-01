@@ -120,7 +120,9 @@
 					}
 					
 				?>
+
 				<div class="clearfix"></div>
+
 			</ul>
 
 		</div>

@@ -1,9 +1,7 @@
 <?php
     include_once "views_preprocessor.php";
 
-?>
 
-<?php
     // reading recent articles onto the index page
     $read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email`, `post_id` ";
     $read_article_query .= "FROM `articles` ORDER BY `post_date` DESC LIMIT 4;";
@@ -50,7 +48,9 @@
                 endforeach;
             else:
         ?>      <div class="card mx-auto mt-5 card-register text-center">
+
                     <div class="card-header text-uppercase">NO Articles</div>
+                    
                     <div class="card-body text-lowercase">
                         <p>sorry no articles here yet!! <a href="<?="write_article.php";?>">Add</a> an article..</p>
                     </div>
