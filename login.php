@@ -3,18 +3,23 @@
 
     // previously, this line below here were in the preprocessor above
     // it seemed that not all needed it
-    // as a measure, that the user does't break any thing, autologout user here every time..
+	// as a measure, that the user does't break any thing, autologout user here every time..
+	// after a user logs in an intensionally goes back, force log the user out
     if (check_session()) {
         redirect_to("includes/logout.php");
     }
     
 ?>
 
+
 <div class="index-body container ">
 	<!-- sign in starts here -->
 	<div class="card card-login mx-auto mt-5">
+
 		<div class="card-header">Login</div>
+
 		<div class="card-body">
+
 			<form method="post" action="controllers/login_processor.php" class="">
 
 				<!-- email -->
@@ -44,9 +49,11 @@
         	<a class="d-block small mt-3 text-capitalize" href="<?="signup.php";?>">Register an Account</a>
         	<a class="d-block small text-capitalize" href="<?="forgot_password.php";?>">Forgot Password?</a>
         </div>
+
 	</div>
 	
 </div>
+
 
 <?php
     /* include footer */

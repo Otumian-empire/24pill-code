@@ -4,7 +4,10 @@
 ?>
 
 <?php
-    $read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email`, `post_id` FROM `articles` ORDER BY `post_date` DESC LIMIT 4;";
+    // reading recent articles onto the index page
+    $read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email`, `post_id` ";
+    $read_article_query .= "FROM `articles` ORDER BY `post_date` DESC LIMIT 4;";
+
     $article_result = mysqli_query($db_connection, $read_article_query);
 
     if (!$article_result) {
@@ -17,11 +20,13 @@
 
 
 <div class="index-body container">
+
     <?php if (!check_session()): ?>
-        <div class="card-header">
+        <div class="card-header text-center text-capitalize">
             You can <a href="login.php" class="btn btn-sm btn-primary">Login</a> here!!
         </div>
     <?php endif; ?>
+
     <div class="container">
 
         <?php
@@ -51,13 +56,12 @@
                     </div>
                     
                 </div>
-        <?php
 
-            endif;
-        ?>
+        <?php endif; ?>
+
     </div>
-</div>
 
+</div>
 
 
 <?php
@@ -66,4 +70,3 @@
     include_once "templates/footer.php";
 
 ?>
-

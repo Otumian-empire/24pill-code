@@ -11,11 +11,14 @@
 ?>
 
 <div class="index-body container">
-		<!-- use htaccess to route requests -->
-	<!-- sign up starts here -->
+
+	<!-- TODO: use htaccess to route requests -->
+	<!-- TODO: sign up starts here -->
 	<div class="card card-register mx-auto mt-0">
+
 		<div class="card-header">Create an Account</div>
 		<div class="card-body">
+		
 			<form method="POST" action="controllers/signup_processor.php" class="">
 
 				<div class="form-group">

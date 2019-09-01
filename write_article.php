@@ -1,10 +1,6 @@
 <?php
-    // write articles here
-    // use modals edit the articles
+    // TODO: use modals edit the articles
 
-?>
-
-<?php
     include_once "views_preprocessor.php";
 
     // previously, this line below here were in the preprocessor above
@@ -16,10 +12,14 @@
     
 ?>
 
+
 <div class="index-body container">
+
 	<div class="container">
+
 		<!-- <h1>Write article..</h1> -->
 		<div class="card-header">Write Article</div>
+
 		<form action="controllers/write_article_processor.php" method="post">
 			<input class="form-control rounded-0" type="text" name="post_title" id="" placeholder="article header.."  value="<?php //if(isset($_GET['post_title'])) echo $_GET['post_title'];?>" autofocus />
 			<!-- TODO: find a better way to add the key words -->
@@ -34,8 +34,12 @@
 			</div>
 			
 		</form>
+
 	</div>
+
 </div> 
+
+
 <!-- <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script> -->
 <script src="statics/js/tinymce/js/tinymce/tinymce.min.js"></script>
 <script>
@@ -43,6 +47,7 @@
 		selector: '#post_content'
 	});
 </script>
+
 
 <?php
     /* include footer */

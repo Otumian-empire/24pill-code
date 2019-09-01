@@ -6,16 +6,20 @@
 		redirect_to("index.php");
 	}
 	
-	$article_id = $_GET['qid'];
+	$article_id = urlencode($_GET['qid']);
 
-	$read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE `post_id`=" . $article_id. " LIMIT 1;";
+	if (!is_int($article_id)) {
+		// TODO: 504 page
+		redirect_to("index.php");
+	}
+
+	$read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE `post_id`=" . $article_id . " LIMIT 1;";
 
     $article_result = mysqli_query($db_connection, $read_article_query);
 
     if (!$article_result) {
-		// TODO: remove "echo mysqli_error($db_connection);"
-		// redirect_to("../login.php?msg=we+need+a+504+error+here");
-		echo mysqli_error($db_connection);
+		// TODO: 504 page
+		redirect_to("../login.php?msg=we+need+a+504+error+here");
 	}
 
 	$article_data = mysqli_fetch_assoc($article_result);
@@ -28,7 +32,7 @@
 		<div class="article">
 
 			<!-- title -->
-			<h2><?=strtoupper($article_data['post_title']);?></h2>
+			<h2><?=strtoupper(decode_data($article_data['post_title']));?></h2>
 			
 			<!-- date and author's email-->
 			<span><?=$article_data['post_date'] . " - " . strtolower($article_data['user_email']);?></span>
@@ -41,17 +45,18 @@
 
 			<div class="text-area">
 				<div class="card-header">Add Comment</div>
+
 				<form action="<?="controllers/add_comment_processor.php?qid=" . "$article_id";?>" method="post">
 					<textarea class="comment-box p-1 md-textarea form-control rounded-0" placeholder="Place your comments here" type="textarea" id="comment-box" name="comment-box"></textarea>
 					<br>
+
 					<div class="input-group">
 						<button class="btn btn-success btn-block" id="add-comment-btn" name="add-comment-btn">ADD</button>
 					</div>
+
 				</form>
 				
 			</div>
-
-			
 
 		</div>
 
@@ -64,7 +69,7 @@
 				exit;
 			} 
 
-			$post_id = $_GET['qid'];
+			$post_id = urlencode($_GET['qid']);
 
 			$select_comment_query = "SELECT `comment_id`,`comment_text`, `comment_date`, `user_email` FROM `comments` WHERE  `post_id` = $post_id";
 
@@ -103,7 +108,7 @@
 						$comment_section .= decode_data($comment[1]);
 						$comment_section .= "</p>";
 						$comment_section .= "<span class='float-left'>";  // comment_id
-						$comment_section .= "#31" . md5(sha1($comment[0])) ;
+						$comment_section .= "#31" . md5(sha1($comment[0])) ; // just goofying
 						$comment_section .= "</span>";
 						$comment_section .= "<span class='float-right'>";  // comment_date
 						$comment_section .= $comment[2];
