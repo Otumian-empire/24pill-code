@@ -11,9 +11,8 @@
         }
         
         if (!isset($_GET['qid']) || !isset($_POST['comment-box'])) {
-            redirect_to('../index.php');
+            redirect_to('../index.php?msg=qid+is+not+set');
         } else {
-            
             
             if (strlen($_POST['comment-box']) > 5) {
 
@@ -32,7 +31,7 @@
                 $insert_result = mysqli_query($db_connection, $insert_comment_query);
 
                 if (!$insert_result) {
-                    redirect_to("../index.php?msg=".mysqli_error($db_connection));
+                    redirect_to("../index.php?msg=insert+statement+failed+".urlencode(mysqli_error($db_connection)));
                 } else {
                     redirect_to("../article.php?qid=" . $post_id . "&msg=comment was added successfully");
                 }
@@ -41,7 +40,6 @@
                 redirect_to("../article.php?qid=" . $post_id . "&msg=a minimum of 5 characters is required to be a valid comment");
             }
             
-           
         }
 
     } else {

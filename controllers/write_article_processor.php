@@ -1,9 +1,7 @@
 <?php
-    include_once "controller_preprocessor.php"
-?>
+    include_once "controller_preprocessor.php";
 
 
-<?php
 	if (isset($_POST['post_submit_button'])) {
 
 		// check if any of the fields is set
@@ -32,7 +30,7 @@
 			if (!insert_into_articles_tb($post_data)) {
 				redirect_to("../write_article.php?post_title=" . urlencode($_POST['post_title']) . "&post_content=" . urlencode($_POST['post_content']));
 			} else {
-				redirect_to("../?success_smg=article+posted+successfully");
+				redirect_to("../index.php?success_smg=article+posted+successfully");
 			}
 	
 		} else {

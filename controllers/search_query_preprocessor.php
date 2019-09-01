@@ -1,13 +1,11 @@
 <?php
-    include_once "controller_preprocessor.php"
-?>
+    include_once "controller_preprocessor.php";
 
 
-<?php
     if (isset($_GET['search_button'])) {
         
         if (!isset($_GET['search_query']) || empty($_GET['search_query'])) {
-            redirect_to('../?msg=you need to added a query or search item');
+            redirect_to('../index.php?msg=you need to added a query or search item');
         } else {
 
             $search_request = check_data(urlencode($_GET['search_query']));
@@ -17,13 +15,13 @@
             $result = mysqli_query($db_connection, $sql);
 
             if (!$result) {
-                redirect_to('../?msg=no+item+found+wrt+'.$search_request.'+in&search_query='.$search_request);
+                redirect_to('../index.php?msg=no+item+found+wrt+'.$search_request.'+in&search_query='.$search_request);
             }
 
             $search_responds = mysqli_fetch_all($result);
 
             if (!$search_responds) {
-                redirect_to('../?msg=no+item+match+'.$search_request.'+in&search_query='.$search_request);
+                redirect_to('../index.php?msg=no+item+match+'.$search_request.'+in&search_query='.$search_request);
             }
 
             $JSONResponds = json_encode($search_responds);
@@ -32,7 +30,7 @@
         }
 
     } else {
-        redirect_to('../?msg=use+the+search+bar+please+or+better+login');
+        redirect_to('../index.php?msg=use+the+search+bar+please+or+better+login');
     }
 
 ?>

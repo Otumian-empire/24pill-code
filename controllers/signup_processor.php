@@ -1,10 +1,7 @@
 <?php
-    include_once "controller_preprocessor.php"
-
-?>
+    include_once "controller_preprocessor.php";
 
 
-<?php
     // check if the fields are set
     if (isset($_POST['register_button'])) {
 
@@ -60,7 +57,7 @@
             if (check_session()) {
 
                 // on success, take to the main page
-                redirect_to("../?msg=sign+up+successful");
+                redirect_to("../index.php?msg=sign+up+successful");
 
             } else {
                 redirect_to("../includes/logout.php?msg=session+error+sever+or+connection+may+be+down");

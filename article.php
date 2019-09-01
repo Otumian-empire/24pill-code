@@ -3,14 +3,14 @@
 	
 	// read article from the database using the id from the article
 	if (!isset($_GET['qid']) || $_GET['qid'] === NULL) {
-		redirect_to("index.php");
+		redirect_to("index.php?msg=qui+is+not+set");
 	}
 	
 	$article_id = urlencode($_GET['qid']);
 
 	if (!is_int($article_id)) {
 		// TODO: 504 page
-		redirect_to("index.php");
+		redirect_to("index.php?msg=qid+is+an+int");
 	}
 
 	$read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE `post_id`=" . $article_id . " LIMIT 1;";
@@ -19,7 +19,7 @@
 
     if (!$article_result) {
 		// TODO: 504 page
-		redirect_to("../login.php?msg=we+need+a+504+error+here");
+		redirect_to("login.php?msg=we+need+a+504+error+here");
 	}
 
 	$article_data = mysqli_fetch_assoc($article_result);

@@ -37,7 +37,9 @@
             endforeach;
         else:
     ?>      <div class="card mx-auto mt-5 card-register text-center">
+    
                 <div class="card-header text-uppercase">NO Articles</div>
+
                 <div class="card-body text-lowercase">
                     <p>sorry no articles here yet!! <a href="<?="write_article.php";?>">Add</a> an article..</p>
                 </div>
