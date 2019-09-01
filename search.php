@@ -41,9 +41,8 @@
 <div class="index-body container">
 
     <?php
-    exit;
-        if ($article_data):
-            foreach ($article_data as $data):
+        if ($search_responds):
+            foreach ($search_responds as $data):
     ?>
                 <div class="article">
                     <a href="<?="article.php?qid=". decode_data($data[3]);?>">
