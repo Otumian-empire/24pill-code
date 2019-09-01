@@ -8,10 +8,37 @@
 	
 	$article_id = urlencode($_GET['qid']);
 
-	if (!is_int($article_id)) {
-		// TODO: 504 page
-		redirect_to("index.php?msg=qid+is+an+int");
+	// ensuring that the $article_id actually exit
+	// match is against an array of ids
+
+	// SELECTQUERY # 0
+	$sql_query_select_ids = "SELECT `post_id` FROM `articles`";
+	$query_success = mysqli_query($db_connection, $sql_query_select_ids);
+
+	if (!$query_success) {
+		redirect_to('index.php?msg=query+unsuccessful');
 	}
+
+	// TODO: find a better way to check if the id exits
+	// TODO: there is another thought, use the query statement for reading the comment
+	//  to check/validate the article_id so that the above query won't be used
+	// to reduce the number of lines
+	$ids = mysqli_fetch_all($query_success);
+	$ids = array_column($ids,0);
+
+	if (!in_array($article_id, $ids)) {
+		// page can not be found needed here
+		// redirect_to('')
+		$ot  = '<div class="index-body container">';
+		$ot .= '	<div class="card mx-auto mt-5 card-register text-center">';
+		$ot .= '		<p class="card-header">Page Not Found</p>';
+		$ot .= '		<p class="card-body">Page can not be found, please visit';
+		$ot .= '			 <a href="all_articles.php">Article</a> for more</p>';
+		$ot .= '	</div>';
+		$ot .= '</div>';
+		echo $ot;
+		exit;
+	} 
 
 	$read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE `post_id`=" . $article_id . " LIMIT 1;";
 
@@ -27,7 +54,9 @@
 ?>
 
 <div class="index-body container">
+
 	<div class="container">
+
 		<!-- post -->
 		<div class="article">
 
@@ -76,8 +105,7 @@
 			$comment_result = mysqli_query($db_connection, $select_comment_query);
 
 			if (!$comment_result) {
-				echo "query unsuccessful<br>";
-				exit;
+				redirect_to('article.php?msg=couldn\' add comment, try again later or report to the webmaster');
 			}
 
 			$comments = mysqli_fetch_all($comment_result);
