@@ -5,14 +5,14 @@
 
 <?php
     if (isset($_GET['search_button'])) {
-
+        
         if (!isset($_GET['search_query']) || empty($_GET['search_query'])) {
             redirect_to('../?msg=you need to added a query or search item');
         } else {
 
             $search_request = check_data($_GET['search_query']);
 
-            $sql = "SELECT `articles`.`post_id` FROM `articles` WHERE `articles`.`post_title` LIKE \"%$search_request%\" OR `articles`.`post_content` LIKE \"%$search_request%\" ";
+            $sql = "SELECT `articles`.`post_title`, `articles`.`post_date`, `articles`.`user_email`, `articles`.`post_id` FROM `articles` WHERE `articles`.`post_title` LIKE \"%$search_request%\" OR `articles`.`post_content` LIKE \"%$search_request%\" OR `articles`.`post_id` LIKE \"%$search_request%\"";
             $result = mysqli_query($db_connection, $sql);
 
             if (!$result) {
@@ -22,11 +22,12 @@
             $search_responds = mysqli_fetch_all($result);
 
             if (!$search_responds) {
-                echo "There was no responds " . mysqli_error($db_connection);
+                redirect_to('../?msg=no+item+match+'.$search_request.'+in&search_query='.$search_request);
             }
 
-            redirect_to('../search.php?search_query='.$search_request.'&msg=success&search_responds='.json_encode($search_responds));
-
+            $JSONResponds = json_encode($search_responds);
+            
+            redirect_to('../search.php?search_query='.$search_request.'&msg=success&search_responds='.$JSONResponds);
         }
 
     } else {
