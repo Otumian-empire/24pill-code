@@ -13,6 +13,7 @@
             $search_request = check_data(urlencode($_GET['search_query']));
 
             $sql = "SELECT `articles`.`post_title`, `articles`.`post_date`, `articles`.`user_email`, `articles`.`post_id` FROM `articles` WHERE `articles`.`post_title` LIKE \"%$search_request%\" OR `articles`.`post_content` LIKE \"%$search_request%\" OR `articles`.`post_id` LIKE \"%$search_request%\"";
+            
             $result = mysqli_query($db_connection, $sql);
 
             if (!$result) {

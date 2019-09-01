@@ -18,10 +18,14 @@
             if (strlen($_POST['comment-box']) > 5) {
 
                 $user_email = get_user_email();
+
                 // $comment_text = check_data(encode_data($_POST['comment-box']));
+                $comment_text = urlencode($_POST['comment-box']);
                 $comment_text = encode_data($_POST['comment-box']);
+
                 // requiring a lot of input to acchieve a little
-                $post_id = $_GET['qid'];
+                $post_id = urlencode($_GET['qid']);
+                $post_id = encode_date($_GET['qid']);
 
                 $insert_comment_query = "INSERT INTO `comments`(`post_id`, `comment_text`, `user_email`) VALUES ($post_id, \"$comment_text\", \"$user_email\")";
 

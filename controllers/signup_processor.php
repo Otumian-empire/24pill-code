@@ -37,7 +37,7 @@
             redirect_to("../signup.php?msg=passwords+do+not+match");
         }
 
-        // encrypt password -- for development purposes -- use md5
+        // encrypt password -- for development purposes -- use sha1
         $password = sha1($password);
         $user_bio = check_data($_POST['sign_up_user_bio']);
 
@@ -60,7 +60,7 @@
             if (check_session()) {
 
                 // on success, take to the main page
-                redirect_to("../?success=sign+up+successful");
+                redirect_to("../?msg=sign+up+successful");
 
             } else {
                 redirect_to("../includes/logout.php?msg=session+error+sever+or+connection+may+be+down");
