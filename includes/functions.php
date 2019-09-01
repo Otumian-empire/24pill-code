@@ -5,12 +5,13 @@
     function error_message($error_message)
     {
         $db_connection = $GLOBALS['db_connection'];
-        return "{$error_message}" . mysqli_error($db_connection) . "<br/>";
+        return "{$error_message}" . urlencode(mysqli_error($db_connection)) . "<br/>";
     }
 
 
     /**
-     * Thie will mysqli_real_escape_string, trim, striplashes and htmlspecialchars on the args given to it
+     * Thie will mysqli_real_escape_string, trim, striplashes and htmlspecialchars on 
+     * the args given to it
      */
     function check_data($data)
     {
@@ -58,7 +59,6 @@
      * @param $field
      * @param $fields_value
      * @param $token
-     *
      */
     function update_tb($table_name, $field, $to, $token)
     {
