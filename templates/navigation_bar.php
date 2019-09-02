@@ -5,10 +5,10 @@
 ?>
 
 <!-- we add a notification div -->
-<div id="notification" class="notification fixed-top"></div>
+<div id="notification" class="notification fixed-top text-lowercase"></div>
 
 <!-- nav starts here -->
-<div class="navigation-bar container-fluid col-sm-12 navbar navbar-expand-lg box fixed-top">
+<div class="navigation-bar container-fluid col-sm-12 navbar navbar-expand-lg box fixed-top text-capitalize">
 
     <!-- logo -->
     <div class="col-sm-1 col-md-1 col-lg-1 mx-auto">
