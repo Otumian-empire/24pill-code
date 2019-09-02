@@ -80,6 +80,10 @@ textarea.comment_box {
     max-width: 40rem;
 }
 
+.card-update {
+    max-width: 60rem;
+}
+
 /* footer */
 
 .full {
