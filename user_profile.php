@@ -10,6 +10,27 @@
 	// the token will be used as a verification code to change sensitive data
 	// such as password and email
 
+	// pull user details from the database except, password (allow user to enter password)
+	$user_email = get_user_email();
+
+	$sql_select_user_details = "SELECT `users`.`user_first_name`, `users`.`user_last_name`, `users`.`user_email`, `users`.`user_bio` FROM `users` WHERE `users`.`user_email`='$user_email' LIMIT 1";
+
+
+	$result = mysqli_query($db_connection, $sql_select_user_details);
+
+	if (!$result) {
+		redirect_to("index.php?msg=couldn't read your data from our system, try refreshing your page and try again later");
+		// echo '<div class="index-body container"> </div>';
+		// echo mysqli_error($db_connection);
+		// exit;
+	}
+
+	$user_data = mysqli_fetch_array($result);
+
+	// echo '<div class="index-body container"> </div>';
+	// print_r($user_data);
+	// exit;
+
 ?>
 
 
@@ -36,7 +57,7 @@
 						<div class="col-md-4">
 							<!-- first name -->
 							<div class="form-label-group">
-								<p class="form-control border-0"  name="update_first_name" >User first name</p>
+								<p class="form-control border-0"  name="update_first_name" ><?=$user_data['user_first_name'];?></p>
 								<label for="first name" class="text-capitalize">Current First name</label>
 							</div>
 
@@ -84,7 +105,7 @@
 						<div class="col-md-4">
 							<!-- last name -->
 							<div class="form-label-group">
-								<p class="form-control border-0" name="update_last_name">User Last name</p>
+								<p class="form-control border-0" name="update_last_name"><?=$user_data['user_last_name'];?></p>
 								<label for="last name" class="text-capitalize">Current Last name</label>
 							</div>
 
@@ -130,7 +151,7 @@
 						<div class="col-md-4">
 							<!-- email -->
 							<div class="form-label-group">
-								<p class="form-control border-0" >User email</p>
+								<p class="form-control border-0" ><?=$user_data['user_email'];?></p>
 								<label for="email name" class="text-capitalize">Current email</label>
 							</div>
 
@@ -228,7 +249,7 @@
 
 							<!-- bio -->
 							<div class="form-label-group">
-								<p class="form-control border-0">User bio</p>
+								<p class="form-control border-0"><?=$user_data['user_bio'];?></p>
 								<label for="bio name" class="text-capitalize">Current bio</label>
 							</div>
 
