@@ -6,6 +6,10 @@
         redirect_to('signup.php?msg=you must have an account here');
     }
 
+	// send user an email containing a token that will last for an hour
+	// the token will be used as a verification code to change sensitive data
+	// such as password and email
+
 ?>
 
 
@@ -24,7 +28,7 @@
 		<div class="card-body text-capitalize">
 
             <!-- first name form starts here -->
-			<form method="POST" action="" class="">
+			<form method="POST" action="controllers/update_first_name.php" class="">
 
 				<div class="form-group">
 					<div class="form-row">
@@ -72,7 +76,7 @@
         <!-- card body for last name starts here -->
         <div class="card-body text-capitalize">
             <!-- last name form starts here -->
-			<form method="POST" action="" class="">
+			<form method="POST" action="controllers/update_last_name.php" class="">
 
 				<div class="form-group">
 					<div class="form-row">
@@ -118,7 +122,7 @@
         <!-- card body for email starts here -->
         <div class="card-body text-capitalize">
             <!-- email form starts here -->
-			<form method="POST" action="" class="">
+			<form method="POST" action="controllers/update_email.php" class="">
 
 				<div class="form-group">
 					<div class="form-row">
@@ -165,7 +169,7 @@
         <div class="card-body text-capitalize">
 
             <!-- password form starts here -->
-			<form method="POST" action="" class="">
+			<form method="POST" action="controllers/update_password.php" class="">
 
 				<div class="form-group">
 
@@ -214,7 +218,7 @@
         <div class="card-body text-capitalize">
 
             <!-- bio form starts here -->
-			<form method="POST" action="" class="">
+			<form method="POST" action="controllers/update_bio.php" class="">
 
 				<div class="form-group">
 
