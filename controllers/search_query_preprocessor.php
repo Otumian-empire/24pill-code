@@ -24,6 +24,14 @@
                 redirect_to('../index.php?msg=no+item+match+'.$search_request.'+in&search_query='.$search_request);
             }
 
+            // this were you were yesterday
+            // urlencode each item in the array before you pass
+            foreach($search_responds as &$resp) {
+                foreach($resp as &$val) {
+                    $val = urlencode($val);
+                }
+            }   
+
             $JSONResponds = json_encode($search_responds);
             
             redirect_to('../search.php?search_query='.$search_request.'&msg=success&search_responds='.$JSONResponds);

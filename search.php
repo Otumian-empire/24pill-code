@@ -17,7 +17,7 @@
     }
 
     // urlencode requires a string so we'd better pass the individual elements
-    // into the urlencode
+    // into the urlencode or encode_data
     $search_responds = json_decode($_GET['search_responds']);
 
 ?>
@@ -30,13 +30,13 @@
             foreach ($search_responds as $data):
     ?>
                 <div class="article">
-                    <a href="<?="article.php?qid=". decode_data(urlencode($data[3]));?>">
+                    <a href="<?="article.php?qid=". decode_data(urldecode($data[3]));?>">
                         <!-- title -->
-                        <h2><?=strtoupper(decode_data(urlencode($data[0])));?></h2>
+                        <h2><?=strtoupper(decode_data(urldecode($data[0])));?></h2>
                     </a>  
 
                     <!-- date and author's email-->
-                    <span><?=decode_data(urlencode($data[1])) . " - " . strtolower(decode_data(urlencode($data[2])));?></span>
+                    <span><?=decode_data(urldecode($data[1])) . " - " . strtolower(decode_data(urldecode($data[2])));?></span>
                    
                 </div>
 
