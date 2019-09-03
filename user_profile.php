@@ -169,7 +169,7 @@
                         <div class="col-md-2">
 							<!-- email update button -->
 							<div class="form-label-group">
-								<button class="form-control-sm btn btn-primary text-capitalize" id="update_email" name="update_email" type="submit" >GO</button>
+								<button class="form-control-sm btn btn-primary text-capitalize" id="update_email" name="update_email_btn" type="submit" >GO</button>
 							</div>
 
 						</div>
@@ -218,7 +218,7 @@
                         <div class="col-md-2">
 							<!-- password update button -->
 							<div class="form-label-group">
-								<button class="form-control-sm btn btn-primary text-capitalize" id="update_password" name="sign_up_last_name" type="submit" >GO</button>
+								<button class="form-control-sm btn btn-primary text-capitalize" id="update_password_btn" name="update_password_btn" type="submit" >GO</button>
 							</div>
 
 						</div>
