@@ -1,5 +1,5 @@
 <?php
-    include_once "controller_preprocessor.php"
+    include_once "controller_preprocessor.php";
 ?>
 
 <?php

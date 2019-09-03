@@ -1,7 +1,7 @@
 <?php
     // this is a preprocessor file
     // run this file before any line
-    include_once "controller_preprocessor.php"
+    include_once "controller_preprocessor.php";
 
 ?>
 

@@ -5,7 +5,7 @@
     }
 
     // connect to the database using the defined configurations
-    require_once "configuration.php";
+    require_once "db_configuration.php";
 
     $db_connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 
