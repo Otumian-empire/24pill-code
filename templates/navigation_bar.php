@@ -20,7 +20,7 @@
     <!-- nav links -->
     <div class="col-sm-2 col-md-2 col-lg-2 mx-auto">
         <a class="btn btn-sm btn-outline-primary" href="<?="./index.php?msg=recent articles";?>">Recent</a>
-        <a class="btn btn-sm btn-outline-primary" href="<?="all_articles.php";?>">Articles</a>
+        <a class="btn btn-sm btn-outline-primary" href="<?="all_articles.php?msg=all articles";?>">Articles</a>
     </div>
     
     <!-- search bar -->
