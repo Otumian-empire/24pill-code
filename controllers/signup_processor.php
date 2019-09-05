@@ -36,7 +36,7 @@
 
         // encrypt password -- for development purposes -- use sha1
         $password = sha1($password);
-        $user_bio = check_data($_POST['sign_up_user_bio']);
+        $user_bio = strtolower(check_data($_POST['sign_up_user_bio']));
 
         // check if any of them are empty
         if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($user_bio)) {
