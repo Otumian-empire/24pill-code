@@ -6,14 +6,36 @@
     }
 
 
-    if (isset($_POST['update_email_btn'])) {
-        redirect_to("../user_profile.php?msg=There is a need for a configuration not implemented yet");
+    if (!isset($_POST['update_email_btn'])) {
+        redirect_to("../user_profile.php?msg=There is a need for a configuration not " 
+        ."implemented yet " . mysqli_error($db_connection));
     }
 
-    if (!isset($_POST['update_email']) || empty($_POST['update_email'])) {
-        redirect_to('../user_profile.php?msg=field is empty');
+    // generate token
+    $token = generate_token();
+
+    // get token_dormancy period
+    $token_dormancy = get_dormancy_time();
+
+    // get user_email
+    $user_email = get_user_email();
+
+    // get token_purpose -- other option is PASSD
+    $token_purpose = strtoupper("EMAIL");
+
+    $sql_insert_token = "INSERT INTO `tokens`(`token_text`, `token_dormancy`, `token_purpose`, `user_email`) VALUES ('$token', '$token_dormancy', '$token_purpose', '$user_email')";
+    
+    $insert_token_sql = mysqli_query($db_connection, $sql_insert_token);
+
+    if (!$insert_token_sql) {
+        redirect_to("../user_profile.php?msg=couldn't insert token in the tokens table "
+        . mysqli_error($db_connection));
     }
 
-    $update_email = check_data($_POST['update_email']);
+    // TODO: send the token to the user by the email
 
-    redirect_to('../token_field.php?msg=enter token');
+    // redirect_to token_field.php to verify the token
+    redirect_to('../token_field.php?msg=enter token and new email');
+
+    // get the new_email and sent it to
+    // from there to the token processor

@@ -138,102 +138,7 @@
 		</div>
         <!-- card body for last name ends here -->
 
-        <hr>
-
-        <!-- card body for email starts here -->
-        <div class="card-body text-capitalize">
-            <!-- email form starts here -->
-			<form method="POST" action="controllers/update_email.php" class="">
-
-				<div class="form-group">
-					<div class="form-row">
-
-						<div class="col-md-4">
-							<!-- email -->
-							<div class="form-label-group">
-								<p class="form-control border-0" ><?=$user_data['user_email'];?></p>
-								<label for="email name" class="text-capitalize">Current email</label>
-							</div>
-
-						</div>
-
-						<div class="col-md-5">
-							<!-- new email -->
-							<div class="form-label-group">
-								<input type="text" class="form-control" id="update_email" name="update_email" placeholder="new email" autofocus/>
-								<label for="email" class="text-capitalize">New email</label>
-							</div>
-
-						</div>
-
-                        <div class="col-md-2">
-							<!-- email update button -->
-							<div class="form-label-group">
-								<button class="form-control-sm btn btn-primary text-capitalize" id="update_email" name="update_email_btn" type="submit" >GO</button>
-							</div>
-
-						</div>
-					
-					</div>
-					
-				</div>
-				
-			</form>
-			<!-- email form ends here -->
-
-		</div>
-        <!-- card body for email ends here -->
-
-        <hr>
-
-        <!-- card body for password starts here -->
-        <div class="card-body text-capitalize">
-
-            <!-- password form starts here -->
-			<form method="POST" action="controllers/update_password.php" class="">
-
-				<div class="form-group">
-
-					<div class="form-row">
-
-						<div class="col-md-4">
-							<!-- password -->
-
-							<div class="form-label-group">
-								<p class="form-control border-0">User password</p>
-								<label for="password name" class="text-capitalize">Current password</label>
-							</div>
-
-						</div>
-
-						<div class="col-md-5">
-							<!-- new password -->
-							<div class="form-label-group">
-								<input type="text" class="form-control" id="update_password" name="update_password" placeholder="new password"/>
-								<label for="new password" class="text-capitalize">New password</label>
-							</div>
-
-						</div>
-
-                        <div class="col-md-2">
-							<!-- password update button -->
-							<div class="form-label-group">
-								<button class="form-control-sm btn btn-primary text-capitalize" id="update_password_btn" name="update_password_btn" type="submit" >GO</button>
-							</div>
-
-						</div>
-					
-					</div>
-					
-				</div>
-				
-			</form>
-			<!-- password form ends here -->
-
-		</div>
-        <!-- card body for password ends here -->
-
-        <hr>
+		        <hr>
 
         <!-- card body for bio starts here -->
         <div class="card-body text-capitalize">
@@ -283,7 +188,104 @@
 		</div>
         <!-- card body for bio ends here -->
 
+        <hr>
+
+        <!-- card body for email starts here -->
+        <div class="card-body text-capitalize">
+            <!-- email form starts here -->
+			<form method="POST" action="controllers/update_email.php" class="">
+
+				<div class="form-group">
+					<div class="form-row">
+
+						<div class="col-md-4">
+							<!-- email -->
+							<div class="form-label-group">
+								<p class="form-control border-0" ><?=$user_data['user_email'];?></p>
+								<label for="email name" class="text-capitalize">Current email</label>
+							</div>
+
+						</div>
+
+						<div class="">
+							<!-- new email -->
+							<div class="form-label-group hidden">
+								<!-- <input type="text" class="form-control" id="update_email" name="update_email" placeholder="new email" autofocus/> -->
+								<!-- <label for="email" class="text-capitalize">New email</label> -->
+							</div>
+
+						</div>
+
+                        <div class="col">
+							<!-- email update button -->
+							<div class="form-label-group">
+								<button class="form-control-sm btn btn-primary text-capitalize" id="update_email" name="update_email_btn" type="submit" >Change Email</button>
+							</div>
+
+						</div>
+					
+					</div>
+					
+				</div>
+				
+			</form>
+			<!-- email form ends here -->
+
+		</div>
+        <!-- card body for email ends here -->
+
+        <hr>
+
+        <!-- card body for password starts here -->
+        <div class="card-body">
+
+            <!-- password form starts here -->
+			<form method="POST" action="controllers/update_password.php" class="">
+
+				<div class="form-group">
+
+					<div class="form-row">
+
+						<div class="col-md-4">
+							<!-- password -->
+
+							<div class="form-label-group">
+								<p class="form-control border-0">User password</p>
+								<label for="password name" class="text-capitalize">Current password</label>
+							</div>
+
+						</div>
+
+						<div class="">
+							<!-- new password -->
+							<!-- <div class="form-label-group">
+								<input type="text" class="form-control" id="update_password" name="update_password" placeholder="new password"/>
+								<label for="new password" class="text-capitalize">New password</label>
+							</div> -->
+
+						</div>
+
+                        <div class="col">
+							<!-- password update button -->
+							<div class="form-label-group">
+								<button class="form-control-sm btn btn-primary text-capitalize" id="update_password_btn" name="update_password_btn" type="submit" >Change Password</button>
+							</div>
+
+						</div>
+					
+					</div>
+					
+				</div>
+				
+			</form>
+			<!-- password form ends here -->
+
+		</div>
+        <!-- card body for password ends here -->
+
+
 	</div>
+	<!-- card ends here -->
 
 </div>
 

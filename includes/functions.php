@@ -20,7 +20,7 @@
         $data = mysqli_real_escape_string($db_connection, strip_tags($data));
         $data = trim($data);
         $data = stripslashes($data);
-        $data = strtolower(htmlspecialchars($data));
+        $data = htmlspecialchars($data);
 
         if (!mb_check_encoding($data, 'UTF-8')) {
 
@@ -85,7 +85,9 @@
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`) VALUES(\"$values_in_array[0]\",\"$values_in_array[1]\",\"$values_in_array[2]\",\"$values_in_array[3]\",\"$values_in_array[4]\");";
+        $sql = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`)" 
+        . " VALUES(\"$values_in_array[0]\",\"$values_in_array[1]\",\"$values_in_array[2]\",\"$values_in_array[3]\",".
+        "\"$values_in_array[4]\");";
 
         $query = mysqli_query($db_connection, $sql);
 
@@ -112,7 +114,8 @@
         $query = mysqli_query($db_connection, $sql);
 
         if (!$query) {
-            echo "Either there is an issue with your input or just that our servers may be down.<br>Reload in a second.. " . mysqli_error($db_connection);
+            echo "Either there is an issue with your input or just that our servers may ".
+            "be down.<br>Reload in a second.. " . mysqli_error($db_connection);
             return 0;
         }
 
@@ -129,7 +132,8 @@
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "SELECT `user_email`, `user_password` FROM `users` WHERE `user_email` = " . "\"$values[0]\"" . "AND `user_password` = " . "\"$values[1]\"" . "LIMIT 1";
+        $sql = "SELECT `user_email`, `user_password` FROM `users` WHERE `user_email` = " 
+        . "\"$values[0]\"" . "AND `user_password` = " . "\"$values[1]\"" . "LIMIT 1";
 
         $query = mysqli_query($db_connection, $sql);
 
@@ -139,7 +143,8 @@
         }
 
         if (mysqli_num_rows($query) !== 1) {
-            echo "You are creative, come up with a better and unique email<br> and or also use, a strong password<br>". mysqli_error($db_connection);
+            echo "You are creative, come up with a better and unique email<br> and or also use, a "
+            ."strong password<br>". mysqli_error($db_connection);
             
             return 0;
         }
@@ -224,4 +229,66 @@
     function decode_data($data)
     {
         return htmlspecialchars_decode(html_entity_decode($data));
+    }
+
+
+    /**
+     * returns a random number, given the length of the data desired.
+     * this random token generator function provided by Scott.
+     * source: https://stackoverflow.com/a/13733588/4592338
+      */
+    function generate_token()
+    {
+        define('TOKENLENGTH', 6);
+
+        $token = "";
+
+        $codeAlphabet  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $codeAlphabet .= "abcdefghijklmnopqrstuvwxyz";
+        $codeAlphabet .= "0123456789";
+
+        $max = strlen($codeAlphabet);
+
+        for ($i=0; $i < TOKENLENGTH; $i++) {
+            $token .= $codeAlphabet[random_int(0, $max - 1)];
+        }
+
+        return $token;
+    
+    }
+
+
+    /**
+     * return a boolean comparing, if the current time stamp is gt the time given to
+     * the token to expire.
+     * @param `$token_dormancy`: the time given to the token to expire
+     */
+    function has_token_expired($token_dormancy)
+    {
+        // get the current time stamp
+        $now = date('Y-m-d H:i:s', strtotime('now'));
+        // and get token_dormancy, meaning, pass the $token_dormancy
+
+        return strtotime($now) >= strtotime($token_dormancy) ? 1 : 0;
+
+        // redirect_to token_field.php to return enter the new token as the old token
+        // has expired. 
+    }
+
+
+    /**
+     * returns the token_dormancy period in 'Y-m-d H:i:s' format
+     */
+    function get_dormancy_time()
+    {
+        return date('Y-m-d H:i:s', strtotime('now') + (60 * 30));
+    }
+
+
+    /**
+     * returns the current time stamp in 'Y-m-d H:i:s' format
+     */
+    function get_current_time()
+    {
+        return date('Y-m-d H:i:s', strtotime('now'));
     }
