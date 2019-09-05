@@ -81,13 +81,13 @@
      * inserts into database with respect to the parameters given
      * @param $values_in_array
      */
-    function insert_into_users_tb($values_in_array)
+    function insert_into_tb_users($values_in_array)
     {
         $db_connection = $GLOBALS['db_connection'];
 
         $sql = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`)" 
-        . " VALUES(\"$values_in_array[0]\",\"$values_in_array[1]\",\"$values_in_array[2]\",\"$values_in_array[3]\",".
-        "\"$values_in_array[4]\");";
+        . " VALUES('$values_in_array[0]','$values_in_array[1]','$values_in_array[2]','$values_in_array[3]',".
+        "'$values_in_array[4]');";
 
         $query = mysqli_query($db_connection, $sql);
 

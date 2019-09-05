@@ -15,6 +15,7 @@
             redirect_to("../signup.php?msg=a field might be empty");
         }
 
+        // check_data
         $first_name = strtolower(check_data($_POST['sign_up_first_name']));
         $last_name = strtolower(check_data($_POST['sign_up_last_name']));
 
@@ -36,6 +37,7 @@
 
         // encrypt password -- for development purposes -- use sha1
         $password = sha1($password);
+
         $user_bio = strtolower(check_data($_POST['sign_up_user_bio']));
 
         // check if any of them are empty
@@ -47,25 +49,21 @@
         $user_data = array($first_name, $last_name, $email, $password, $user_bio);
 
         // insert data into the database
-        if (insert_into_users_tb($user_data)) {
-
-            // set a session on success
-            $token = generate_session_token($email);
-            set_session($token);
-
-            // verify there session
-            if (check_session()) {
-
-                // on success, take to the main page
-                redirect_to("../index.php?msg=sign up successful");
-
-            } else {
-                redirect_to("../includes/logout.php?msg=session error sever or connection may be down");
-            }
-
-        } else {
+        if (!insert_into_tb_users($user_data)) {
             redirect_to("../signup.php?msg=could not insert into database");
         }
+
+        // set a session on success
+        $token = generate_session_token($email);
+        set_session($token);
+
+        // verify there session
+        if (!check_session()) {
+            redirect_to("../includes/logout.php?msg=session error sever or connection may be down");
+        }
+
+        // on success, take to the main page
+        redirect_to("../index.php?msg=sign up successful");
 
     } else {
         redirect_to("../signup.php?msg=a sign up or login is required");
