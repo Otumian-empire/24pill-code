@@ -11,7 +11,7 @@
         }
         
         if (!isset($_GET['qid']) || !isset($_POST['comment-box'])) {
-            redirect_to('../index.php?msg=qid+is+not+set');
+            redirect_to('../index.php?msg=qid is not set');
         } else {
             
             if (strlen($_POST['comment-box']) > 5) {
@@ -26,12 +26,12 @@
                 $post_id = urlencode($_GET['qid']);
                 $post_id = encode_data($_GET['qid']);
 
-                $insert_comment_query = "INSERT INTO `comments`(`post_id`, `comment_text`, `user_email`) VALUES ($post_id, \"$comment_text\", \"$user_email\")";
+                $insert_comment_query = "INSERT INTO `comments`(`post_id`, `comment_text`, `user_email`) VALUES ($post_id, '$comment_text', '$user_email')";
 
                 $insert_result = mysqli_query($db_connection, $insert_comment_query);
 
                 if (!$insert_result) {
-                    redirect_to("../index.php?msg=insert+statement+failed+".urlencode(mysqli_error($db_connection)));
+                    redirect_to("../index.php?msg=insert statement failed ".urlencode(mysqli_error($db_connection)));
                 } else {
                     redirect_to("../article.php?qid=" . $post_id . "&msg=comment was added successfully");
                 }
