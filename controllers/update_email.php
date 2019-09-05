@@ -5,10 +5,8 @@
         redirect_to("../signup.php?msg=create a an account");
     }
 
-
     if (!isset($_POST['update_email_btn'])) {
-        redirect_to("../user_profile.php?msg=There is a need for a configuration not " 
-        ."implemented yet " . mysqli_error($db_connection));
+        redirect_to("../includes/logout.php?msg=a sign up or login is required");
     }
 
     // generate token
@@ -36,6 +34,3 @@
 
     // redirect_to token_field.php to verify the token
     redirect_to('../token_field.php?msg=enter token and new email');
-
-    // get the new_email and sent it to
-    // from there to the token processor

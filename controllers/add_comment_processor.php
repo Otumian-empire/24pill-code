@@ -43,7 +43,7 @@
         }
 
     } else {
-        redirect_to('../index.php');
+        redirect_to("../includes/logout.php?msg=a sign up or login is required");
     }
     
 ?>

@@ -152,5 +152,5 @@
         redirect_to("../user_profile.php?msg=couldn't update user email, Reset token and please try again later");
         
     } else {
-        redirect_to("../user_profile.php?msg=edit any of the fields below, this is your user profile");
+        redirect_to("../includes/logout.php?msg=a sign up or login is required");
     }

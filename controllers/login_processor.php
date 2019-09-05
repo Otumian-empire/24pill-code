@@ -57,5 +57,5 @@
         redirect_to("../index.php?msg=logged in successfully");
 
     } else {
-        redirect_to("../login.php?msg=a sign up or login is required");
+        redirect_to("../includes/logout.php?msg=a sign up or login is required");
     }

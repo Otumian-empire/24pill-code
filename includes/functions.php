@@ -104,7 +104,7 @@
      * inserts into database with respect to the parameters given
      * @param $values_in_array
      */
-    function insert_into_articles_tb($values_in_array)
+    function insert_into_tb_articles($values_in_array)
     {
         $db_connection = $GLOBALS['db_connection'];
 
