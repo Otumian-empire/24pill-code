@@ -30,7 +30,7 @@
 			if (!insert_into_articles_tb($post_data)) {
 				redirect_to("../write_article.php?post_title=" . urlencode($_POST['post_title']) . "&post_content=" . urlencode($_POST['post_content']));
 			} else {
-				redirect_to("../index.php?success_smg=article+posted+successfully");
+				redirect_to("../index.php?success_smg=article posted successfully");
 			}
 	
 		} else {
@@ -38,7 +38,7 @@
 		}
 		
 	} else {
-		redirect_to("../write_article.php?msg=you+can+not+be+great+without+putting+in+great+effort");
+		redirect_to("../write_article.php?msg=you can not be great without putting in great effort");
 	}
 
 ?>

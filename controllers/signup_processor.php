@@ -7,12 +7,12 @@
 
         // if any of the fields in not set
         if (!isset($_POST['sign_up_first_name']) || !isset($_POST['sign_up_last_name']) || !isset($_POST['sign_up_email']) || !isset($_POST['sign_up_password']) || !isset($_POST['sign_up_confirm_password']) || !isset($_POST['sign_up_user_bio'])) {
-            redirect_to("../signup.php?msg=a+field+might+not+be+set");
+            redirect_to("../signup.php?msg=a field might not be set");
         }
 
         // check for empty fields
         if (empty($_POST['sign_up_first_name']) || empty($_POST['sign_up_last_name']) || empty($_POST['sign_up_email']) || empty($_POST['sign_up_password']) || empty($_POST['sign_up_confirm_password']) || empty($_POST['sign_up_user_bio'])) {
-            redirect_to("../signup.php?msg=a+field+might+be+empty");
+            redirect_to("../signup.php?msg=a field might be empty");
         }
 
         $first_name = strtolower(check_data($_POST['sign_up_first_name']));
@@ -23,7 +23,7 @@
         $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
         
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {   
-            redirect_to("../signup.php?msg=invalid+email");
+            redirect_to("../signup.php?msg=invalid email");
         }
 
         // validate password
@@ -31,7 +31,7 @@
         $confirm_password = check_data($_POST['sign_up_confirm_password']);
 
         if ($password !== $confirm_password) {
-            redirect_to("../signup.php?msg=passwords+do+not+match");
+            redirect_to("../signup.php?msg=passwords do not match");
         }
 
         // encrypt password -- for development purposes -- use sha1
@@ -40,7 +40,7 @@
 
         // check if any of them are empty
         if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($user_bio)) {
-            redirect_to("../signup.php?msg=a+field+maybe+empty");
+            redirect_to("../signup.php?msg=a field maybe empty");
         }
 
         // put credentials into an array
@@ -57,18 +57,18 @@
             if (check_session()) {
 
                 // on success, take to the main page
-                redirect_to("../index.php?msg=sign+up+successful");
+                redirect_to("../index.php?msg=sign up successful");
 
             } else {
-                redirect_to("../includes/logout.php?msg=session+error+sever+or+connection+may+be+down");
+                redirect_to("../includes/logout.php?msg=session error sever or connection may be down");
             }
 
         } else {
-            redirect_to("../signup.php?msg=could+not+insert+into+database");
+            redirect_to("../signup.php?msg=could not insert into database");
         }
 
     } else {
-        redirect_to("../signup.php?msg=a+sign+up+or+login+is+required");
+        redirect_to("../signup.php?msg=a sign up or login is required");
     }
 
 ?>

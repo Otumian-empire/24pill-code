@@ -15,13 +15,13 @@
             $result = mysqli_query($db_connection, $sql);
 
             if (!$result) {
-                redirect_to('../index.php?msg=no+item+found+wrt+'.$search_request.'+in&search_query='.$search_request);
+                redirect_to('../index.php?msg=no item found wrt '.$search_request.' in&search_query='.$search_request);
             }
 
             $search_responds = mysqli_fetch_all($result);
 
             if (!$search_responds) {
-                redirect_to('../index.php?msg=no+item+match+'.$search_request.'+in&search_query='.$search_request);
+                redirect_to('../index.php?msg=no item match '.$search_request.' in&search_query='.$search_request);
             }
 
             // this were you were yesterday
@@ -38,7 +38,7 @@
         }
 
     } else {
-        redirect_to('../index.php?msg=use+the+search+bar+please+or+better+login');
+        redirect_to('../index.php?msg=use the search bar please or better login');
     }
 
 ?>
