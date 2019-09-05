@@ -12,4 +12,4 @@
     session_destroy();
 
     // redirecting to login
-    redirect_to("../index.php?msg=you+have+been+logged+out+successfully");
+    redirect_to("../index.php?msg=you have been logged out successfully");
