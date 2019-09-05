@@ -20,9 +20,12 @@
 <div class="index-body container">
 
     <?php if (!check_session()): ?>
-        <div class="card-header text-center text-capitalize">
+        <div class="card card-login mx-auto mt-1">
+            <div class="card-header text-center text-capitalize">
             You can <a href="login.php" class="btn btn-sm btn-primary">Login</a> here!!
+            </div>
         </div>
+        
     <?php endif; ?>
 
     <div class="container">
