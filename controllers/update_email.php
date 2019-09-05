@@ -2,11 +2,11 @@
     include_once "controller_preprocessor.php";
 
     if (!check_session()) {
-        redirect_to("../signup.php?msg=create a an account");
+        redirect_to("../includes/logout.php?msg=a sign up or login is required");
     }
 
     if (!isset($_POST['update_email_btn'])) {
-        redirect_to("../includes/logout.php?msg=a sign up or login is required");
+        redirect_to("../signup.php?msg=create a an account");
     }
 
     // generate token
@@ -33,4 +33,4 @@
     // TODO: send the token to the user by the email
 
     // redirect_to token_field.php to verify the token
-    redirect_to('../token_field.php?msg=enter token and new email');
+    redirect_to('../email_token_field.php?msg=enter token and new email');

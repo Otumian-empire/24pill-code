@@ -2,10 +2,35 @@
     include_once "controller_preprocessor.php";
 
     if (!check_session()) {
+        redirect_to("../user_profile.php?msg=There is a need for a configuration not implemented yet");
+    }
+
+    if (isset($_POST['update_password_btn'])) {
         redirect_to("../signup.php?msg=create a an account");
     }
 
+    // generate token
+    $token = generate_token();
 
-    if (isset($_POST['update_password_btn'])) {
-        redirect_to("../user_profile.php?msg=There is a need for a configuration not implemented yet");
+    // get token_dormancy period
+    $token_dormancy = get_dormancy_time();
+
+    // get user_email
+    $user_email = get_user_email();
+
+    // get token_purpose -- other option is EMAIL
+    $token_purpose = strtoupper("PASSD");
+
+    $sql_insert_token = "INSERT INTO `tokens`(`token_text`, `token_dormancy`, `token_purpose`, `user_email`) VALUES ('$token', '$token_dormancy', '$token_purpose', '$user_email')";
+    
+    $insert_token_sql = mysqli_query($db_connection, $sql_insert_token);
+
+    if (!$insert_token_sql) {
+        redirect_to("../user_profile.php?msg=couldn't insert token in the tokens table "
+        . mysqli_error($db_connection));
     }
+
+    // TODO: send the token to the user by the email
+
+    // redirect_to token_field.php to verify the token
+    redirect_to('../password_token_field.php?msg=enter token and new password');
