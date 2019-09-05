@@ -3,7 +3,7 @@
 	
 	// read article from the database using the id from the article
 	if (!isset($_GET['qid']) || $_GET['qid'] === NULL) {
-		redirect_to("index.php?msg=qui+is+not+set");
+		redirect_to("index.php?msg=qui is not set");
 	}
 	
 	$article_id = urlencode($_GET['qid']);
@@ -16,7 +16,7 @@
 	$query_success = mysqli_query($db_connection, $sql_query_select_ids);
 
 	if (!$query_success) {
-		redirect_to('index.php?msg=query+unsuccessful');
+		redirect_to('index.php?msg=query unsuccessful');
 	}
 
 	// TODO: find a better way to check if the id exits
@@ -46,7 +46,7 @@
 
     if (!$article_result) {
 		// TODO: 504 page
-		redirect_to("login.php?msg=we+need+a+504+error+here");
+		redirect_to("login.php?msg=we need a 504 error here");
 	}
 
 	$article_data = mysqli_fetch_assoc($article_result);

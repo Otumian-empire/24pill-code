@@ -5,15 +5,15 @@
     // to be on the safer side
     // we'd check for search_query, msg and search_responds
     if (!isset($_GET['search_query'])) {
-        redirect_to("index.php?msg=search+by+simple+key+words");
+        redirect_to("index.php?msg=search by simple key words");
     }
     
     if (!isset($_GET['msg'])) {
-        redirect_to('index.php?msg=request+status+is+not+set+refresh+page+and+try+again');
+        redirect_to('index.php?msg=request status is not set refresh page and try again');
     }
 
     if (!isset($_GET['search_responds'])) {
-        redirect_to('index.php?msg=there+was+no+responds+to+your+search+please+try+again+later');
+        redirect_to('index.php?msg=there was no responds to your search please try again later');
     }
 
     // urlencode requires a string so we'd better pass the individual elements
