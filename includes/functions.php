@@ -128,7 +128,7 @@
      * @param $values
      * values is an array of email and password
      */
-    function select_from_tb($values)
+    function select_from_tb_users($values)
     {
         $db_connection = $GLOBALS['db_connection'];
 
