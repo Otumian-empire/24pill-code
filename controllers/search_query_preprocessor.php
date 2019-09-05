@@ -8,33 +8,34 @@
             redirect_to('../index.php?msg=you need to added a query or search item');
         } else {
 
-            $search_request = check_data(urlencode($_GET['search_query']));
+            $search_request = strtolower(check_data(urlencode($_GET['search_query'])));
 
-            $sql = "SELECT `articles`.`post_title`, `articles`.`post_date`, `articles`.`user_email`, `articles`.`post_id` FROM `articles` WHERE `articles`.`post_title` LIKE \"%$search_request%\" OR `articles`.`post_content` LIKE \"%$search_request%\" OR `articles`.`post_id` LIKE \"%$search_request%\"";
+            $sql_search_query = "SELECT `articles`.`post_title`, `articles`.`post_date`, `articles`.`user_email`, `articles`.`post_id` FROM `articles` WHERE `articles`.`post_title` LIKE \"%$search_request%\" OR `articles`.`post_content` LIKE \"%$search_request%\" OR `articles`.`post_id` LIKE \"%$search_request%\"";
             
-            $result = mysqli_query($db_connection, $sql);
+            $search_query_result = mysqli_query($db_connection, $sql_search_query);
 
-            if (!$result) {
+            if (!$search_query_result) {
                 redirect_to('../index.php?msg=no item found wrt '.$search_request.' in&search_query='.$search_request);
             }
 
-            $search_responds = mysqli_fetch_all($result);
+            $search_responds = mysqli_fetch_all($search_query_result);
 
             if (!$search_responds) {
                 redirect_to('../index.php?msg=no item match '.$search_request.' in&search_query='.$search_request);
             }
 
-            // this were you were yesterday
-            // urlencode each item in the array before you pass
+            // urlencoding each item in the array before passing it on
             foreach($search_responds as &$resp) {
                 foreach($resp as &$val) {
                     $val = urlencode($val);
                 }
             }   
 
+            // pass the search_responds in a JSON format
             $JSONResponds = json_encode($search_responds);
             
             redirect_to('../search.php?search_query='.$search_request.'&msg=success&search_responds='.$JSONResponds);
+            
         }
 
     } else {
