@@ -72,6 +72,15 @@
 			<div><?= decode_data(str_replace("rn", "<br>", $article_data['post_content']));?></div>
 			<br><br>
 
+			<!-- comment -->
+			<?php if (!check_session()): ?>
+        		<div class="card card-login mx-auto mt-1">
+            		<div class="card-header text-center text-capitalize">
+            		You can <a href="login.php" class="btn btn-sm btn-primary">Login</a> here to add a comment!!
+            		</div>
+        		</div>
+    		<?php exit; endif; ?>
+
 			<div class="text-area">
 				<div class="card-header">Add Comment</div>
 
