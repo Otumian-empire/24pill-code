@@ -5,10 +5,12 @@
 
     // destroy everything that may give user a connection/link/reference to the system
     if (isset($_SESSION['token'])) {
-        unset($_SESSION['token']);
+        // unset($_SESSION['token']);
+        $_SESSION['token'] = '';
     }
     
-    session_unset();
+    // session_unset();
+    $_SESSION = array();
     session_destroy();
 
     // redirecting to login
