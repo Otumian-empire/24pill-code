@@ -132,8 +132,8 @@
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "SELECT `user_email`, `user_password` FROM `users` WHERE `user_email` = " 
-        . "\"$values[0]\"" . "AND `user_password` = " . "\"$values[1]\"" . "LIMIT 1";
+        $sql = "SELECT `users`.`user_email`, `users`.`user_password` FROM `users` WHERE `users`.`user_email` = " 
+        . "\"$values[0]\"" . "AND `users`.`user_password` = " . "\"$values[1]\"" . "LIMIT 1";
 
         $query = mysqli_query($db_connection, $sql);
 

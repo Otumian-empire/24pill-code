@@ -37,7 +37,7 @@
 				</div>
 
 				<!-- button -->
-				<button type="submit" class="btn btn-primary btn-block mb-1" name="token_btn" value="token_btn">SEND</button>
+				<button type="submit" class="btn btn-primary btn-block mb-1" name="email_token_btn" value="email_token_btn">SEND</button>
 
 			</form>
 			<!-- form ends here -->	

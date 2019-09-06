@@ -21,11 +21,11 @@
     // get token_purpose -- other option is PASSD
     $token_purpose = strtoupper("EMAIL");
 
-    $sql_insert_token = "INSERT INTO `tokens`(`token_text`, `token_dormancy`, `token_purpose`, `user_email`) VALUES ('$token', '$token_dormancy', '$token_purpose', '$user_email')";
+    $insert_token_query = "INSERT INTO `tokens`(`token_text`, `token_dormancy`, `token_purpose`, `user_email`) VALUES ('$token', '$token_dormancy', '$token_purpose', '$user_email')";
     
-    $insert_token_sql = mysqli_query($db_connection, $sql_insert_token);
+    $insert_token_result = mysqli_query($db_connection, $insert_token_query);
 
-    if (!$insert_token_sql) {
+    if (!$insert_token_result) {
         redirect_to("../user_profile.php?msg=couldn't insert token in the tokens table "
         . mysqli_error($db_connection));
     }

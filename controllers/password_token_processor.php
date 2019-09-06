@@ -9,20 +9,16 @@
         redirect_to('../includes/logout.php?msg=you must loggin or sign up to change your user info');
     }
 
-    if (isset($_POST['token_btn'])) {
+    if (isset($_POST['password_token_btn'])) {
         
         // validating the new email
-        if (!isset($_POST['update_email']) || empty($_POST['update_email'])) {
+        if (!isset($_POST['update_password']) || empty($_POST['update_password'])) {
             redirect_to("../user_profile.php?msg=new email field empty or not set in the token processor");
         }
 
-        $update_email = urldecode($_POST['update_email']);
-        $update_email = check_data($update_email);
-        $update_email = strtolower(filter_var($update_email, FILTER_SANITIZE_EMAIL));
-        
-        if (!filter_var($update_email, FILTER_VALIDATE_EMAIL)) {   
-            redirect_to("../user_profile.php?msg=Invalid new email, enter a valid email");
-        }
+        // validating new password
+        $update_password = check_data($_POST['update_password']);
+        $update_password = sha1($update_password);
 
         // validating the token
         if (!isset($_POST['token']) || empty($_POST['token'])) {
@@ -40,20 +36,20 @@
 
         $user_email = get_user_email();
 
-        $sql_select_token_row = "SELECT `token_text`, `token_state`, `token_dormancy`, `token_purpose` FROM `tokens` WHERE `tokens`.`user_email` = '$user_email' ORDER BY `tokens`.`token_date` DESC LIMIT 1";
+        $select_token_row_query = "SELECT `token_text`, `token_state`, `token_dormancy`, `token_purpose` FROM `tokens` WHERE `tokens`.`user_email` = '$user_email' ORDER BY `tokens`.`token_date` DESC LIMIT 1";
 
-        $token_row_result = mysqli_query($db_connection, $sql_select_token_row);
+        $select_token_row_result = mysqli_query($db_connection, $select_token_row_query);
 
-        if (!$token_row_result) {
+        if (!$select_token_row_result) {
             redirect_to("../user_profile.php?msg=couldn't select token row, edit any of the fields below and try again");
         }
 
-        $token_row_data = mysqli_fetch_assoc($token_row_result);
+        $select_token_row_data = mysqli_fetch_assoc($select_token_row_result);
 
-        $token_state    = $token_row_data['token_state'];     // checked
-        $token_text     = $token_row_data['token_text'];      // checked
-        $token_dormancy = $token_row_data['token_dormancy'];  // checked
-        $token_purpose  = $token_row_data['token_purpose'];   // checked
+        $token_state    = $select_token_row_data['token_state'];     // checked
+        $token_text     = $select_token_row_data['token_text'];      // checked
+        $token_dormancy = $select_token_row_data['token_dormancy'];  // checked
+        $token_purpose  = $select_token_row_data['token_purpose'];   // checked
 
         // check the toke_state
         if ($token_state) {
@@ -69,13 +65,13 @@
             $user_email = get_user_email();
 
             // get token_purpose -- other option is PASSD
-            $token_purpose = strtoupper("EMAIL");
+            $token_purpose = PURPOSE_PASSWORD;
 
-            $sql_reset_token = "UPDATE `tokens` SET `token_text`='$token', `token_state`= 0,`token_dormancy`= '$token_dormancy',`token_purpose`= PURPOSE_EMAIL WHERE `user_email`= '$user_email'";
+            $update_token_query = "UPDATE `tokens` SET `token_text`='$token', `token_state`= 0,`token_dormancy`= '$token_dormancy',`token_purpose`= PURPOSE_EMAIL WHERE `user_email`= '$user_email'";
 
-            $update_token_sql = mysqli_query($db_connection, $sql_reset_token);
+            $update_token_result = mysqli_query($db_connection, $update_token_query);
 
-            if (!$update_token_sql) {
+            if (!$update_token_result) {
                 redirect_to("../user_profile.php?msg=couldn't update token in the tokens table "
                 . mysqli_error($db_connection));
             }
@@ -102,11 +98,11 @@
             $user_email = get_user_email();
 
             // get token_purpose -- other option is PASSD
-            $token_purpose = strtoupper("EMAIL");
+            $token_purpose = PURPOSE_PASSWORD;
 
-            $update_token_sql = "UPDATE `tokens` SET `token_text`='$token', `token_state`= 0,`token_dormancy`= '$token_dormancy',`token_purpose`= PURPOSE_EMAIL WHERE `user_email`= '$user_email'";
+            $update_token_query = "UPDATE `tokens` SET `token_text`='$token', `token_state`= 0,`token_dormancy`= '$token_dormancy',`token_purpose`= '$token_purpose' WHERE `user_email`= '$user_email'";
 
-            $update_token_result = mysqli_query($db_connection, $update_token_sql);
+            $update_token_result = mysqli_query($db_connection, $update_token_query);
 
             if (!$update_token_result) {
                 redirect_to("../user_profile.php?msg=couldn't update token in the tokens table "
@@ -123,7 +119,6 @@
         // check the sizes
         if (strlen($token) !== TOKENSIZE || strlen($token_text) !== TOKENSIZE) {
             redirect_to("../token_field.php?msg=invalid entered, invalid token sizes..");
-            exit;
         }
 
         // check if the user-entered-token is the same as in the database
@@ -131,25 +126,25 @@
             redirect_to("../token_field.php?msg=invalide token entered");
         }
 
-        if ($token_purpose === PURPOSE_EMAIL) {
+        if ($token_purpose === PURPOSE_PASSWORD) {
             // update the user email with the update email
             // get user_email
             $user_email = get_user_email();
 
-            $update_user_email_sql = "UPDATE `users` SET `user_email`= '$update_email' WHERE `user_email`= '$user_email'";
+            $update_user_password_query = "UPDATE `users` SET `users`.`user_password` = '$update_password' WHERE `users`.`user_email` = '$user_email'";
 
-            $update_user_email_result = mysqli_query($db_connection, $update_user_email_sql);
+            $update_user_password_result = mysqli_query($db_connection, $update_user_password_query);
 
-            if (!$update_user_email_result) {
-                redirect_to("../user_profile.php?msg=couldn't update user email, try again later " . mysqli_error($db_connection));
+            if (!$update_user_password_result) {
+                redirect_to("../user_profile.php?msg=couldn't update user password, try again later " . mysqli_error($db_connection));
             }
             
-            redirect_to("../includes/logout.php?msg=email updated, login to continue");
+            redirect_to("../includes/logout.php?msg=password updated, login to continue");
 
         } 
 
         // when the token purpose fails
-        redirect_to("../user_profile.php?msg=couldn't update user email, Reset token and please try again later");
+        redirect_to("../user_profile.php?msg=couldn't update user password, Reset token and please try again later");
         
     } else {
         redirect_to("../includes/logout.php?msg=a sign up or login is required");

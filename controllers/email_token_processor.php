@@ -9,14 +9,13 @@
         redirect_to('../includes/logout.php?msg=you must loggin or sign up to change your user info');
     }
 
-    if (isset($_POST['token_btn'])) {
+    if (isset($_POST['email_token_btn'])) {
         
         // validating the new email
         if (!isset($_POST['update_email']) || empty($_POST['update_email'])) {
             redirect_to("../user_profile.php?msg=new email field empty or not set in the token processor");
         }
 
-        $update_email = urldecode($_POST['update_email']);
         $update_email = check_data($update_email);
         $update_email = strtolower(filter_var($update_email, FILTER_SANITIZE_EMAIL));
         
@@ -69,7 +68,7 @@
             $user_email = get_user_email();
 
             // get token_purpose -- other option is PASSD
-            $token_purpose = strtoupper("EMAIL");
+            $token_purpose = PURPOSE_EMAIL;
 
             $sql_reset_token = "UPDATE `tokens` SET `token_text`='$token', `token_state`= 0,`token_dormancy`= '$token_dormancy',`token_purpose`= PURPOSE_EMAIL WHERE `user_email`= '$user_email'";
 
