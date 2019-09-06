@@ -6,7 +6,7 @@
     define('PURPOSE_PASSWORD', 'PASSD');
 
     if (!check_session()) {
-        redirect_to('../includes/logout.php?msg=you must loggin or sign up to change your user info');
+        redirect_to('../includes/logout.php');
     }
 
     if (isset($_POST['email_token_btn'])) {
@@ -16,8 +16,9 @@
             redirect_to("../user_profile.php?msg=new email field empty or not set in the token processor");
         }
 
-        $update_email = check_data($update_email);
+        $update_email = check_data($_POST['update_email']);
         $update_email = strtolower(filter_var($update_email, FILTER_SANITIZE_EMAIL));
+
         
         if (!filter_var($update_email, FILTER_VALIDATE_EMAIL)) {   
             redirect_to("../user_profile.php?msg=Invalid new email, enter a valid email");
@@ -39,20 +40,20 @@
 
         $user_email = get_user_email();
 
-        $sql_select_token_row = "SELECT `token_text`, `token_state`, `token_dormancy`, `token_purpose` FROM `tokens` WHERE `tokens`.`user_email` = '$user_email' ORDER BY `tokens`.`token_date` DESC LIMIT 1";
+        $select_token_row_query = "SELECT `token_text`, `token_state`, `token_dormancy`, `token_purpose` FROM `tokens` WHERE `tokens`.`user_email` = '$user_email' ORDER BY `tokens`.`token_date` DESC LIMIT 1";
 
-        $token_row_result = mysqli_query($db_connection, $sql_select_token_row);
+        $select_token_row_result = mysqli_query($db_connection, $select_token_row_query);
 
-        if (!$token_row_result) {
+        if (!$select_token_row_result) {
             redirect_to("../user_profile.php?msg=couldn't select token row, edit any of the fields below and try again");
         }
 
-        $token_row_data = mysqli_fetch_assoc($token_row_result);
+        $selected_token_row_data = mysqli_fetch_assoc($select_token_row_result);
 
-        $token_state    = $token_row_data['token_state'];     // checked
-        $token_text     = $token_row_data['token_text'];      // checked
-        $token_dormancy = $token_row_data['token_dormancy'];  // checked
-        $token_purpose  = $token_row_data['token_purpose'];   // checked
+        $token_state    = $selected_token_row_data['token_state'];     // checked
+        $token_text     = $selected_token_row_data['token_text'];      // checked
+        $token_dormancy = $selected_token_row_data['token_dormancy'];  // checked
+        $token_purpose  = $selected_token_row_data['token_purpose'];   // checked
 
         // check the toke_state
         if ($token_state) {

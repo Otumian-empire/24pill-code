@@ -2,11 +2,11 @@
     include_once "controller_preprocessor.php";
 
     if (!check_session()) {
-        redirect_to("../includes/logout.php?msg=a sign up or login is required");
+        redirect_to("../includes/logout.php");
     }
 
     if (!isset($_POST['update_email_btn'])) {
-        redirect_to("../signup.php?msg=create a an account");
+        redirect_to("../signup.php?msg=just create a an account, please");
     }
 
     // generate token
