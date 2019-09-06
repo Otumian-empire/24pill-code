@@ -20,6 +20,11 @@
     // into the urlencode or encode_data
     $search_responds = json_decode($_GET['search_responds']);
 
+    if (json_last_error() != JSON_ERROR_NONE) {
+        // Use json_last_error_msg to display the message only, (not test against it)
+        redirect_to("../index.php?msg=couldn't read the search result, JSON error ". json_last_error_msg());
+    }
+
 ?>
 
 
