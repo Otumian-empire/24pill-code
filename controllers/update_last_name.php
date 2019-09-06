@@ -24,4 +24,5 @@
         redirect_to("../user_profile.php?msg=couldn't update user detail, try again later");
     }
     
+    // send email that info has been changed
     redirect_to("../user_profile.php?msg=detail updated successfully");
