@@ -13,32 +13,28 @@
 	// pull user details from the database except, password (allow user to enter password)
 	$user_email = get_user_email();
 
-	$sql_select_user_details = "SELECT `users`.`user_first_name`, `users`.`user_last_name`, `users`.`user_email`, `users`.`user_bio` FROM `users` WHERE `users`.`user_email`='$user_email' LIMIT 1";
+	$select_user_data_query = "SELECT `users`.`user_first_name`, `users`.`user_last_name`, `users`.`user_email`, `users`.`user_bio` FROM `users` WHERE `users`.`user_email`='$user_email' LIMIT 1";
 
 
-	$result = mysqli_query($db_connection, $sql_select_user_details);
+	$select_user_data_result = mysqli_query($db_connection, $select_user_data_query);
 
-	if (!$result) {
+	if (!$select_user_data_result) {
 		redirect_to("index.php?msg=couldn't read your data from our system, try refreshing your page and try again later");
-		// echo '<div class="index-body container"> </div>';
-		// echo mysqli_error($db_connection);
-		// exit;
 	}
 
-	$user_data = mysqli_fetch_array($result);
-
-	// echo '<div class="index-body container"> </div>';
-	// print_r($user_data);
-	// exit;
+	$user_data = mysqli_fetch_array($select_user_data_result);
 
 ?>
+
 
 
 <div class="index-body container">
 
     <div class="text-center text-info text-warning card-subtitle">
-            <p>Make changes and click the button to update</p>
-            <p>Certain information updates require further information, which would be sent to you via e-mail</p>
+		<p>Make changes and click the button to update</p>
+		<p>Certain information updates require further information, which would be sent to you via e-mail</p>
+		<p>Some changes are permanent such as deleting profile - you can not gain the articles or comment deleted</p>
+		<p>Because we do not keep any data of yours</p>
     </div>
 
 	<div class="card card-update mx-auto mt-0">
@@ -269,6 +265,45 @@
 							<!-- password update button -->
 							<div class="form-label-group">
 								<button class="form-control-sm btn btn-primary text-capitalize" id="update_password_btn" name="update_password_btn" type="submit" >Change Password</button>
+							</div>
+
+						</div>
+					
+					</div>
+					
+				</div>
+				
+			</form>
+			<!-- password form ends here -->
+
+		</div>
+        <!-- card body for password ends here -->
+
+		<hr>
+
+        <!-- card body for delete account starts here -->
+        <div class="card-body">
+
+            <!-- password form starts here -->
+			<form method="POST" action="controllers/delete_profile.php" class="">
+
+				<div class="form-group">
+
+					<div class="form-row">
+
+						<div class="col-md-3">
+							<!-- password -->
+
+							<div class="form-label-group">
+								<p class="form-control border-0">This is irreversible</p>
+							</div>
+
+						</div>
+
+                        <div class="col-md-8">
+							<!-- password update button -->
+							<div class="form-label-group">
+								<button class="form-control-sm btn btn-danger text-capitalize col" id="delete_account" name="delete_account" type="submit" >Delete Account</button>
 							</div>
 
 						</div>
