@@ -203,15 +203,6 @@
 
 						</div>
 
-						<div class="">
-							<!-- new email -->
-							<div class="form-label-group hidden">
-								<!-- <input type="text" class="form-control" id="update_email" name="update_email" placeholder="new email" autofocus/> -->
-								<!-- <label for="email" class="text-capitalize">New email</label> -->
-							</div>
-
-						</div>
-
                         <div class="col">
 							<!-- email update button -->
 							<div class="form-label-group">
@@ -246,18 +237,9 @@
 							<!-- password -->
 
 							<div class="form-label-group">
-								<p class="form-control border-0">User password</p>
+								<p class="form-control border-0">***********</p>
 								<label for="password name" class="text-capitalize">Current password</label>
 							</div>
-
-						</div>
-
-						<div class="">
-							<!-- new password -->
-							<!-- <div class="form-label-group">
-								<input type="text" class="form-control" id="update_password" name="update_password" placeholder="new password"/>
-								<label for="new password" class="text-capitalize">New password</label>
-							</div> -->
 
 						</div>
 
@@ -285,7 +267,7 @@
         <div class="card-body">
 
             <!-- password form starts here -->
-			<form method="POST" action="controllers/delete_profile.php" class="">
+			<form method="POST" action="controllers/delete_profile_processor.php" class="">
 
 				<div class="form-group">
 
@@ -303,7 +285,7 @@
                         <div class="col-md-8">
 							<!-- password update button -->
 							<div class="form-label-group">
-								<button class="form-control-sm btn btn-danger text-capitalize col" id="delete_account" name="delete_account" type="submit" >Delete Account</button>
+								<button class="form-control-sm btn btn-danger text-capitalize col" id="delete_account_btn" name="delete_account_btn" type="submit" >Delete Account</button>
 							</div>
 
 						</div>

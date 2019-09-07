@@ -6,7 +6,7 @@
     }
 
     if (!isset($_POST['update_bio_btn'])) {
-        redirect_to("../signup.php?msg=create a an account");
+        redirect_to("../user_profile.php?msg=edit user profile");
     }
 
     if (!isset($_POST['update_bio']) || empty($_POST['update_bio'])) {
