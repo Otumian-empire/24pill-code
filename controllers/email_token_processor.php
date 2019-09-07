@@ -136,14 +136,26 @@
             // get user_email
             $user_email = get_user_email();
 
-            $update_user_email_sql = "UPDATE `users` SET `user_email`= '$update_email' WHERE `user_email`= '$user_email'";
-
-            $update_user_email_result = mysqli_query($db_connection, $update_user_email_sql);
+            $update_user_email_result = update_tb_users('user_email', $update_email, 'user_email', $user_email);
 
             if (!$update_user_email_result) {
                 redirect_to("../user_profile.php?msg=couldn't update user email, try again later " . mysqli_error($db_connection));
             }
-            
+
+            // you have to update anywhere the former email was used
+            // in articles, in comments, and drop all the tokens in the name of the former email
+            $update_email_in_articles = update_tb_articles('user_email', $update_email, 'user_email', $user_email);
+
+            if (!$update_email_in_articles) {
+                redirect_to("../user_profile.php?msg=couldn't update user email in artilces" . mysqli_error($db_connection));
+            }
+
+            $update_email_in_comments = update_tb_comments('user_email', $update_email, 'user_email', $user_email);
+
+            if (!$update_email_in_comments) {
+                redirect_to("../user_profile.php?msg=couldn't update user email in comments" . mysqli_error($db_connection));
+            }
+
             redirect_to("../includes/logout.php?msg=email updated, login to continue");
 
         } 

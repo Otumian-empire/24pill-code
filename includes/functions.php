@@ -292,3 +292,76 @@
     {
         return date('Y-m-d H:i:s', strtotime('now'));
     }
+
+
+    /**
+     * return a bool on the success of updating the users table
+     * @param $set_field: the field to be updated
+     * @param $to_this_value: the value to set to the updating field
+     * @param $where_field: changes to this particular field
+     * @param $is_this_value: changes should happen to the field which has this value
+     * `UPDATE users_tb SET $set_field = $set_field = $to_this_value WHERE $where_field = $has_this_value`
+     */
+    function update_tb_users($set_field, $to_this_value, $where_field, $has_this_value)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $update_user_query = "UPDATE `users` SET `$set_field` = '$to_this_value' WHERE `$where_field`= '$has_this_value'";
+
+        $update_user_result = mysqli_query($db_connection, $update_user_query);
+
+        if (!$update_user_result) {
+            return 0;
+        }
+
+        return 1;
+    }
+
+
+    /**
+     * return a bool on the success of updating the articles table
+     * @param $set_field: the field to be updated
+     * @param $to_this_value: the value to set to the updating field
+     * @param $where_field: changes to this particular field
+     * @param $is_this_value: changes should happen to the field which has this value
+     * `UPDATE articles_tb SET $set_field = $set_field = $to_this_value WHERE $where_field = $has_this_value`
+     */
+    function update_tb_articles($set_field, $to_this_value, $where_field, $has_this_value)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $update_article_query = "UPDATE `articles` SET `$set_field` = '$to_this_value' WHERE `$where_field`= '$has_this_value'";
+
+        $update_article_result = mysqli_query($db_connection, $update_article_query);
+
+        if (!$update_article_result) {
+            return 0;
+        }
+
+        return 1;
+    }
+
+
+    /**
+     * return a bool on the success of updating the comments table
+     * @param $set_field: the field to be updated
+     * @param $to_this_value: the value to set to the updating field
+     * @param $where_field: changes to this particular field
+     * @param $is_this_value: changes should happen to the field which has this value
+     * `UPDATE comments_tb SET $set_field = $set_field = $to_this_value WHERE $where_field = $has_this_value`
+     */
+    function update_tb_comments($set_field, $to_this_value, $where_field, $has_this_value)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $update_comment_query = "UPDATE `comments` SET `$set_field` = '$to_this_value' WHERE `$where_field` = '$has_this_value'";
+
+        $update_comment_result = mysqli_query($db_connection, $update_comment_query);
+
+        if (!$update_comment_result) {
+            return 0;
+        }
+
+        return 1;
+    }
+    
