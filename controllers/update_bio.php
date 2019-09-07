@@ -16,10 +16,8 @@
     $new_bio = strtolower(check_data($_POST['update_bio']));
     $user_email = get_user_email();
 
-    $update_bio_sql = "UPDATE `users` SET `user_bio`='$new_bio' WHERE `users`.`user_email`='$user_email' LIMIT 1";
-
-    $update_bio_result = mysqli_query($db_connection, $update_bio_sql);
-
+    $update_bio_result = update_tb_users('user_bio', $user_bio, 'user_email', $user_email);
+    
     if (!$update_bio_result) {
         redirect_to("../user_profile.php?msg=couldn't update user detail, try again later");
     }

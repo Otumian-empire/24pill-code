@@ -6,7 +6,7 @@
     }
 
     if (!isset($_POST['update_password_btn'])) {
-        redirect_to("../signup.php?msg=create a an account");
+        redirect_to("../user_profile.php?msg=create a an account");
     }
 
     // generate token

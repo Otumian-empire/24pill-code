@@ -14,11 +14,12 @@
     }
 
     $new_last_name = strtolower(check_data($_POST['update_last_name']));
+
     $user_email = get_user_email();
 
-    $update_last_name_sql = "UPDATE `users` SET `user_last_name`='$new_last_name' WHERE `users`.`user_email`='$user_email' LIMIT 1";
+    $update_last_name_query = "UPDATE `users` SET `user_last_name`='$new_last_name' WHERE `users`.`user_email`='$user_email' LIMIT 1";
 
-    $update_last_name_result = mysqli_query($db_connection, $update_last_name_sql);
+    $update_last_name_result = mysqli_query($db_connection, $update_last_name_query);
 
     if (!$update_last_name_result) {
         redirect_to("../user_profile.php?msg=couldn't update user detail, try again later");

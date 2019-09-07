@@ -13,5 +13,3 @@
 		// TODO: 504 page needed here
 		redirect_to("../index.php?msg=". urlencode(mysqli_connect_error()) . " server or connection error");
 	}
-	
-?>

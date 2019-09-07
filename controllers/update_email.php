@@ -6,7 +6,7 @@
     }
 
     if (!isset($_POST['update_email_btn'])) {
-        redirect_to("../signup.php?msg=just create a an account, please");
+        redirect_to("../user_profile.php?msg=click the btn");
     }
 
     // generate token
