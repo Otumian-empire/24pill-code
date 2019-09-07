@@ -365,3 +365,25 @@
         return 1;
 
     }
+
+
+    /**
+     * insert comment into the comments table
+     * @param $comment_data_list: an array of post_id, comment_text and user_email
+     */
+    function insert_into_tb_comment($comment_data_list)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $insert_comment_query = "INSERT INTO `comments`(`post_id`, `comment_text`, `user_email`) VALUES ($comment_data_list[0], '$comment_data_list[1]', '$comment_data_list[2]')";
+
+        $insert_comment_result = mysqli_query($db_connection, $insert_comment_query);
+
+        if (!$insert_comment_result) {
+            return 0;
+        }
+
+        return 1;
+        
+    }
+    
