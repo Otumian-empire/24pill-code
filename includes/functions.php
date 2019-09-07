@@ -119,6 +119,10 @@
             return 0;
         }
 
+        if (mysqli_num_rows($select_from_users_result) !== 1) {
+            return 0;
+        }
+
         return 1;
 
     }
@@ -386,4 +390,67 @@
         return 1;
         
     }
+
+
+    /**
+     * deletes all user comments and returns a bool on success
+     * @param $where_field
+     * @param $has_value
+     */
+    function delete_all_user_comments($where_field, $has_value)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $delete_all_user_comments_query = "DELETE FROM `comments` WHERE `$where_field` = '$has_value'";
+
+        $delete_all_user_comments_result = mysqli_query($db_connection, $delete_all_user_comments_query);
+
+        if (!$delete_all_user_comments_result) {
+            return 0;
+        }
+
+        return 1;
+
+    }
     
+
+    /**
+     * delete all user articles and return a bool
+     * @param $where_field
+     * @param $has_value
+     */
+    function delete_all_user_articles($where_field, $has_value)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $delete_all_user_articles_query = "DELETE FROM `articles` WHERE `$where_field` = '$has_value'";
+        $delete_all_user_articles_result = mysqli_query($db_connection, $delete_all_user_articles_query);
+
+        if (!$delete_all_user_articles_result) {
+            return 0;
+        }
+
+        return 1;
+        
+    }
+
+
+    /**
+     * delete user and return a bool
+     * @param $where_field
+     * @param $has_value
+     */
+    function delete_from_tb_user($where_field, $has_value)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+        
+        $delete_user_query = "DELETE FROM `users` WHERE `$where_field` = '$has_value'";
+        $delete_user_result = mysqli_query($db_connection, $delete_user_query);
+
+        if (!$delete_user_result) {
+            return 0;
+        }
+
+        return 1;
+
+    }

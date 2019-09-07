@@ -12,26 +12,17 @@
     $user_email = get_user_email();
 
     // delete all comments of the user
-    $delete_all_user_comments_query = "DELETE FROM `comments` WHERE `user_email` = '$user_email'";
-    $delete_all_user_comments_result = mysqli_query($db_connection, $delete_all_user_comments_query);
-
-    if (!$delete_all_user_comments_result) {
+    if (!delete_all_user_comments('user_email', $user_email)) {
         redirect_to("../user_profile.php?msg=couldn't delete comments");
     }
     
     // delete all articles of the user
-    $delete_all_user_articles_query = "DELETE FROM `articles` WHERE `user_email` = '$user_email'";
-    $delete_all_user_articles_result = mysqli_query($db_connection, $delete_all_user_articles_query);
-
-    if (!$delete_all_user_articles_result) {
-        redirect_to("../user_profile.php?msg=couldn't delete articles");
+    if (!delete_all_user_articles('user_email', $user_email)) {
+        redirect_to("../user_profile.php?msg=couldn't delete articles ".mysqli_error($db_conne));
     }
 
     // delete from user from users table
-    $delete_user_query = "DELETE FROM `users` WHERE `user_email` = '$user_email'";
-    $delete_user_result = mysqli_query($db_connection, $delete_user_query);
-
-    if (!$delete_user_result) {
+    if (!delete_from_tb_user('user_email', $user_email)) {
         redirect_to("../user_profile.php?msg=couldn't delete user");
     }
 

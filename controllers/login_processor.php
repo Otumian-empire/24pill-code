@@ -36,10 +36,10 @@
     // encrypt password -- for development purposes -- use sha1
     $password = sha1($password);
     
-    // check if any of the credentials is empty
-    if (empty($email) || empty($password)) {
-        redirect_to("../login.php?msg=a field may be empty check and try again");
-    }
+    // // check if any of the credentials is empty
+    // if (empty($email) || empty($password)) {
+    //     redirect_to("../login.php?msg=a field may be empty check and try again");
+    // }
 
     // put credentials into an array
     $login_data_list = array($email, $password);
