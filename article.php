@@ -69,7 +69,8 @@
 			<hr>
 
 			<!-- content -->
-			<div><?= decode_data(str_replace("rn", "<br>", $article_data['post_content']));?></div>
+			<div><?php // echo decode_data(str_replace("rn", "<br>", $article_data['post_content']));?></div>
+			<div><?= decode_data($article_data['post_content']);?></div>
 			<br><br>
 
 			<!-- comment -->
