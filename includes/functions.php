@@ -1,17 +1,19 @@
 <?php
     /**
      * this takes a string message as parameter and echos an error message,
+     * @param $error_message
      */
     function error_message($error_message)
     {
         $db_connection = $GLOBALS['db_connection'];
-        return "{$error_message}" . urlencode(mysqli_error($db_connection)) . "<br/>";
+        return "{$error_message} " . urlencode(mysqli_error($db_connection)) . "<br/>";
     }
 
 
     /**
      * Thie will mysqli_real_escape_string, trim, striplashes and htmlspecialchars on 
      * the args given to it
+     * @param $data
      */
     function check_data($data)
     {
@@ -34,11 +36,12 @@
 
 
     /**
-     * This redirects to the page provided as an arg, $where
+     * This redirects to the page provided as an arg, $this_url
+     * @param $this_url
      */
-    function redirect_to($where)
+    function redirect_to($this_url)
     {
-        header("Location: {$where}");
+        header("Location: {$this_url}");
         exit();
     }
 
@@ -49,31 +52,9 @@
     function ping_server()
     {
         $db_connection = $GLOBALS['db_connection'];
+
         return mysqli_ping($db_connection);
-    }
 
-
-    /**
-     * updates the database with respect to the parameters given
-     * @param $table_name
-     * @param $field
-     * @param $fields_value
-     * @param $token
-     */
-    function update_tb($table_name, $field, $to, $token)
-    {
-        $db_connection = $GLOBALS['db_connection'];
-
-        $sql = "UPDATE `$table_name` SET `$field` = '$fields_value' WHERE `index_number` = '$token'";
-
-        $query = mysqli_query($db_connection, $sql);
-
-        if (!$query) {
-            echo "I am not sure of what is going on there.. " . mysqli_error($db_connection);
-            return 0;
-        }
-
-        return 1;
     }
 
 
@@ -85,18 +66,18 @@
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`)" 
+        $insert_into_users_query = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`)" 
         . " VALUES('$values_in_array[0]','$values_in_array[1]','$values_in_array[2]','$values_in_array[3]',".
         "'$values_in_array[4]');";
 
-        $query = mysqli_query($db_connection, $sql);
+        $insert_into_users_result = mysqli_query($db_connection, $insert_into_users_query);
 
-        if (!$query) {
-            echo "System may be down, please try in a second later.. " . mysqli_error($db_connection);
+        if (!$insert_into_users_result) {
             return 0;
         }
 
         return 1;
+
     }
 
 
@@ -108,14 +89,12 @@
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "INSERT INTO `articles`(`user_email`, `post_title`, `post_content`)
-        VALUES(\"$values_in_array[0]\",\"$values_in_array[1]\",\"$values_in_array[2]\");";
+        $insert_into_articles_query = "INSERT INTO `articles`(`user_email`, `post_title`, `post_content`)
+        VALUES('$values_in_array[0]', '$values_in_array[1]', '$values_in_array[2]');";
 
-        $query = mysqli_query($db_connection, $sql);
+        $insert_into_articles_result = mysqli_query($db_connection, $insert_into_articles_query);
 
-        if (!$query) {
-            echo "Either there is an issue with your input or just that our servers may ".
-            "be down.<br>Reload in a second.. " . mysqli_error($db_connection);
+        if (!$insert_into_articles_result) {
             return 0;
         }
 
@@ -125,31 +104,23 @@
 
     /**
      * select email and password from table with respect to the parameters given
-     * @param $values
+     * @param $values -> email and password
      * values is an array of email and password
      */
     function select_from_tb_users($values)
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $sql = "SELECT `users`.`user_email`, `users`.`user_password` FROM `users` WHERE `users`.`user_email` = " 
-        . "\"$values[0]\"" . "AND `users`.`user_password` = " . "\"$values[1]\"" . "LIMIT 1";
+        $select_from_users_query = "SELECT `users`.`user_email`, `users`.`user_password` FROM `users` WHERE `users`.`user_email` = '$values[0]' AND `users`.`user_password` = '$values[1]' LIMIT 1";
 
-        $query = mysqli_query($db_connection, $sql);
+        $select_from_users_result = mysqli_query($db_connection, $select_from_users_query);
 
-        if (!$query) {
-            echo "Check your email and or password, and try again..." . mysqli_error($db_connection);
-            return 0;
-        }
-
-        if (mysqli_num_rows($query) !== 1) {
-            echo "You are creative, come up with a better and unique email<br> and or also use, a "
-            ."strong password<br>". mysqli_error($db_connection);
-            
+        if (!$select_from_users_result) {
             return 0;
         }
 
         return 1;
+
     }
 
 
@@ -177,12 +148,14 @@
         }
 
         return 1;
+
     }
 
 
     /**
      * check if session isn't started and start a new session
-     * else, set session to @param $data
+     * else, set session with $data
+     * @param $data
      */
     function set_session($data)
     {
@@ -193,7 +166,8 @@
 
 
     /**
-     * generate a token for the session
+     * return generate a token for the session
+     * @param $data
      */
     function generate_session_token($data)
     {
@@ -215,11 +189,14 @@
     /**
      * return an encoded string making use of htmlentities and htmlspecialchars
      * A rigorous version is check_data($data)
+     * @param $data
      */
     function encode_data($data)
     {
         $db_connection = $GLOBALS['db_connection'];
-        return htmlentities(htmlspecialchars(mysqli_real_escape_string($db_connection, $data)));   
+
+        return htmlentities(htmlspecialchars(mysqli_real_escape_string($db_connection, $data)));
+        
     }
 
 
@@ -233,8 +210,8 @@
 
 
     /**
-     * returns a random number, given the length of the data desired.
-     * this random token generator function provided by Scott.
+     * returns a random alphanumeric characters, given the length of the data desired.
+     * this random token generator function is provided by Scott.
      * source: https://stackoverflow.com/a/13733588/4592338
       */
     function generate_token()
@@ -277,7 +254,7 @@
 
 
     /**
-     * returns the token_dormancy period in 'Y-m-d H:i:s' format
+     * returns the token_dormancy period in `Y-m-d H:i:s` format
      */
     function get_dormancy_time()
     {
@@ -315,16 +292,17 @@
         }
 
         return 1;
+
     }
 
 
     /**
-     * return a bool on the success of updating the articles table
+     * return a bool on the success of updating the articles table.
+     * `UPDATE articles_tb SET $set_field = $set_field = $to_this_value WHERE $where_field = $has_this_value`
      * @param $set_field: the field to be updated
      * @param $to_this_value: the value to set to the updating field
      * @param $where_field: changes to this particular field
      * @param $is_this_value: changes should happen to the field which has this value
-     * `UPDATE articles_tb SET $set_field = $set_field = $to_this_value WHERE $where_field = $has_this_value`
      */
     function update_tb_articles($set_field, $to_this_value, $where_field, $has_this_value)
     {
@@ -339,6 +317,7 @@
         }
 
         return 1;
+
     }
 
 
@@ -363,5 +342,26 @@
         }
 
         return 1;
+
     }
     
+
+    /**
+     * deletes the token by user_email and returns a bool
+     * @param $where_field: delete token from this field
+     * @param $has_this_value: which has a value
+     */
+    function delete_from_tb_token($where_field, $has_this_value)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $delete_token_query = "DELETE FROM `tokens` WHERE `$where_field` = '$has_this_value'";
+        $delete_token_result = mysqli_query($db_connection, $delete_token_query);
+
+        if (!$delete_token_result) {
+            return 0;
+        }
+
+        return 1;
+
+    }
