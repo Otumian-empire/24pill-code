@@ -40,7 +40,7 @@
 
         $user_email = get_user_email();
 
-        $select_token_row_query = "SELECT `token_text`, `token_state`, `token_dormancy`, `token_purpose` FROM `tokens` WHERE `tokens`.`user_email` = '$user_email' ORDER BY `tokens`.`token_date` DESC LIMIT 1";
+        $select_token_row_query = "SELECT `token_text`, `token_dormancy`, `token_purpose` FROM `tokens` WHERE `tokens`.`user_email` = '$user_email' ORDER BY `tokens`.`token_date` DESC LIMIT 1";
 
         $select_token_row_result = mysqli_query($db_connection, $select_token_row_query);
 
@@ -50,42 +50,9 @@
 
         $selected_token_row_data = mysqli_fetch_assoc($select_token_row_result);
 
-        $token_state    = $selected_token_row_data['token_state'];     // checked
         $token_text     = $selected_token_row_data['token_text'];      // checked
         $token_dormancy = $selected_token_row_data['token_dormancy'];  // checked
         $token_purpose  = $selected_token_row_data['token_purpose'];   // checked
-
-        // check the toke_state
-        if ($token_state) {
-            // reset the token and redirect_to the token field with the update email
-
-            // generate token
-            $token = generate_token();
-
-            // get token_dormancy period
-            $token_dormancy = get_dormancy_time();
-
-            // get user_email
-            $user_email = get_user_email();
-
-            // get token_purpose -- other option is PASSD
-            $token_purpose = PURPOSE_EMAIL;
-
-            $sql_reset_token = "UPDATE `tokens` SET `token_text`='$token', `token_state`= 0,`token_dormancy`= '$token_dormancy',`token_purpose`= PURPOSE_EMAIL WHERE `user_email`= '$user_email'";
-
-            $update_token_sql = mysqli_query($db_connection, $sql_reset_token);
-
-            if (!$update_token_sql) {
-                redirect_to("../user_profile.php?msg=couldn't update token in the tokens table "
-                . mysqli_error($db_connection));
-            }
-
-            // TODO: send the token to the user by the email
-
-            // redirect_to token_field.php to verify the token
-            redirect_to('../token_field.php?msg=token has been used, enter new token and new email');
-
-        }
 
         // check if the current time stamp has exceeded the dormancy time
         // through has_token_expired($token_dormancy)
@@ -104,7 +71,7 @@
             // get token_purpose -- other option is PASSD
             $token_purpose = strtoupper("EMAIL");
 
-            $update_token_sql = "UPDATE `tokens` SET `token_text`='$token', `token_state`= 0,`token_dormancy`= '$token_dormancy',`token_purpose`= PURPOSE_EMAIL WHERE `user_email`= '$user_email'";
+            $update_token_sql = "UPDATE `tokens` SET `token_text`='$token', `token_dormancy`= '$token_dormancy',`token_purpose`= PURPOSE_EMAIL WHERE `user_email`= '$user_email'";
 
             $update_token_result = mysqli_query($db_connection, $update_token_sql);
 
