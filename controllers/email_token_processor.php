@@ -123,19 +123,12 @@
                 redirect_to("../user_profile.php?msg=couldn't update user email in comments" . mysqli_error($db_connection));
             }
 
-            // $delete_token_query = "DELETE FROM `tokens` WHERE `user_email` = '$user_email'";
-            // $delete_token_result = mysqli_query($db_connection, $delete_token_query);
-
-            // if (!$delete_token_result) {
-            //     redirect_to("../user_profile.php?msg=couldn't delete token row" . mysqli_error($db_connection));
-            // }
-
             $delete_token_result = delete_from_tb_token('user_email', $user_email);
 
             if (!$delete_token_result) {
                 redirect_to("../user_profile.php?msg=couldn't delete token row" . mysqli_error($db_connection));
             }
-            
+
             redirect_to("../includes/logout.php?msg=email updated, login to continue");
 
         } 

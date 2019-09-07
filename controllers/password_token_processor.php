@@ -94,7 +94,7 @@
         }
 
         if ($token_purpose === PURPOSE_PASSWORD) {
-            // update the user email with the update email
+            // update the user email with the update email and delete the token
             // get user_email
             $user_email = get_user_email();
 
@@ -104,6 +104,12 @@
                 redirect_to("../user_profile.php?msg=couldn't update user password, try again later " . mysqli_error($db_connection));
             }
             
+            $delete_token_result = delete_from_tb_token('user_email', $user_email);
+
+            if (!$delete_token_result) {
+                redirect_to("../user_profile.php?msg=couldn't delete token row" . mysqli_error($db_connection));
+            }
+
             redirect_to("../includes/logout.php?msg=password updated, login to continue");
 
         } 
@@ -114,3 +120,4 @@
     } else {
         redirect_to("../includes/logout.php?msg=a sign up or login is required");
     }
+    
