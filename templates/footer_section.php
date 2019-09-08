@@ -13,37 +13,34 @@
                 <div class="col-lg-3 col-sm-2 col-xs-3">
                     <h3> Contact </h3>
                     <ul>
-                        <li><a class="email" href=""> email </a></li> <!-- gmail -->
-                        <br />
+                        <li><a class="email" href="mailto:popecan1000@gmail.com" target="_blank"> G-Mail</a></li>
+                        <!-- gmail -->
                         <li>
                             <p> +233(0) 267 330 353 </p>
-                        </li> <!-- mobile -->
+                        </li>
+                        <!-- mobile -->
                         <li>
-                            <p> facebook </p>
-                        </li> <!-- facebook -->
+                            <a href="#"> facebook </a>
+                        </li>
+                        <!-- facebook -->
                         <li>
-                            <p> github </p>
-                        </li> <!-- github -->
+                            <a href="https://github.com/Otumian-empire" target="_blank"> github </a>
+                        </li>
+                        <!-- github -->
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-sm-2 col-xs-3">
                     <ul>
                         <li>
-                            <h5> <a href="about.php" style="margin-top: 5em"> ABOUT US</a>
-                                <h5>
+                            <h5> <a href="about.php" style="margin-top: 5em"> ABOUT US</a></h5>
                         </li>
                         <li>
-                            <h5><a href="#"> CURRENT SERIES </a>
-                                <h5>
+                            <h5><p> Lapaz, Accra, GA, Ghana </p></h5>
                         </li>
                         <li>
-                            <h5><a href="#"> THE HOUSE </a>
-                                <h5>
-                        </li>
-                        <li>
-                            <h5><a href="#"> LOOKING BACK </a>
-                                <h5>
+                            <h5><p> May require my services </p></h5>
+                            <p>reach me through email or phone number</p>
                         </li>
                     </ul>
                 </div>
@@ -57,8 +54,11 @@
         <!--/.footer-->
 
         <div class="footer-bottom">
-            <div class="container">
-                <p class="pull-left copyright"> Copyright © 24Pill-Code 2019. All right reserved. </p>
+            <div class="container row text-justify">
+                <p class="small col-4 text-center"> Copyright © 24Pill-Code 2019. All right reserved. </p>
+                <p class="small col-2 text-center"> Privacy Policy </p>
+                <p class="small col-3 text-center"> Terms of Use and Service </p>
+                <p class="small col-1 text-center"> Licence </p>
             </div>
         </div>
         <!--/.footer-bottom-->
