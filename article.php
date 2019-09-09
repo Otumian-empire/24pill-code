@@ -35,16 +35,6 @@
 ?>
 
 <?php
-	// $read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE `post_id`=" . $article_id . " LIMIT 1;";
-
-    // $article_result = mysqli_query($db_connection, $read_article_query);
-
-    // if (!$article_result) {
-	// 	// TODO: 504 page
-	// 	redirect_to("login.php?msg=we need a 504 error here");
-	// }
-
-	// $article_data = mysqli_fetch_assoc($article_result);
 
 	$article_data = select_article_row($article_id);
 	

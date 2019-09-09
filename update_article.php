@@ -24,6 +24,12 @@
         redirect_to("all_articles.php?msg=article does not exist");
     }
 
+    $article_data = select_article_row($article_id);
+	
+	if (!$article_data) {
+		redirect_to("login.php?msg=we need a 504 error here".mysqli_error($db_connection));
+	}
+
 ?>
 
 
@@ -35,7 +41,7 @@
 
 		<form action="controllers/update_article_processor.php" method="post">
 
-			<input class="form-control rounded-0" type="text" name="update_post_title" id="" placeholder="article header.."  value="" autofocus />
+			<input class="form-control rounded-0" type="text" name="update_post_title" id="update_post_title" placeholder="article header.."  value="<?=decode_data($article_data['post_title']);?>" autofocus />
 
 			<!-- TODO: find a better way to add the key words -->
 			<!-- look into controllers/write_article_processor.php -->
@@ -43,7 +49,7 @@
 			<br>
 			<div class="text-area">
 
-				<textarea name="update_post_content" id="update_post_content" class="p-1 md-textarea form-control rounded-0" rows="3" placeholder="article body.." value=""></textarea>
+				<textarea name="update_post_content" id="update_post_content" class="p-1 md-textarea form-control rounded-0" rows="3" placeholder="article body.." value=""><?=decode_data($article_data['post_content']);?></textarea>
 			
 				<br>
 				<button name="update_post_submit_button" type="submit" class="btn btn-success btn-block">UPDATE ARTICLE</button>	
@@ -61,7 +67,7 @@
 <script src="statics/js/tinymce/js/tinymce/tinymce.min.js"></script>
 <script>
 	tinymce.init({
-		selector: '#post_content'
+		selector: '#update_post_content'
 	});
 </script>
 
