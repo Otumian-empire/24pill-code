@@ -9,7 +9,7 @@
     <!-- my static files -->
     <script src="statics/js/jquery-3.4.1.js"></script>
     <script src="statics/js/bootstrap.js"></script>
-    <script src="statics/js/comments.js"></script>
+    <!-- <script src="statics/js/comments.js"></script> -->
     
     <script src="statics/js/custom.js"></script>
 </body>

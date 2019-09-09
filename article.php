@@ -1,55 +1,56 @@
 <?php
 	include_once "views_preprocessor.php";
 	
-	// read article from the database using the id from the article
 	if (!isset($_GET['qid']) || $_GET['qid'] === NULL) {
 		redirect_to("index.php?msg=qui is not set");
 	}
 	
 	$article_id = urlencode($_GET['qid']);
 
-	// ensuring that the $article_id actually exit
-	// match is against an array of ids
+	$ids = select_article_ids();
 
-	// SELECTQUERY # 0
-	$sql_query_select_ids = "SELECT `post_id` FROM `articles`";
-	$query_success = mysqli_query($db_connection, $sql_query_select_ids);
-
-	if (!$query_success) {
-		redirect_to('index.php?msg=query unsuccessful');
+	if (!$ids) {
+		redirect_to("all_articles.php?msg=error, there is no article");
 	}
 
-	// TODO: find a better way to check if the id exits
-	// TODO: there is another thought, use the query statement for reading the comment
-	//  to check/validate the article_id so that the above query won't be used
-	// to reduce the number of lines
-	$ids = mysqli_fetch_all($query_success);
 	$ids = array_column($ids,0);
 
-	if (!in_array($article_id, $ids)) {
-		// page can not be found needed here
-		// redirect_to('')
-		$ot  = '<div class="index-body container">';
-		$ot .= '	<div class="card mx-auto mt-5 card-register text-center">';
-		$ot .= '		<p class="card-header">Page Not Found</p>';
-		$ot .= '		<p class="card-body">Page can not be found, please visit';
-		$ot .= '			 <a href="all_articles.php">Article</a> for more</p>';
-		$ot .= '	</div>';
-		$ot .= '</div>';
-		echo $ot;
-		exit;
-	} 
+?>
 
-	$read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE `post_id`=" . $article_id . " LIMIT 1;";
+<?php
+	if (!in_array($article_id, $ids)):
+?>
+		<!-- page can not be found needed here -->
+		<!-- redirect_to('') -->
+		<div class="index-body container">
+			<div class="card mx-auto mt-5 card-register text-center">
+				<p class="card-header">Page Not Found</p>';
+				<p class="card-body"> Page can not be found, please visit <a href="all_articles.php">Article</a> for more</p>
+			</div>
+		</div>
 
-    $article_result = mysqli_query($db_connection, $read_article_query);
+<?php
+	exit;
+	endif;
+?>
 
-    if (!$article_result) {
-		// TODO: 504 page
-		redirect_to("login.php?msg=we need a 504 error here");
+<?php
+	// $read_article_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE `post_id`=" . $article_id . " LIMIT 1;";
+
+    // $article_result = mysqli_query($db_connection, $read_article_query);
+
+    // if (!$article_result) {
+	// 	// TODO: 504 page
+	// 	redirect_to("login.php?msg=we need a 504 error here");
+	// }
+
+	// $article_data = mysqli_fetch_assoc($article_result);
+
+	$article_data = select_article_row($article_id);
+	
+	if (!$article_data) {
+		redirect_to("login.php?msg=we need a 504 error here".mysqli_error($db_connection));
 	}
-
-	$article_data = mysqli_fetch_assoc($article_result);
 
 ?>
 
@@ -62,7 +63,10 @@
 
 			<!-- title -->
 			<h2><?=strtoupper(decode_data($article_data['post_title']));?></h2>
-			
+			<?php if (get_user_email() === $article_data['user_email']): ?>
+				<span class="mr-2"><a href="update_article.php?qid=<?="$article_id";?>" class="btn btn-sm btn-success"> UPDATE </a></span>
+				<span class="mr-2"><a href="controllers/delete_article.php" class="btn btn-sm btn-danger"> DELETE </a></span>
+			<?php endif;?>
 			<!-- date and author's email-->
 			<span><?=$article_data['post_date'] . " - " . strtolower($article_data['user_email']);?></span>
 			<br>
@@ -131,33 +135,42 @@
 				<?php
 					if (!$comments) {
 						echo "be the first to add a comment..";
-						exit;
-					}
-
-					foreach($comments as $comment) {
-						
-						$comment_section = "";
-						$comment_section .= "<li class='comments-list-item p-1 m-2'>";
-						$comment_section .= "<div>";
-						$comment_section .= "<span>";  //  user_email
-						$comment_section .= strtolower($comment[3]);
-						$comment_section .= "</span>";
-						$comment_section .= "<p>";     // comment_text
-						$comment_section .= decode_data($comment[1]);
-						$comment_section .= "</p>";
-						$comment_section .= "<span class='float-left'>";  // comment_id
-						$comment_section .= "#31" . md5(sha1($comment[0])) ; // just goofying
-						$comment_section .= "</span>";
-						$comment_section .= "<span class='float-right'>";  // comment_date
-						$comment_section .= $comment[2];
-						$comment_section .= "</span>";
-						$comment_section .= "</div>";
-						$comment_section .= "</li>";
-
-						echo $comment_section . "<br>";
-					}
-					
+					} else {
 				?>
+
+				<?php 
+						foreach($comments as $comment): 
+				?>
+							<li class='comments-list-item p-1 m-2'>
+								<div>
+									<?php if (get_user_email() === strtolower($comment[3])): ?>
+										<span>
+											<!-- edit comment -->
+											<span class='mr-2'><a href='#'> EDIT </a></span> 
+
+											<!-- delete comment -->
+											<span class='mr-2'><a href='#'> DELETE </a></span> 
+										</span>
+									<? endif;?>
+
+									<!-- user_email -->
+									<span class='mr-2'><?=strtolower($comment[3]);?> </span>
+
+									<!-- comment_text -->
+									<p>     
+										<?=decode_data($comment[1]); ?>
+									</p>
+									<!-- comment_id, just goofying -->
+									<span class='float-left'> <?="#$comment[0]" . md5(sha1($comment[0])); ?> </span>
+									<!-- comment_date -->
+									<span class='float-right'> <?=$comment[2]; ?> </span>
+								</div>
+							</li>
+							<br>
+				<?php 
+						endforeach;
+				?>
+				<?php } ?>
 
 				<div class="clearfix"></div>
 

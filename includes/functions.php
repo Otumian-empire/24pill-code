@@ -454,3 +454,51 @@
         return 1;
 
     }
+
+
+    /**
+     * return an array of all the ids in the articles table
+     */
+    function select_article_ids()
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $select_ids_query = "SELECT `post_id` FROM `articles`";
+        $select_ids_result = mysqli_query($db_connection, $select_ids_query);
+        
+        if (!$select_ids_result) {
+            return 0;
+        }
+
+        if (mysqli_num_rows($select_ids_result) < 1) {
+            return 0;
+        }
+        
+        return mysqli_fetch_all($select_ids_result);
+        
+    }
+
+
+    /**
+	 * return an assoc array of post_title, post_content, post_date and user_email
+	 * @param $which_has_this_id
+	 */
+	function select_article_row($which_has_this_id)
+	{
+        $db_connection = $GLOBALS['db_connection'];
+        
+		$read_article_row_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE  `post_id`=" . $which_has_this_id . " LIMIT 1;";
+
+    	$read_article_row_result = mysqli_query($db_connection, $read_article_row_query);
+
+		if (!$read_article_row_result) {
+			return 0;
+		}
+
+		if (mysqli_num_rows($read_article_row_result) < 1) {
+			return 0;
+		}
+
+		return mysqli_fetch_assoc($read_article_row_result);
+
+	}
