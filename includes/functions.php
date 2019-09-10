@@ -186,7 +186,12 @@
      */
     function get_user_email()
     {
+        if (!isset($_SESSION['token'])) {
+            return 0;
+        }
+
         return explode("____", $_SESSION['token'])[1];
+        
     }
 
 
