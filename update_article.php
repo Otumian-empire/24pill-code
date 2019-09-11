@@ -39,7 +39,7 @@
 
 		<div class="card-header">Update Article</div>
 
-		<form action="controllers/update_article_processor.php" method="post">
+		<form action="<?="controllers/update_article_processor.php?qid=".$article_id;?>" method="post">
 
 			<input class="form-control rounded-0" type="text" name="update_post_title" id="update_post_title" placeholder="article header.."  value="<?=decode_data($article_data['post_title']);?>" autofocus />
 
