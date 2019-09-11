@@ -11,7 +11,7 @@
 
 
     /**
-     * Thie will mysqli_real_escape_string, trim, striplashes and htmlspecialchars on 
+     * Thie will mysqli_real_escape_string, trim, striplashes and htmlspecialchars on
      * the args given to it
      * @param $data
      */
@@ -54,7 +54,6 @@
         $db_connection = $GLOBALS['db_connection'];
 
         return mysqli_ping($db_connection);
-
     }
 
 
@@ -66,7 +65,7 @@
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $insert_into_users_query = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`)" 
+        $insert_into_users_query = "INSERT INTO `users`(`user_first_name`,`user_last_name`,`user_email`,`user_password`,`user_bio`)"
         . " VALUES('$values_in_array[0]','$values_in_array[1]','$values_in_array[2]','$values_in_array[3]',".
         "'$values_in_array[4]');";
 
@@ -77,7 +76,6 @@
         }
 
         return 1;
-
     }
 
 
@@ -124,7 +122,6 @@
         }
 
         return 1;
-
     }
 
 
@@ -152,7 +149,6 @@
         }
 
         return 1;
-
     }
 
 
@@ -191,7 +187,6 @@
         }
 
         return explode("____", $_SESSION['token'])[1];
-        
     }
 
 
@@ -205,7 +200,6 @@
         $db_connection = $GLOBALS['db_connection'];
 
         return htmlentities(htmlspecialchars(mysqli_real_escape_string($db_connection, $data)));
-        
     }
 
 
@@ -240,7 +234,6 @@
         }
 
         return $token;
-    
     }
 
 
@@ -258,7 +251,7 @@
         return strtotime($now) >= strtotime($token_dormancy) ? 1 : 0;
 
         // redirect_to token_field.php to return enter the new token as the old token
-        // has expired. 
+        // has expired.
     }
 
 
@@ -301,7 +294,6 @@
         }
 
         return 1;
-
     }
 
 
@@ -326,7 +318,6 @@
         }
 
         return 1;
-
     }
 
 
@@ -351,7 +342,6 @@
         }
 
         return 1;
-
     }
     
 
@@ -372,7 +362,6 @@
         }
 
         return 1;
-
     }
 
 
@@ -393,7 +382,6 @@
         }
 
         return 1;
-        
     }
 
 
@@ -415,7 +403,6 @@
         }
 
         return 1;
-
     }
     
 
@@ -436,7 +423,6 @@
         }
 
         return 1;
-        
     }
 
 
@@ -457,7 +443,6 @@
         }
 
         return 1;
-
     }
 
 
@@ -480,30 +465,28 @@
         }
         
         return mysqli_fetch_all($select_ids_result);
-        
     }
 
 
     /**
-	 * return an assoc array of post_title, post_content, post_date and user_email
-	 * @param $which_has_this_id
-	 */
-	function select_article_row($which_has_this_id)
-	{
+     * return an assoc array of post_title, post_content, post_date and user_email
+     * @param $which_has_this_id
+     */
+    function select_article_row($which_has_this_id)
+    {
         $db_connection = $GLOBALS['db_connection'];
         
-		$read_article_row_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE  `post_id`=" . $which_has_this_id . " LIMIT 1;";
+        $read_article_row_query = "SELECT `post_title`, `post_content`, `post_date`, `user_email` FROM `articles` WHERE  `post_id`=" . $which_has_this_id . " LIMIT 1;";
 
-    	$read_article_row_result = mysqli_query($db_connection, $read_article_row_query);
+        $read_article_row_result = mysqli_query($db_connection, $read_article_row_query);
 
-		if (!$read_article_row_result) {
-			return 0;
-		}
+        if (!$read_article_row_result) {
+            return 0;
+        }
 
-		if (mysqli_num_rows($read_article_row_result) < 1) {
-			return 0;
-		}
+        if (mysqli_num_rows($read_article_row_result) < 1) {
+            return 0;
+        }
 
-		return mysqli_fetch_assoc($read_article_row_result);
-
-	}
+        return mysqli_fetch_assoc($read_article_row_result);
+    }
