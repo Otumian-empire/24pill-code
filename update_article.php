@@ -7,7 +7,7 @@
     }
     	
 	if (!isset($_GET['qid']) || $_GET['qid'] === NULL) {
-		redirect_to("index.php?msg=qui is not set");
+		redirect_to("index.php?msg=qid is not set");
 	}
 	
 	$article_id = urlencode($_GET['qid']);
