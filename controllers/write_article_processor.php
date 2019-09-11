@@ -38,5 +38,5 @@
 		redirect_to("../write_article.php?msg=couldn't insert into the database&post_title=" . urlencode($_POST['post_title']) . "&post_content=" . urlencode($_POST['post_content']));
 	}
 
-	redirect_to("../index.php?success_smg=article posted successfully");
+	redirect_to("../index.php?msg=article posted successfully");
 	
