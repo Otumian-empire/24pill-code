@@ -5,30 +5,34 @@
     if (!check_session()) {
         redirect_to("includes/logout.php");
     }
-    	
-	if (!isset($_GET['qid']) || $_GET['qid'] === NULL) {
-		redirect_to("index.php?msg=qid is not set");
-	}
-	
-	$article_id = urlencode($_GET['qid']);
+        
+    if (!isset($_GET['qid']) || $_GET['qid'] === null) {
+        redirect_to("index.php?msg=qid is not set");
+    }
+    
+    $article_id = urlencode($_GET['qid']);
+
+    if (get_user_email() !== select_article_row($article_id)['user_email']) {
+        redirect_to("includes/logout.php");
+    }
 
     $ids = select_article_ids();
 
-	if (!$ids) {
-		redirect_to("all_articles.php?msg=error, there is no article");
-	}
-	
-    $ids = array_column($ids,0);
+    if (!$ids) {
+        redirect_to("all_articles.php?msg=error, there is no article");
+    }
+    
+    $ids = array_column($ids, 0);
     
     if (!in_array($article_id, $ids)) {
         redirect_to("all_articles.php?msg=article does not exist");
     }
 
     $article_data = select_article_row($article_id);
-	
-	if (!$article_data) {
-		redirect_to("login.php?msg=we need a 504 error here".mysqli_error($db_connection));
-	}
+    
+    if (!$article_data) {
+        redirect_to("login.php?msg=we need a 504 error here".mysqli_error($db_connection));
+    }
 
 ?>
 
