@@ -26,11 +26,11 @@
     }
 
     // urlencoding each item in the array before passing it on
-    foreach($search_responds as &$resp) {
-        foreach($resp as &$val) {
+    foreach ($search_responds as &$resp) {
+        foreach ($resp as &$val) {
             $val = urlencode($val);
         }
-    }   
+    }
 
     // pass the search_responds in a JSON format
     $JSONResponds = json_encode($search_responds);
@@ -41,5 +41,3 @@
     }
 
     redirect_to('../search.php?search_query='.$search_request.'&msg=success&search_responds='.$JSONResponds);
-
-?>

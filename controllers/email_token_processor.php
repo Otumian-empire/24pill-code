@@ -21,7 +21,7 @@
     $update_email = check_data($_POST['update_email']);
     $update_email = strtolower(filter_var($update_email, FILTER_SANITIZE_EMAIL));
 
-    if (!filter_var($update_email, FILTER_VALIDATE_EMAIL)) {   
+    if (!filter_var($update_email, FILTER_VALIDATE_EMAIL)) {
         redirect_to("../user_profile.php?msg=Invalid new email, enter a valid email");
     }
 
@@ -84,7 +84,6 @@
 
         // redirect_to token_field.php to verify the token
         redirect_to('../token_field.php?msg=token has expired, enter new token and new email');
-        
     }
 
     // check the sizes

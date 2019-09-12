@@ -3,8 +3,8 @@
 
     if (!check_session()) {
         redirect_to("includes/logout.php");
-	}
-	
+    }
+    
 ?>
 
 

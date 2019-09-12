@@ -29,7 +29,9 @@
 			<br>
 			<div class="text-area">
 
-				<textarea name="post_content" id="post_content" class="p-1 md-textarea form-control rounded-0" rows="3" placeholder="article body.." value="<?php if(isset($_GET['post_content'])) { echo $_GET['post_content']; }?>"></textarea>
+				<textarea name="post_content" id="post_content" class="p-1 md-textarea form-control rounded-0" rows="3" placeholder="article body.." value="<?php if (isset($_GET['post_content'])) {
+    echo $_GET['post_content'];
+}?>"></textarea>
 			
 				<br>
 				<button name="post_submit_button" type="submit" class="btn btn-success btn-block">POST ARTICLE</button>	

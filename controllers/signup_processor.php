@@ -28,7 +28,7 @@
     $email = check_data($_POST['sign_up_email']);
     $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
     
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {   
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         redirect_to("../signup.php?msg=invalid email");
     }
 
@@ -64,5 +64,3 @@
 
     // on success, take to the main page
     redirect_to("../index.php?msg=sign up successful");
-
-?>

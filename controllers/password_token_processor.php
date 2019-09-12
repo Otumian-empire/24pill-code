@@ -80,7 +80,6 @@
 
         // redirect_to token_field.php to verify the token
         redirect_to('../token_field.php?msg=token has expired, enter new token and new email');
-        
     }
 
     // check the sizes

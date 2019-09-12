@@ -19,5 +19,3 @@
 
     // include navigation bar
     include_once "templates/navigation_bar.php";
-
-?>

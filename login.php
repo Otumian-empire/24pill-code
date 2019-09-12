@@ -3,8 +3,8 @@
 
     // previously, this line below here were in the preprocessor above
     // it seemed that not all needed it
-	// as a measure, that the user does't break any thing, autologout user here every time..
-	// after a user logs in an intensionally goes back, force log the user out
+    // as a measure, that the user does't break any thing, autologout user here every time..
+    // after a user logs in an intensionally goes back, force log the user out
     if (check_session()) {
         redirect_to("includes/logout.php");
     }

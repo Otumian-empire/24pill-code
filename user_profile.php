@@ -6,23 +6,23 @@
         redirect_to('signup.php?msg=you must have an account here');
     }
 
-	// send user an email containing a token that will last for an hour
-	// the token will be used as a verification code to change sensitive data
-	// such as password and email
+    // send user an email containing a token that will last for an hour
+    // the token will be used as a verification code to change sensitive data
+    // such as password and email
 
-	// pull user details from the database except, password (allow user to enter password)
-	$user_email = get_user_email();
+    // pull user details from the database except, password (allow user to enter password)
+    $user_email = get_user_email();
 
-	$select_user_data_query = "SELECT `users`.`user_first_name`, `users`.`user_last_name`, `users`.`user_email`, `users`.`user_bio` FROM `users` WHERE `users`.`user_email`='$user_email' LIMIT 1";
+    $select_user_data_query = "SELECT `users`.`user_first_name`, `users`.`user_last_name`, `users`.`user_email`, `users`.`user_bio` FROM `users` WHERE `users`.`user_email`='$user_email' LIMIT 1";
 
 
-	$select_user_data_result = mysqli_query($db_connection, $select_user_data_query);
+    $select_user_data_result = mysqli_query($db_connection, $select_user_data_query);
 
-	if (!$select_user_data_result) {
-		redirect_to("index.php?msg=couldn't read your data from our system, try refreshing your page and try again later");
-	}
+    if (!$select_user_data_result) {
+        redirect_to("index.php?msg=couldn't read your data from our system, try refreshing your page and try again later");
+    }
 
-	$user_data = mysqli_fetch_array($select_user_data_result);
+    $user_data = mysqli_fetch_array($select_user_data_result);
 
 ?>
 

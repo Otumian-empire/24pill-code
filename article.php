@@ -1,24 +1,24 @@
 <?php
-	include_once "views_preprocessor.php";
-	
-	if (!isset($_GET['qid']) || $_GET['qid'] === NULL) {
-		redirect_to("index.php?msg=qui is not set");
-	}
-	
-	$article_id = urlencode($_GET['qid']);
+    include_once "views_preprocessor.php";
+    
+    if (!isset($_GET['qid']) || $_GET['qid'] === null) {
+        redirect_to("index.php?msg=qui is not set");
+    }
+    
+    $article_id = urlencode($_GET['qid']);
 
-	$ids = select_article_ids();
+    $ids = select_article_ids();
 
-	if (!$ids) {
-		redirect_to("all_articles.php?msg=error, there is no article");
-	}
+    if (!$ids) {
+        redirect_to("all_articles.php?msg=error, there is no article");
+    }
 
-	$ids = array_column($ids,0);
+    $ids = array_column($ids, 0);
 
 ?>
 
 <?php
-	if (!in_array($article_id, $ids)):
+    if (!in_array($article_id, $ids)):
 ?>
 		<!-- page can not be found needed here -->
 		<!-- redirect_to('') -->
@@ -30,17 +30,17 @@
 		</div>
 
 <?php
-	exit;
-	endif;
+    exit;
+    endif;
 ?>
 
 <?php
 
-	$article_data = select_article_row($article_id);
-	
-	if (!$article_data) {
-		redirect_to("login.php?msg=we need a 504 error here".mysqli_error($db_connection));
-	}
+    $article_data = select_article_row($article_id);
+    
+    if (!$article_data) {
+        redirect_to("login.php?msg=we need a 504 error here".mysqli_error($db_connection));
+    }
 
 ?>
 
@@ -96,25 +96,25 @@
 		
 		<!-- read comments from db on the page -->
 		<?php
-			// SELECT `comment_id`,`comment_text`, `comment_date`, `user_email` FROM `comments` WHERE  `post_id` = $post_id
-			if (!isset($_GET['qid'])) {
-				echo "loading the comments will take a while.<br>";
-				exit;
-			} 
+            // SELECT `comment_id`,`comment_text`, `comment_date`, `user_email` FROM `comments` WHERE  `post_id` = $post_id
+            if (!isset($_GET['qid'])) {
+                echo "loading the comments will take a while.<br>";
+                exit;
+            }
 
-			$post_id = urlencode($_GET['qid']);
+            $post_id = urlencode($_GET['qid']);
 
-			$select_comment_query = "SELECT `comment_id`,`comment_text`, `comment_date`, `user_email` FROM `comments` WHERE  `post_id` = $post_id";
+            $select_comment_query = "SELECT `comment_id`,`comment_text`, `comment_date`, `user_email` FROM `comments` WHERE  `post_id` = $post_id";
 
-			$comment_result = mysqli_query($db_connection, $select_comment_query);
+            $comment_result = mysqli_query($db_connection, $select_comment_query);
 
-			if (!$comment_result) {
-				redirect_to('article.php?msg=couldn\' add comment, try again later or report to the webmaster');
-			}
+            if (!$comment_result) {
+                redirect_to('article.php?msg=couldn\' add comment, try again later or report to the webmaster');
+            }
 
-			$comments = mysqli_fetch_all($comment_result);
+            $comments = mysqli_fetch_all($comment_result);
 
-		?>
+        ?>
 		
 
 		<!-- comment -->
@@ -123,14 +123,14 @@
 			<ul class="comments-list">
 
 				<?php
-					if (!$comments) {
-						echo "be the first to add a comment..";
-					} else {
-				?>
+                    if (!$comments) {
+                        echo "be the first to add a comment..";
+                    } else {
+                        ?>
 
-				<?php 
-						foreach($comments as $comment): 
-				?>
+				<?php
+                        foreach ($comments as $comment):
+                ?>
 							<li class='comments-list-item p-1 m-2'>
 								<div>
 									<?php if (get_user_email() === strtolower($comment[3])): ?>
@@ -141,10 +141,10 @@
 											<!-- delete comment -->
 											<span class='mr-2'><a href='#'> DELETE </a></span> 
 										</span>
-									<? endif;?>
+									<?php endif; ?>
 
 									<!-- user_email -->
-									<span class='mr-2'><?=strtolower($comment[3]);?> </span>
+									<span class='mr-2'><?=strtolower($comment[3]); ?> </span>
 
 									<!-- comment_text -->
 									<p>     
@@ -157,10 +157,10 @@
 								</div>
 							</li>
 							<br>
-				<?php 
-						endforeach;
-				?>
-				<?php } ?>
+				<?php
+                        endforeach; ?>
+				<?php
+                    } ?>
 
 				<div class="clearfix"></div>
 

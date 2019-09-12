@@ -26,7 +26,7 @@
     $email = check_data($_POST['login_email']);
     $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         redirect_to("../login.php?msg=".urlencode($email).":login_email is invalid");
     }
 

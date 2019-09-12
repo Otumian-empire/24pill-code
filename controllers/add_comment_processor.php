@@ -11,7 +11,7 @@
         
     if (!isset($_GET['qid']) || !isset($_POST['comment-box'])) {
         redirect_to('../index.php?msg=qid is not set');
-    } 
+    }
         
     // get the article id as qid from the GET array
     $post_id = urlencode($_GET['qid']);
