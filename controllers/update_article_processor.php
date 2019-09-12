@@ -48,5 +48,5 @@
 		redirect_to("../write_article.php?msg=couldn't update the article content&update_post_title=" . urlencode($_POST['update_post_title']) . "&update_post_content=" . urlencode($_POST['update_post_content']));
 	}
 
-	redirect_to("../article.php?qid=$article_id&msg=article updated successfully");
+	redirect_to("../article.php?qid=" . $article_id . "&msg=article updated successfully");
 	
