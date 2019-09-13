@@ -50,7 +50,7 @@
 				<textarea name="update_comment_content" id="update_comment_content" class="p-1 md-textarea form-control rounded-0" rows="3" placeholder="article body.." value=""><?=decode_data($comment_data['comment_text']);?></textarea>
 			
 				<br>
-				<button name="update_post_submit_button" type="submit" class="btn btn-success btn-block">UPDATE COMMENT</button>	
+				<button name="update_comment_submit_button" type="submit" class="btn btn-success btn-block">UPDATE COMMENT</button>
 				
 			</div>
 			
