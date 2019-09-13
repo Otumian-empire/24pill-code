@@ -1,9 +1,6 @@
 <?php
     include_once "views_preprocessor.php";
 
-?>
-
-<?php
     // Select all the articles, by title, date a nd author name
     $read_article_title_query = "SELECT `post_title`, `post_date`, `user_email`, `post_id` FROM `articles` ORDER BY `post_date` DESC;";
 
