@@ -26,7 +26,8 @@
         redirect_to("../article.php?qid=" . $article_id . "&msg=we need a 504 error here(couldn't delete artilce ".mysqli_error($db_connection));
     }
 
-    redirect_to("../all_articles.php?msg=article deleted succussfully");
+    if (!delete_from_tb_comments('post_id', $article_id)) {
+        redirect_to("../article.php?qid=" . $article_id . "&msg=we need a 504 error here(couldn't delete comment ".mysqli_error($db_connection));
+    }
 
-    // delete comment after the delete of an article
-    // write the code for delete article and use it here
+    redirect_to("../all_articles.php?msg=article deleted succussfully");
