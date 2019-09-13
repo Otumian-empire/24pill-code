@@ -510,3 +510,25 @@
 
         return 1;
     }
+
+
+    /**
+     * deletes the comments by article_id and returns a bool.
+     * delete a comment (when you delete an artilce) by post_id
+     * and by comment_id (when just deleting the comment)
+     * @param $where_field: delete article from this field
+     * @param $has_this_value: which has a value
+     */
+    function delete_from_tb_comments($where_field, $has_this_value)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $delete_comment_query = "DELETE FROM `comments` WHERE `$where_field` = '$has_this_value'";
+        $delete_comment_result = mysqli_query($db_connection, $delete_comment_query);
+
+        if (!$delete_comment_result) {
+            return 0;
+        }
+
+        return 1;
+    }
