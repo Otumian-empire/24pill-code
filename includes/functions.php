@@ -514,6 +514,30 @@
         return mysqli_fetch_assoc($read_article_row_result);
     }
 
+
+    /**
+     * return an assoc array of post_id, comment_text, comment_date and user_email
+     * @param $which_has_this_id
+     */
+    function select_comment_row($which_has_this_id)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+        
+        $read_comment_row_query = "SELECT `post_id`, `comment_text`, `comment_date`, `user_email` FROM `comments` WHERE  `comment_id`=" . $which_has_this_id . " LIMIT 1;";
+
+        $read_comment_row_result = mysqli_query($db_connection, $read_comment_row_query);
+
+        if (!$read_comment_row_result) {
+            return 0;
+        }
+
+        if (mysqli_num_rows($read_comment_row_result) < 1) {
+            return 0;
+        }
+
+        return mysqli_fetch_assoc($read_comment_row_result);
+    }
+
     
     /**
      * deletes the article by article_id and returns a bool
