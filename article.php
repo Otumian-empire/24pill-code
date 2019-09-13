@@ -133,13 +133,13 @@
                 ?>
 							<li class='comments-list-item p-1 m-2'>
 								<div>
-									<?php if (get_user_email() === strtolower($comment[3])): ?>
+									<?php if (check_session() && (get_user_email() === strtolower($comment[3]))): ?>
 										<span>
 											<!-- edit comment -->
-											<span class='mr-2'><a href='#'> EDIT </a></span> 
+											<span class='mr-2'><a href='<?="controllers/update_comment_processor.php?qid=".$comment[0];?>'> EDIT </a></span> 
 
 											<!-- delete comment -->
-											<span class='mr-2'><a href='#'> DELETE </a></span> 
+											<span class='mr-2'><a href='<?="controllers/delete_comment_processor.php?qid=".$comment[0];?>'> DELETE </a></span> 
 										</span>
 									<?php endif; ?>
 
