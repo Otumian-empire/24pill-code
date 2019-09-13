@@ -53,7 +53,7 @@
 
 			<!-- title -->
 			<h2><?=strtoupper(decode_data($article_data['post_title']));?></h2>
-			<?php if (get_user_email() === $article_data['user_email']): ?>
+			<?php if (check_session() && (get_user_email() === $article_data['user_email'])): ?>
 				<span class="mr-2"><a href="update_article.php?qid=<?="$article_id";?>" class="btn btn-sm btn-success"> UPDATE </a></span>
 				<span class="mr-2"><a href="controllers/delete_article_processor.php?qid=<?="$article_id";?>" class="btn btn-sm btn-danger"> DELETE </a></span>
 			<?php endif;?>
