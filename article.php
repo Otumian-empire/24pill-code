@@ -136,7 +136,7 @@
 									<?php if (check_session() && (get_user_email() === strtolower($comment[3]))): ?>
 										<span>
 											<!-- edit comment -->
-											<span class='mr-2'><a href='<?="controllers/update_comment_processor.php?qid=".$comment[0];?>' class="btn btn-sm btn-primary"> EDIT </a></span> 
+											<span class='mr-2'><a href='<?="update_comment.php?qid=".$comment[0];?>' class="btn btn-sm btn-primary"> EDIT </a></span> 
 
 											<!-- delete comment -->
 											<span class='mr-2'><a href='<?="controllers/delete_comment_processor.php?qid=".$comment[0];?>' class="btn btn-sm btn-danger"> DELETE </a></span> 
