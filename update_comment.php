@@ -44,7 +44,7 @@
 
 		<div class="card-header">Update Comment</div>
 
-		<form action="<?="controllers/update_comment_processor.php?qid=".$article_id;?>" method="post">
+		<form action="<?="controllers/update_comment_processor.php?qid=".$comment_id;?>" method="post">
 			<div class="text-area">
 
 				<textarea name="update_comment_content" id="update_comment_content" class="p-1 md-textarea form-control rounded-0" rows="3" placeholder="article body.." value=""><?=decode_data($comment_data['comment_text']);?></textarea>
