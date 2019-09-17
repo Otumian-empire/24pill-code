@@ -58,7 +58,10 @@
 				<span class="mr-2"><a href="controllers/delete_article_processor.php?qid=<?="$article_id";?>" class="btn btn-sm btn-danger"> DELETE </a></span>
 			<?php endif;?>
 			<!-- date and author's email-->
-			<span><?=$article_data['post_date'] . " - " . strtolower($article_data['user_email']);?></span>
+			<i class="fa fa-calendar"></i>
+			<span><?=$article_data['post_date'];?></span>
+			<i class="fa fa-user"></i>
+			<span><?=strtolower($article_data['user_email']);?></span>
 			<br>
 			<hr>
 
@@ -143,17 +146,22 @@
 										</span>
 									<?php endif; ?>
 
+									<!-- comment_date -->
+									<i class="fa fa-calendar"></i>
+									<span class=''> <?=$comment[2]; ?> </span>
+
 									<!-- user_email -->
+									<i class="fa fa-user"></i>
 									<span class='mr-2'><?=strtolower($comment[3]); ?> </span>
 
 									<!-- comment_text -->
 									<p>     
 										<?=decode_data($comment[1]); ?>
 									</p>
+
 									<!-- comment_id, just goofying -->
-									<span class='float-left'> <?="#$comment[0]" . md5(sha1($comment[0])); ?> </span>
-									<!-- comment_date -->
-									<span class='float-right'> <?=$comment[2]; ?> </span>
+									<span class=''> <?="#$comment[0]" . md5(sha1($comment[0])); ?> </span>
+									
 								</div>
 							</li>
 							<br>
