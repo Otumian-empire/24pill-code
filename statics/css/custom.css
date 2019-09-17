@@ -46,7 +46,12 @@ a, h1, h2, h3, h4, h5, h6 {
     margin: 1% auto;
     font-size: 0.9em;
     color: #ae94a2;
-    /* font-style: oblique; */
+}
+
+.article i {
+    margin: 1% auto;
+    font-size: 0.9em;
+    color: #ae94a2;
 }
 
 hr {
