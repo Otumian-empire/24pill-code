@@ -29,12 +29,11 @@
                     </a>  
 
                     <!-- date and author's email-->
-                    
-                    <span class="fa fa-calendar mr-1"></span>
+                    <i class="fa fa-calendar"></i>
                     <span class="mr-2"><?=decode_data($data[1]);?></span>
-                    <span class="fa fa-user mr-1"></span>
+                    <i class="fa fa-user"></i>
                     <span class=""><?=strtolower(decode_data($data[2]));?></span>
-                
+                    
                 </div>
     <?php
             endforeach;
