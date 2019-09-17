@@ -8,7 +8,7 @@
 <div id="notification" class="notification fixed-top text-lowercase"></div>
 
 <!-- nav starts here -->
-<div class="navigation-bar container-fluid col-sm-12 navbar navbar-expand-lg box fixed-top text-capitalize">
+<div class="navigation-bar container-fluid col-sm-12 col-md-12 col-lg-12 navbar navbar-expand-lg box fixed-top text-capitalize">
 
     <!-- logo -->
     <div class="col-sm-1 col-md-1 col-lg-1 mx-auto">
@@ -25,8 +25,8 @@
     
     <!-- search bar -->
      <div class="input-group col-sm-6 col-md-6 col-lg-6">
-        <form action="controllers/search_query_preprocessor.php" method="get" class="form-inline">
-            <input class="form-control-sm border border-right-0 col-lg-6" type="search" placeholder="search by title, tag and or email" id="example-search-input" name="search_query">
+        <form action="controllers/search_query_preprocessor.php" method="get" class="form-inline col-sm col-md col-lg">
+            <input class="form-control-sm border border-right-0 col" type="search" placeholder="search by title, tag and or email" id="example-search-input" name="search_query">
             <span class="input-group-append">
                 <button class="btn btn-sm btn-outline-secondary border-left-0 border" type="submit" name="search_button">
                 <i class="fa fa-search"></i></button>
