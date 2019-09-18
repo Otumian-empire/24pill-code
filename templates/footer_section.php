@@ -28,7 +28,7 @@
                         
                         <!-- github -->
                         <li>
-                            <a href="https://github.com/Otumian-empire" target="_blank"> github </a>
+                            <a href="https://github.com/Otumian-empire" target="_blank"> Github </a>
                         </li>
                         
                     </ul>
