@@ -40,9 +40,9 @@ There is more files. `TODO` is my issue tracker file, any error I am not working
 There is no testing yet, those i intend to use PhpUnitTest and Qunit. Well, I do test certain parts that needs trial before implementation.
 
 # Todo - after this
-This is a Php version of this project, with a framework (I don't really like the idea of a framework even with its merits). I intend to use a Php framework perhaps Laravel or CodeIgniter or Symphony. I am not sure because I am not into frameworks, if they are not seen as extensions. I will write the same (or similar) project using:
+This is a Php version of this project, without a framework (I don't really like the idea of a framework even with its merits). I intend to use a Php framework perhaps Laravel or CodeIgniter or Symfony. I am not sure because I am not into frameworks, if they are not seen as extensions. I will write the same (or similar) project using:
 1. Python, considerably `flask`.
 1. JavaScript, `nodejs` and a front-end framework like `vue.js` but not sure yet.
 
 # Things I did quietly
-In offline mode I use the actual files in the tech stated above but when i am pushing, I'd wanted to comment them out and use the available CDNs.
+In offline mode I use the actual files in the tech stated above but when i am pushing, I'd wanted to comment them out and use the available CDNs. So if it happens to crush or behave unpredictably, kindly check to see if the dependencies are met.
