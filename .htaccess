@@ -1,0 +1,24 @@
+RewriteEngine on
+
+# hide indexing of file through the directory
+# (prevent the user from viewing file by navigation)
+Options -Indexes
+
+# hide .htaccess file from public view
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+
+# Denies obvious exploit using bogus graphics
+RewriteCond %{HTTP:Content-Disposition} \.php [NC]
+RewriteCond %{HTTP:Content-Type} image/.+ [NC]
+RewriteRule .? - [F,NS,L]
+
+# cache for a week
+<FilesMatch "\.(html|css|js|php|png|jpeg)$">
+    Header set Cache-Control "max-age=604800, proxy-revalidate"
+</FilesMatch>
+
+# 404
+ErrorDocument 404 /24pill-code/404.php
