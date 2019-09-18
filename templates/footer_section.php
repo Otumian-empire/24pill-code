@@ -49,13 +49,13 @@
                     </ul>
                 </div>
 
-                <!--/.row-->
+                <!-- row -->
             </div>
 
-            <!--/.container-->
+            <!-- container -->
         </div>
 
-        <!--/.footer-->
+        <!-- footer -->
 
         <div class="footer-bottom">
             <div class="container row text-justify">
