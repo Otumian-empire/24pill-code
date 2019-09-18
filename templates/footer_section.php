@@ -13,20 +13,24 @@
                 <div class="col-lg-3 col-sm-2 col-xs-3">
                     <h3> Contact </h3>
                     <ul>
-                        <li><a class="email" href="mailto:popecan1000@gmail.com" target="_blank"> G-Mail</a></li>
                         <!-- gmail -->
+                        <li><a class="email" href="mailto:popecan1000@gmail.com" target="_blank"> G-Mail</a></li>
+
+                        <!-- mobile -->
                         <li>
                             <p> +233(0) 267 330 353 </p>
                         </li>
-                        <!-- mobile -->
+                        
+                        <!-- telegram -->
                         <li>
-                            <a href="#"> facebook </a>
+                            <a href="https://t.me/Otumian_empire" alt="telegram link" target="_blank"> Telegram </a>
                         </li>
-                        <!-- facebook -->
+                        
+                        <!-- github -->
                         <li>
                             <a href="https://github.com/Otumian-empire" target="_blank"> github </a>
                         </li>
-                        <!-- github -->
+                        
                     </ul>
                 </div>
 
