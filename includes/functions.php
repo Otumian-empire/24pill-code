@@ -584,7 +584,7 @@
 
     /**
      * validates passwords
-     * password must be at least greater than or eqaul to eight in size
+     * password must be at least greater than or eqaul to eight in size,
      * password must have at least an uppercase character,
      * an lowercase character,
      * a number and
