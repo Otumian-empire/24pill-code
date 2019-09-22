@@ -580,3 +580,29 @@
 
         return 1;
     }
+
+
+    /**
+     * validates passwords
+     * password must be at least greater than or eqaul to eight in size
+     * password must have at least an uppercase character,
+     * an lowercase character,
+     * a number and
+     * a special character.
+     * @param $password
+     * @return bool
+     */
+    function validate_password($password)
+    {
+        $is_pwd_gte_8       = strlen($password) >= 8;
+        $has_uppercase_char = preg_match('@[A-Z]@', $password);
+        $has_lowercase_char = preg_match('@[a-z]@', $password);
+        $has_number         = preg_match('@[0-9]@', $password);
+        $has_special_char   = preg_match('@[^\w]@', $password);
+
+        if (!$is_pwd_gte_8 || !$has_uppercase_char || !$has_lowercase_char || !$has_number || !$has_special_char) {
+            return 0;
+        }
+
+        return 1;
+    }
