@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="statics/css/custom.css">
 </head>
 <body>
-    
 
     <div class="index-body container">
         <div class="page-wrap d-flex flex-row align-items-center">
