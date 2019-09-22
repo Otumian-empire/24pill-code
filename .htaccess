@@ -22,3 +22,6 @@ RewriteRule .? - [F,NS,L]
 
 # 404
 ErrorDocument 404 /24pill-code/404.php
+
+# 500
+ErrorDocument 500 /24pill-code/500.php
