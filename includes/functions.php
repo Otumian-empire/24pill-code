@@ -606,3 +606,25 @@
 
         return 1;
     }
+
+
+    /**
+     * return an array of all the emails in the users table
+     */
+    function select_user_emails()
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $select_user_email_query = "SELECT `user_email` FROM `users`";
+        $select_user_email_result = mysqli_query($db_connection, $select_user_email_query);
+        
+        if (!$select_user_email_result) {
+            return 0;
+        }
+
+        if (mysqli_num_rows($select_user_email_result) < 1) {
+            return 0;
+        }
+        
+        return mysqli_fetch_all($select_user_email_result);
+    }
