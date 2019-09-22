@@ -25,7 +25,7 @@
 				<!-- email -->
 				<div class="form-group">
 					<div class="form-label-group">
-						<input type="email" class="form-control" id="email" name="login_email" placeholder="Name@example.com" autofocus>
+						<input type="email" class="form-control" id="email" name="login_email" placeholder="Name@example.com" value="<?php if (isset($_GET['user_email'])) { echo urldecode($_GET['user_email']); } ?>" autofocus>
 						<label for="email" class="text-capitalize">Email address</label>
 					</div>
 				</div>
