@@ -19,7 +19,8 @@
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $data = mysqli_real_escape_string($db_connection, strip_tags($data));
+        $data = mysqli_real_escape_string($db_connection, $data);
+        $data = strip_tags($data);
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
