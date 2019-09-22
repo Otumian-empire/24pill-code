@@ -27,9 +27,19 @@
     // email validation
     $email = check_data($_POST['sign_up_email']);
     $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
-    
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         redirect_to("../signup.php?msg=invalid email");
+    }
+
+    // checking to see if email already exist - no duplicates
+    // else redirect to the login page with the user email
+    $user_emails = select_user_emails();
+
+    $user_emails = array_column($user_emails, 0);
+
+    if (in_array($email, $user_emails)) {
+        redirect_to("../login.php?msg=email already, enter password to login");
     }
 
     // validate password
