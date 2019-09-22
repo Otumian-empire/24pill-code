@@ -39,7 +39,7 @@
     $user_emails = array_column($user_emails, 0);
 
     if (in_array($email, $user_emails)) {
-        redirect_to("../login.php?msg=email already, enter password to login");
+        redirect_to("../login.php?msg=email already, enter password to login&user_email=".$email);
     }
 
     // validate password
