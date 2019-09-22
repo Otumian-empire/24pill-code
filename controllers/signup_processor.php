@@ -33,24 +33,34 @@
     }
 
     // validate password
-    $password = check_data($_POST['sign_up_password']);
-    $confirm_password = check_data($_POST['sign_up_confirm_password']);
+    $password = $_POST['sign_up_password'];
+    $confirm_password = $_POST['sign_up_confirm_password'];
 
     if ($password !== $confirm_password) {
         redirect_to("../signup.php?msg=passwords do not match");
     }
 
-    // encrypt password -- for development purposes -- use sha1
-    $password = sha1($password);
+    if (!validate_password($password)) {
+        $url  = "";
+        $url .= "../signup.php?msg=invalid password entered ";
+        $url .= "- password must be at least eight charaters long ";
+        $url .= ", must have at least an uppercase, a lowercase, a number ";
+        $url .= "and a special character";
+
+        redirect_to($url);
+    }
+
+    // hashing password
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
     $user_bio = strtolower(check_data($_POST['sign_up_user_bio']));
 
     // put credentials into an array
-    $user_data_list = array($first_name, $last_name, $email, $password, $user_bio);
+    $user_data_list = array($first_name, $last_name, $email, $hashed_password, $user_bio);
 
     // insert data into the database
     if (!insert_into_tb_users($user_data_list)) {
-        redirect_to("../signup.php?msg=could not insert into database");
+        redirect_to("../signup.php?msg=could not insert into database " . mysqli_error($db_connection));
     }
 
     // set a session on success
