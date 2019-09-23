@@ -9,17 +9,17 @@
 
     // check if the fields are set
     if (!isset($_POST['login_button'])) {
-        redirect_to("../includes/logout.php?msg=a sign up or login is required");
+        redirect_to("../includes/logout.php");
     }
 
     // check if any of the fields in not set
     if (!isset($_POST['login_email']) || !isset($_POST['login_password'])) {
-        redirect_to("../login.php?msg=a field might not be set");
+        redirect_to("../login.php?msg=a field might not be set&login_email=".urlencode($_POST['login_email']));
     }
 
     // check if fields are actually empty
     if (empty($_POST['login_email']) || empty($_POST['login_password'])) {
-        redirect_to("../login.php?msg=a field may be empty");
+        redirect_to("../login.php?msg=a field may be empty&login_email=".urlencode($_POST['login_email']));
     }
 
     // email validation
@@ -27,26 +27,41 @@
     $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        redirect_to("../login.php?msg=".urlencode($email).":login_email is invalid");
+        redirect_to("../login.php?msg=email is invalid&sign_up_email=".urlencode($email));
     }
 
-    // password validation
-    $password = check_data($_POST['login_password']);
+    // checking to see if email already exist - no duplicates
+    // else redirect to the login page with the user email
+    $user_emails = select_user_emails();
 
-    // encrypt password -- for development purposes -- use sha1
-    $password = sha1($password);
+    $user_emails = array_column($user_emails, 0);
     
-    // // check if any of the credentials is empty
-    // if (empty($email) || empty($password)) {
-    //     redirect_to("../login.php?msg=a field may be empty check and try again");
-    // }
+    if (!in_array($email, $user_emails)) {
+        redirect_to("../signup.php?msg=email doesn't exist, register&sign_up_email=".urlencode($email));
+    }
 
-    // put credentials into an array
-    $login_data_list = array($email, $password);
+    // read the hashed password from the database
+    // and password_verify it against the password text from the user
+    // this is an array with index 0
+    $hashed_password = select_from_tb_users('user_password', 'user_email', $email)[0];
+    
+    $password = $_POST['login_password'];
 
-    // we select from the database
-    if (!select_from_tb_users($login_data_list)) {
-        redirect_to("../login.php?msg=invalid email or password. we recommend you create one");
+    // get and validate the password
+    if (!validate_password($password)) {
+        $url  = "";
+        $url .= "../login.php?msg=invalid password entered ";
+        $url .= "- password must be at least eight charaters long ";
+        $url .= ", must have at least an uppercase, a lowercase, a number ";
+        $url .= "and a special character";
+        $url .= "&login_email=";
+        $url .= $email;
+
+        redirect_to($url);
+    }
+
+    if (!password_verify($password, $hashed_password)) {
+        redirect_to("../login.php?msg=incorrect email or password, check and enter again&login_email=".urlencode($email));
     }
 
     // set a session on success
@@ -55,7 +70,7 @@
 
     // verify there session
     if (!check_session()) {
-        redirect_to("../includes/logout.php?msg=session error server or connection may be down");
+        redirect_to("../includes/logout.php");
     }
 
     // on success, take to the main page
