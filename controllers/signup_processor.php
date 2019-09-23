@@ -82,6 +82,10 @@
         $url .= "- password must be at least eight charaters long ";
         $url .= ", must have at least an uppercase, a lowercase, a number ";
         $url .= "and a special character";
+        $url .= "&sign_up_first_name=".urlencode($_POST['sign_up_first_name']);
+        $url .= "&sign_up_last_name=".urlencode($_POST['sign_up_last_name']);
+        $url .= "&sign_up_email=".urlencode($_POST['sign_up_email']);
+        $url .= "&sign_up_user_bio=".urlencode($_POST['sign_up_user_bio']);
 
         redirect_to($url);
     }
