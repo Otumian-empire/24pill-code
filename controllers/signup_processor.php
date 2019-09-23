@@ -73,7 +73,14 @@
     $confirm_password = $_POST['sign_up_confirm_password'];
 
     if ($password !== $confirm_password) {
-        redirect_to("../signup.php?msg=passwords do not match");
+        $url  = "";
+        $url .= "../signup.php?msg=passwords do not match";
+        $url .= "&sign_up_first_name=".urlencode($_POST['sign_up_first_name']);
+        $url .= "&sign_up_last_name=".urlencode($_POST['sign_up_last_name']);
+        $url .= "&sign_up_email=".urlencode($_POST['sign_up_email']);
+        $url .= "&sign_up_user_bio=".urlencode($_POST['sign_up_user_bio']);
+
+        redirect_to($url);
     }
 
     if (!validate_password($password)) {
