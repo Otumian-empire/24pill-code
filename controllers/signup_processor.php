@@ -12,12 +12,27 @@
 
     // if any of the fields in not set
     if (!isset($_POST['sign_up_first_name']) || !isset($_POST['sign_up_last_name']) || !isset($_POST['sign_up_email']) || !isset($_POST['sign_up_password']) || !isset($_POST['sign_up_confirm_password']) || !isset($_POST['sign_up_user_bio'])) {
-        redirect_to("../signup.php?msg=a field might not be set");
+
+        $url  = "";
+        $url .= "../signup.php?msg=a field might not be set";
+        $url .= "&sign_up_first_name=".urlencode($_POST['sign_up_first_name']);
+        $url .= "&sign_up_last_name=".urlencode($_POST['sign_up_last_name']);
+        $url .= "&sign_up_email=".urlencode($_POST['sign_up_email']);
+        $url .= "&sign_up_user_bio=".urlencode($_POST['sign_up_user_bio']);
+
+        redirect_to($url);
     }
 
     // check for empty fields
     if (empty($_POST['sign_up_first_name']) || empty($_POST['sign_up_last_name']) || empty($_POST['sign_up_email']) || empty($_POST['sign_up_password']) || empty($_POST['sign_up_confirm_password']) || empty($_POST['sign_up_user_bio'])) {
-        redirect_to("../signup.php?msg=a field might be empty");
+        $url  = "";
+        $url .= "../signup.php?msg=a field might be empty";
+        $url .= "&sign_up_first_name=".urlencode($_POST['sign_up_first_name']);
+        $url .= "&sign_up_last_name=".urlencode($_POST['sign_up_last_name']);
+        $url .= "&sign_up_email=".urlencode($_POST['sign_up_email']);
+        $url .= "&sign_up_user_bio=".urlencode($_POST['sign_up_user_bio']);
+
+        redirect_to($url);
     }
 
     // check_data
@@ -29,7 +44,14 @@
     $email = strtolower(filter_var($email, FILTER_SANITIZE_EMAIL));
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        redirect_to("../signup.php?msg=invalid email");
+        $url  = "";
+        $url .= "../signup.php?msg=invalid email";
+        $url .= "&sign_up_first_name=".urlencode($_POST['sign_up_first_name']);
+        $url .= "&sign_up_last_name=".urlencode($_POST['sign_up_last_name']);
+        $url .= "&sign_up_email=".urlencode($_POST['sign_up_email']);
+        $url .= "&sign_up_user_bio=".urlencode($_POST['sign_up_user_bio']);
+
+        redirect_to($url);
     }
 
     // checking to see if email already exist - no duplicates
@@ -39,7 +61,11 @@
     $user_emails = array_column($user_emails, 0);
 
     if (in_array($email, $user_emails)) {
-        redirect_to("../login.php?msg=email already, enter password to login&login_email=".urlencode($email));
+        $url  = "";
+        $url .= "../login.php?msg=email already, enter password to login";
+        $url .= "&login_email=".urlencode($email);
+
+        redirect_to($url);
     }
 
     // validate password
@@ -79,7 +105,7 @@
 
     // verify there session
     if (!check_session()) {
-        redirect_to("../includes/logout.php?msg=session error sever or connection may be down");
+        redirect_to("../includes/logout.php");
     }
 
     // on success, take to the main page
