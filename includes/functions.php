@@ -102,15 +102,17 @@
 
 
     /**
-     * select email and password from table with respect to the parameters given
-     * @param $values -> email and password
-     * values is an array of email and password
+     * select any field from the users table.
+     * this returns just a row
+     * @param $field
+     * @param $where_field
+     * @param $has_value
      */
-    function select_from_tb_users($values)
+    function select_from_tb_users($field, $where_field, $has_value)
     {
         $db_connection = $GLOBALS['db_connection'];
 
-        $select_from_users_query = "SELECT `users`.`user_email`, `users`.`user_password` FROM `users` WHERE `users`.`user_email` = '$values[0]' AND `users`.`user_password` = '$values[1]' LIMIT 1";
+        $select_from_users_query = "SELECT `$field` FROM `users` WHERE `$where_field` = '$has_value' LIMIT 1";
 
         $select_from_users_result = mysqli_query($db_connection, $select_from_users_query);
 
@@ -122,7 +124,7 @@
             return 0;
         }
 
-        return 1;
+        return mysqli_fetch_array($select_from_users_result);
     }
 
 
