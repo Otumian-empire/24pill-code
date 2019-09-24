@@ -38,12 +38,15 @@
 
                         <!-- title -->
                         <h2><?=strtoupper(decode_data($data[0]));?></h2>
+                        
                         <!-- date and author's email-->
-                        <span><?=decode_data($data[2]) . " - " . strtolower(decode_data($data[3]));?></span>
+                        <i class="fa fa-calendar"></i>
+                        <span class="mr-2"><?=decode_data($data[2]);?></span>
+                        <i class="fa fa-user"></i>
+                        <span class=""><?=strtolower(decode_data($data[3]));?></span>
                         <br><hr>
 
                         <!-- content -->
-                        <!-- TODO: this can be a problem, replacing rn in the text -->
                         <p><?=decode_data($data[1] . " ... ");?><a href="<?="article.php?qid=". decode_data($data[4]);?>"><span>more</span></a></p>
                         
                     </div>
