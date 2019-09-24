@@ -1,7 +1,7 @@
 <?php
     include_once "controller_preprocessor.php";
 
-    if (isset($_GET['search_button'])) {
+    if (!isset($_GET['search_button'])) {
         redirect_to('../index.php?msg=use the search bar please or better login');
     }
         
