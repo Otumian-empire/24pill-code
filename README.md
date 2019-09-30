@@ -46,3 +46,30 @@ This is a Php version of this project, without a framework (I don't really like 
 
 # Things I did quietly
 In offline mode I use the actual files in the tech stated above but when i am pushing, I'd wanted to comment them out and use the available CDNs. So if it happens to crush or behave unpredictably, kindly check to see if the dependencies are met.
+
+# How to set up [24pill-code](https://github.com/Otumian-empire/24pill-code) on your local server
+Here I assume you have Xammp/Lammp/Mammp installed and you are familiar with how to fire it up and surely do your way around. You git set up and a registered github account. I am using Xammp.
+1. First clone [24pill-code](https://github.com/Otumian-empire/24pill-code). Click on the green button with the text `Clone or Download`.
+1. Copy the url - `https://github.com/Otumian-empire/24pill-code.git` from the url field.
+1. Create a folder and initialize git. This is what I meant. Do the following:
+    1. `Ctrl + Alt + T` - opens terminal
+    1. `cd /opt/lammp/htdocs` - moves you to the htdocs directory
+    1. `mkdir 24pill-code` - creates a new folder called 24pill-code
+    1. `cd 24pill-code` - moves you into the new folder
+    1.  `git init` - starts gits
+    1. or at step 3, just do `git init 24pill-code` then `cd 24pill-code`
+1. `git pull https://github.com/Otumian-empire/24pill-code.git`
+1. finally, `sudo /opt/lammp/lammp start` to fire up xammp
+1. Open your browser and enter, `localhost/24pill-code` into the address bar
+1. In a new tab, open `localhost/phpmyadmin`
+1. Create a database of name, `24pill_code_db`
+1. Click on `import` then `browse` and then navigate to `24pill_code_db.sql` which is part of the files in the root directory, `24pill-code/` and select it.
+1. Pull the scroll bar down and click on the `Go` button below.
+1. Refresh the previous tab
+1. Good job..You are done.
+
+
+# To contribute
+Before you make any changes, locate the `TODO` file and see what you can do in it. Kindly remove that line when you are sure you are done. When you encounter any problem whilst working on another, kindly report it in `TODO` as descriptively as possible. 
+
+Follow the steps above and create a **`new brach`** for your changes. Send a PR.
