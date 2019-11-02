@@ -632,16 +632,15 @@
     }
 
 
+    // Import PHPMailer classes into the global namespace
+    // These must be at the top of your script, not inside a function
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
     /**
      * I intend to use this function to send email to users
      *
     */
-    // Import PHPMailer classes into the global namespace
-    // These must be at the top of your script, not inside a function
-     
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
-
     function send_email($receipient_email, $receipient_name, $subject, $content)
     {
         // Load Composer's autoloader
@@ -690,11 +689,26 @@
         }
     }
 
-    $rep_email = "popecan1000@gmail.com";
-    $rep_name = "popecan1000";
-    $subject = "This is a test message of the send email function in the includes file";
-    $content = "Now all the first two tests passed and now we are going to see how<br>";
-    $content .= "it is going to work<br>";
 
-    send_email($rep_email, $rep_name, $subject, $content);
-    echo "Hello";
+    /**
+     * read the users first name and last name
+     */
+    function get_user_name($user_email)
+    {
+        $db_connection = $GLOBALS['db_connection'];
+
+        $sql_select_user_name = "SELECT `user_first_name`, `user_last_name` FROM `users` WHERE `user_email` = '$user_email'";
+
+        $select_user_name_result = mysqli_query($db_connection, $sql_select_user_name);
+
+        if (!$select_user_name_result) {
+            return 0;
+        }
+
+        $result = mysqli_fetch_array($select_user_name_result);
+
+        return $result['user_first_name'] . " " . $result['user_last_name'];
+    }
+
+    
+?>

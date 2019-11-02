@@ -62,8 +62,9 @@
         // get token_dormancy period
         $token_dormancy = get_dormancy_time();
 
-        // get user_email
+        // get user_email and user full name
         $user_email = get_user_email();
+        $user_name = get_user_name($user_email);
 
         // get token_purpose -- other option is PASSD
         $token_purpose = PURPOSE_PASSWORD;
@@ -77,6 +78,11 @@
         }
 
         // TODO: send the token to the user by the email
+        $subject = "PASSWORD TOKEN";
+        $content = "PASSWORD TOKEN - <i>" . $token . "</i><br>";
+        $content .= "This is an attempt to chnage your password, and if it isn't you, try to secure your account by providing a security info";
+
+        send_email($user_email, $user_name, $subject, $content);
 
         // redirect_to token_field.php to verify the token
         redirect_to('../token_field.php?msg=token has expired, enter new token and new email');
@@ -99,6 +105,8 @@
     // update the user email with the update email and delete the token
     // get user_email
     $user_email = get_user_email();
+    $user_name = get_user_name($user_email);
+
 
     $update_user_password_result = update_tb_users('user_password', $update_password, 'user_email', $user_email);
 
@@ -111,5 +119,12 @@
     if (!$delete_token_result) {
         redirect_to("../user_profile.php?msg=couldn't delete token row" . mysqli_error($db_connection));
     }
+
+    // send email to user that there has been a password change
+    $subject = "SECURITY ALERT - PASSWORD CHANGE";
+    $content = "This is a security alert from 24pillcode, your password has been changed.<br>";
+    $content .= "Report if, explicitly if your aren't the one. You can also seccure your account by providing a security info.";
+
+    send_email($user_email, $user_name, $subject, $content);
 
     redirect_to("../includes/logout.php?msg=password updated, login to continue");

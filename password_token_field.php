@@ -13,7 +13,7 @@
 	<!-- token field starts here -->
 	<div class="card card-login mx-auto mt-5">
 
-		<div class="card-header">TOKEN AND NEW password</div>
+		<div class="card-header">TOKEN AND NEW PASSWORD</div>
 
 		<div class="card-body">
 
