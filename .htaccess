@@ -15,9 +15,9 @@ RewriteCond %{HTTP:Content-Disposition} \.php [NC]
 RewriteCond %{HTTP:Content-Type} image/.+ [NC]
 RewriteRule .? - [F,NS,L]
 
-# cache for a week
+# cache for a day
 <FilesMatch "\.(html|css|js|php|png|jpeg)$">
-    Header set Cache-Control "max-age=604800, proxy-revalidate"
+    Header set Cache-Control "max-age=86400, proxy-revalidate"
 </FilesMatch>
 
 # 404
