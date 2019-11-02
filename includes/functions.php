@@ -630,3 +630,71 @@
         
         return mysqli_fetch_all($select_user_email_result);
     }
+
+
+    /**
+     * I intend to use this function to send email to users
+     *
+    */
+    // Import PHPMailer classes into the global namespace
+    // These must be at the top of your script, not inside a function
+     
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    function send_email($receipient_email, $receipient_name, $subject, $content)
+    {
+        // Load Composer's autoloader
+        require_once '../vendor/autoload.php';
+        include_once "./gmail_configuration.php";
+
+
+        // Instantiation and passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+
+        try {
+            //Server settings
+            $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+            $mail->isSMTP();                                            // Set mailer to use SMTP
+            $mail->Host       = 'smtp.googlemail.com';                  // Specify main and backup SMTP servers
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = GUSERNAME;                              // SMTP username
+            $mail->Password   = GPASSWORD;                              // SMTP password
+            $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+            $mail->Port       = 587;                                    // TCP port to connect to
+
+            //Recipients
+            $mail->setFrom(GEMAIL, GUSERNAME);
+            // $mail->addAddress(GEMAIL, 'Joe Doe');     // Add a recipient
+            // $mail->addAddress("popecan1000@gmail.com", 'Otumian-Empire');     // Add a recipient
+            $mail->addAddress($receipient_email, $receipient_name);
+            // $mail->addAddress('ellen@example.com');               // Name is optional
+            $mail->addReplyTo(GEMAIL, GUSERNAME);
+            // $mail->addCC('cc@example.com');
+            // $mail->addBCC('bcc@example.com');
+
+            // Attachments
+            // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+            // Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = /* 'Test Case'; */$subject;
+            $mail->Body    = /* 'This is the HTML message body <b>in bold!</b>'; */$content;
+            $mail->AltBody = /* 'This is the body in plain text for non-HTML mail clients Test Case'; */$subject;
+
+            $mail->send();
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+
+    $rep_email = "popecan1000@gmail.com";
+    $rep_name = "popecan1000";
+    $subject = "This is a test message of the send email function in the includes file";
+    $content = "Now all the first two tests passed and now we are going to see how<br>";
+    $content .= "it is going to work<br>";
+
+    send_email($rep_email, $rep_name, $subject, $content);
+    echo "Hello";
