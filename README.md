@@ -69,6 +69,28 @@ Here I assume you have Xammp/Lammp/Mammp installed and you are familiar with how
 1. Good job..You are done.
 
 
+## Caution - Do this after pulling onto local server
+Basically, just copy this lines and save it in this path `includes/gmail_configuration.php`. This contains email and password the app. This is note the recommended approach.
+```php
+<?php
+    include_once "functions.php";
+    // if (!check_session()) {
+    //     redirect_to("https://en.wikipedia.org/wiki/Goliath");
+    //     exit;
+    //     exit;
+    // }
+    
+    // configurations for the GMAIL ACCOUNT
+    define('GUSERNAME', 'username');
+    define('GPASSWORD', 'password');
+    define('GEMAIL', 'email');
+
+    // replace username, password and email
+
+?>
+```
+
+
 # To contribute
 Before you make any changes, locate the `TODO` file and see what you can do in it. Kindly remove that line when you are sure you are done. When you encounter any problem whilst working on another, kindly report it in `TODO` as descriptively as possible. 
 
