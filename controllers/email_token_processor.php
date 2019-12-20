@@ -5,10 +5,12 @@
     define('PURPOSE_EMAIL', 'EMAIL');
     define('PURPOSE_PASSWORD', 'PASSD');
 
+    // check if there is a section - if user has logged in
     if (!check_session()) {
         redirect_to('../includes/logout.php');
     }
 
+    // check if the button was pressed
     if (!isset($_POST['email_token_btn'])) {
         redirect_to("../user_profile.php?msg=edit user profile details");
     }
@@ -18,6 +20,7 @@
         redirect_to("../user_profile.php?msg=new email field empty or not set in the token processor");
     }
 
+    // get the new email and validate it
     $update_email = check_data($_POST['update_email']);
     $update_email = strtolower(filter_var($update_email, FILTER_SANITIZE_EMAIL));
 
@@ -30,16 +33,18 @@
         redirect_to("../token_field.php?msg=token not set or field is empty");
     }
 
+    // get the token
     $token = check_data($_POST['token']);
-
     $token_size = strlen($token);
 
     if ($token_size !== TOKENSIZE) {
         redirect_to("../token_field.php?msg=invalid token - size, check the token and re-enter it again" . mysqli_error($db_connection));
     }
 
+    // get user email
     $user_email = get_user_email();
 
+    // select the token from the database
     $select_token_row_query = "SELECT `token_text`, `token_dormancy`, `token_purpose` FROM `tokens` WHERE `tokens`.`user_email` = '$user_email' ORDER BY `tokens`.`token_date` DESC LIMIT 1";
 
     $select_token_row_result = mysqli_query($db_connection, $select_token_row_query);
@@ -59,10 +64,10 @@
     if (has_token_expired($token_dormancy)) {
         // reset the token and redirect_to token page with the update email
 
-        // generate token
+        // generate new token
         $token = generate_token();
 
-        // get token_dormancy period
+        // get new token_dormancy period
         $token_dormancy = get_dormancy_time();
 
         // get user_email
@@ -71,6 +76,7 @@
         // get token_purpose -- other option is PASSD
         $token_purpose = strtoupper("EMAIL");
 
+        // update the tokens table
         $update_token_query = "UPDATE `tokens` SET `token_text`='$token', `token_dormancy`= '$token_dormancy',`token_purpose`= PURPOSE_EMAIL WHERE `user_email`= '$user_email'";
 
         $update_token_result = mysqli_query($db_connection, $update_token_query);
@@ -81,6 +87,7 @@
         }
 
         // TODO: send the token to the user by the email
+        send_email($user_email, $user_email, 'Email token', "update email with this token: ".$token);
 
         // redirect_to token_field.php to verify the token
         redirect_to('../token_field.php?msg=token has expired, enter new token and new email');
@@ -131,4 +138,8 @@
         redirect_to("../user_profile.php?msg=couldn't delete token row" . mysqli_error($db_connection));
     }
 
-    redirect_to("../includes/logout.php?msg=email updated, login to continue");
+    if (send_email($user_email, $user_email, "EMAIL UPDATE", "Your email has been update")) {
+        redirect_to("../includes/logout.php?msg=email updated, login to continue");
+    } else {
+        redirect_to('../user_profile.php');
+    }

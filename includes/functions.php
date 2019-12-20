@@ -645,7 +645,7 @@
     {
         // Load Composer's autoloader
         require_once '../vendor/autoload.php';
-        include_once "./gmail_configuration.php";
+        require_once "gmail_configuration.php";
 
 
         // Instantiation and passing `true` enables exceptions
@@ -664,13 +664,9 @@
 
             //Recipients
             $mail->setFrom(GEMAIL, GUSERNAME);
-            // $mail->addAddress(GEMAIL, 'Joe Doe');     // Add a recipient
-            // $mail->addAddress("popecan1000@gmail.com", 'Otumian-Empire');     // Add a recipient
-            $mail->addAddress($receipient_email, $receipient_name);
-            // $mail->addAddress('ellen@example.com');               // Name is optional
+            $mail->addAddress($receipient_email, $receipient_name);            // Add a recipient
+            
             $mail->addReplyTo(GEMAIL, GUSERNAME);
-            // $mail->addCC('cc@example.com');
-            // $mail->addBCC('bcc@example.com');
 
             // Attachments
             // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
@@ -678,14 +674,20 @@
 
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = /* 'Test Case'; */$subject;
-            $mail->Body    = /* 'This is the HTML message body <b>in bold!</b>'; */$content;
-            $mail->AltBody = /* 'This is the body in plain text for non-HTML mail clients Test Case'; */$subject;
+            $mail->Sender  = GEMAIL;
+            $mail->Subject = $subject;
+            $mail->Body    = $content;
+            $mail->AltBody = $subject;
 
             $mail->send();
-            echo 'Message has been sent';
+            // echo 'Message has been sent';
+            $mail->ClearAllRecipients();
+            $mail->ClearAttachments();
+
+            return true;
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            return False;
         }
     }
 
@@ -709,6 +711,3 @@
 
         return $result['user_first_name'] . " " . $result['user_last_name'];
     }
-
-    
-?>
