@@ -42,8 +42,20 @@
      */
     function redirect_to($this_url)
     {
-        header("Location: {$this_url}");
-        exit();
+        // header("Location:{$this_url}");
+        // exit();
+        
+        if (!headers_sent()) {
+            header('Location: '.$this_url);
+            exit();
+        } else {
+            echo '<script type="text/javascript">';
+            echo 'window.location.href="'.$this_url.'";';
+            echo '</script>';
+            echo '<noscript>';
+            echo '<meta http-equiv="refresh" content="0;url='.$this_url.'" />';
+            echo '</noscript>';
+        }
     }
 
     
@@ -687,7 +699,7 @@
             return true;
         } catch (Exception $e) {
             // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            return False;
+            return false;
         }
     }
 

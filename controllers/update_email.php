@@ -38,6 +38,6 @@
         // redirect_to token_field.php to verify the token
         redirect_to('../email_token_field.php?msg=enter token and new email');
     } else {
-        exit;
         redirect_to('../user_profile.php');
     }
+?>

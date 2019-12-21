@@ -34,9 +34,15 @@
     // TODO: send the token to the user by the email
     $subject = "PASSWORD TOKEN";
     $content = "PASSWORD TOKEN - <i>" . $token . "</i><br>";
-    $content .= "This is an attempt to chnage your password, and if it isn't you, try to secure your account by providing a security info";
+    $content .= "This is an attempt to chnage your password, and if it isn't you, try to secure your account by providing a security info or report this message instantly";
 
-    send_email($user_email, $user_name, $subject, $content);
-
-    // redirect_to token_field.php to verify the token
-    redirect_to('../password_token_field.php?msg=enter token and new password');
+    if (send_email($user_email, $user_name, $subject, $content)) {
+        // redirect_to token_field.php to verify the token
+        // redirect_to('../password_token_field.php?msg=enter token and new password');
+        echo '<script type="text/javascript">
+				location.replace("../password_token_field.php?msg=enter token and new password");
+              </script>';
+              exit;
+    } else {
+        redirect_to('../user_profile.php');
+    }

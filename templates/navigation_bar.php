@@ -1,7 +1,6 @@
 <?php
     // require functions to check for a session
     require_once "includes/functions.php";
-
 ?>
 
 <!-- we add a notification div -->
